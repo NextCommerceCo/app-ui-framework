@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXT Typography Exploration — Full-Stack Font Comparison</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Inline Lucide Icons (no CDN dependency) -->
+<script>
+window._lucideIcons = {
+  "sun": '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+  "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  "scan-eye": '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="1"/><path d="M5 12s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5"/>',
+  "git-branch": '<line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
+  "circle-check": '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  "clock": '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  "alert-triangle": '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  "credit-card": '<rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>',
+  "refresh-cw": '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+  "code-2": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
+  "webhook": '<path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"/><path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"/><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"/>',
+  "megaphone": '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+  "info": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+  "layout-dashboard": '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
+  "bar-chart-3": '<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+  "arrow-left-right": '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+  "shield-alert": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/>',
+  "settings": '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+  "key": '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/>',
+  "store": '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/>',
+  "banknote": '<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+  "building-2": '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+  "coins": '<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>',
+  "text-cursor-input": '<path d="M5 4h1a3 3 0 0 1 3 3 3 3 0 0 1 3-3h1"/><path d="M13 20h-1a3 3 0 0 1-3-3 3 3 0 0 1-3 3H5"/><path d="M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1"/><path d="M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7"/><path d="M9 7v10"/>',
+  "mouse-pointer-click": '<path d="m9 9 5 12 1.8-5.2L21 14Z"/><path d="M7.2 2.2 8 5.1"/><path d="m5.1 8-2.9-.8"/><path d="M14 4.1 12 6"/><path d="m6 12-1.9 2"/>',
+  "plus": '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  "download": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+  "book-open": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  "check": '<path d="M20 6 9 17l-5-5"/>',
+  "trash-2": '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>',
+  "rotate-ccw": '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+  "filter": '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
+  "copy": '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+  "more-horizontal": '<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>',
+  "bell": '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  "type": '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/>',
+  "sparkles": '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>',
+  "activity": '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  "radio": '<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/>',
+  "trending-up": '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+  "arrow-up-right": '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+  "arrow-down-right": '<path d="m7 7 10 10"/><path d="M17 7v10H7"/>',
+  "alert-circle": '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>',
+  "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  "command": '<path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/>',
+  "compass": '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>'
+};
+
+function createLucideIcons() {
+  document.querySelectorAll('[data-lucide]').forEach(el => {
+    const name = el.getAttribute('data-lucide');
+    const inner = window._lucideIcons[name];
+    if (!inner) return;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svg.setAttribute('width', '24');
+    svg.setAttribute('height', '24');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    // Copy classes and inline styles from the original element
+    if (el.className) svg.setAttribute('class', el.className);
+    if (el.getAttribute('style')) svg.setAttribute('style', el.getAttribute('style'));
+    svg.innerHTML = inner;
+    el.replaceWith(svg);
+  });
+}
+</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════
+   THEME TOKENS
+   ══════════════════════════════════════════════════════════ */
+:root {
+  --nc-primary: #3C7DFF;
+  --nc-primary-hover: #2563eb;
+  --nc-primary-muted: rgba(60,125,255,.10);
+  --nc-primary-border: rgba(60,125,255,.28);
+  --nc-success: #22c55e;
+  --nc-success-bg: rgba(34,197,94,.09);
+  --nc-success-border: rgba(34,197,94,.28);
+  --nc-warning: #f5a623;
+  --nc-warning-bg: rgba(245,166,35,.08);
+  --nc-warning-border: rgba(245,166,35,.30);
+  --nc-error: #f87171;
+  --nc-error-bg: rgba(248,113,113,.09);
+  --nc-error-border: rgba(248,113,113,.28);
+  --nc-info: #fb923c;
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+  --nc-surface-0: #13151a;
+  --nc-surface-1: #1e2128;
+  --nc-surface-2: #282d38;
+  --nc-surface-hover: #2e3340;
+  --nc-border: #333a47;
+  --nc-border-2: #434c5e;
+  --nc-text-primary: #e8eaf0;
+  --nc-text-secondary: #a8b0c0;
+  --nc-text-tertiary: #6e7a91;
+  --nc-text-disabled: #4a5568;
+  --nc-marketing-bg: #04010e;
+  --nc-marketing-border: #252e49;
+  --nc-marketing-sub: rgba(255,255,255,.55);
+  --nc-input-bg: var(--nc-surface-1);
+  --nc-checkbox-accent: var(--nc-primary);
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --nc-surface-0: #F0F4F9;
+  --nc-surface-1: #ffffff;
+  --nc-surface-2: #f7f9fc;
+  --nc-surface-hover: #eef1f7;
+  --nc-border: #dce2ed;
+  --nc-border-2: #c5cede;
+  --nc-text-primary: #0f1623;
+  --nc-text-secondary: #374151;
+  --nc-text-tertiary: #6b7280;
+  --nc-text-disabled: #9ca3af;
+  --nc-primary-muted: rgba(60,125,255,.07);
+  --nc-primary-border: rgba(60,125,255,.18);
+  --nc-success-bg: rgba(34,197,94,.07);
+  --nc-success-border: rgba(34,197,94,.18);
+  --nc-warning-bg: rgba(245,166,35,.06);
+  --nc-warning-border: rgba(245,166,35,.20);
+  --nc-error-bg: rgba(248,113,113,.06);
+  --nc-error-border: rgba(248,113,113,.18);
+  --nc-marketing-bg: #04010e;
+  --nc-marketing-border: #252e49;
+  --nc-marketing-sub: rgba(255,255,255,.55);
+  --nc-input-bg: #ffffff;
+  --nc-checkbox-accent: var(--nc-primary);
+}
+
+/* ══════════════════════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--nc-surface-0);
+  color: var(--nc-text-primary);
+  line-height: 1.6; font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
+
+/* Lucide icon base sizing */
+.icon { width: 16px; height: 16px; stroke-width: 2; flex-shrink: 0; }
+.icon-sm { width: 14px; height: 14px; stroke-width: 2; }
+.icon-lg { width: 20px; height: 20px; stroke-width: 1.75; }
+.icon-xl { width: 24px; height: 24px; stroke-width: 1.75; }
+.icon-muted { color: var(--nc-text-tertiary); }
+.icon-primary { color: var(--nc-primary); }
+.icon-success { color: var(--nc-success); }
+.icon-warning { color: var(--nc-warning); }
+.icon-error { color: var(--nc-error); }
+
+/* ══════════════════════════════════════════════════════════
+   CONTROLS BAR
+   ══════════════════════════════════════════════════════════ */
+.controls {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nc-surface-1);
+  border-bottom: 1px solid var(--nc-border);
+  padding: 12px 32px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  transition: background .25s, border-color .25s;
+}
+.controls-title {
+  font-size: 15px; font-weight: 700; color: var(--nc-text-primary);
+  margin-right: auto;
+  display: flex; align-items: center; gap: 10px;
+}
+.controls-title .pill {
+  font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--nc-primary);
+  background: var(--nc-primary-muted); border: 1px solid var(--nc-primary-border);
+  padding: 2px 10px; border-radius: 20px;
+}
+.toggle-group {
+  display: flex; gap: 2px; background: var(--nc-surface-2);
+  border-radius: 8px; padding: 3px; border: 1px solid var(--nc-border);
+  transition: background .25s, border-color .25s;
+}
+.toggle-btn {
+  padding: 5px 14px; border-radius: 6px; border: none;
+  background: transparent; color: var(--nc-text-tertiary);
+  font-family: inherit; font-size: 12.5px; font-weight: 500;
+  cursor: pointer; transition: all .15s;
+  display: flex; align-items: center; gap: 5px;
+}
+.toggle-btn.active { background: var(--nc-primary); color: #fff; }
+.toggle-btn .icon { width: 14px; height: 14px; }
+
+/* ══════════════════════════════════════════════════════════
+   PAGE / GRID
+   ══════════════════════════════════════════════════════════ */
+.page { max-width: 1440px; margin: 0 auto; padding: 28px 32px; }
+.intro { max-width: 760px; margin-bottom: 32px; }
+.intro p { color: var(--nc-text-secondary); font-size: 14px; line-height: 1.7; margin-top: 6px; }
+.font-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.font-grid.side-by-side { grid-template-columns: 1fr 1fr; }
+
+/* ══════════════════════════════════════════════════════════
+   FONT CARD
+   ══════════════════════════════════════════════════════════ */
+.font-card {
+  background: var(--nc-surface-1); border: 1px solid var(--nc-border);
+  border-radius: 12px; overflow: hidden; transition: all .25s;
+}
+.font-card:hover { border-color: var(--nc-border-2); }
+.font-card-header {
+  padding: 14px 24px; border-bottom: 1px solid var(--nc-border);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  transition: border-color .25s;
+}
+.font-name { font-size: 14px; font-weight: 700; color: var(--nc-primary); }
+.font-vibe { font-size: 11.5px; color: var(--nc-text-tertiary); font-style: italic; }
+.font-card-body { padding: 24px; }
+
+/* ── Section dividers ── */
+.specimen-section {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--nc-border);
+  transition: border-color .25s;
+}
+.specimen-section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.section-title {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--nc-text-disabled);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MICRO UI: badges, tags
+   ══════════════════════════════════════════════════════════ */
+.micro-row {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin-bottom: 10px;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 4px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .02em; line-height: 1.4;
+}
+.badge .icon { width: 12px; height: 12px; }
+.badge-primary { background: var(--nc-primary-muted); color: var(--nc-primary); border: 1px solid var(--nc-primary-border); }
+.badge-success { background: var(--nc-success-bg); color: var(--nc-success); border: 1px solid var(--nc-success-border); }
+.badge-warning { background: var(--nc-warning-bg); color: var(--nc-warning); border: 1px solid var(--nc-warning-border); }
+.badge-error { background: var(--nc-error-bg); color: var(--nc-error); border: 1px solid var(--nc-error-border); }
+.badge-neutral { background: var(--nc-surface-2); color: var(--nc-text-tertiary); border: 1px solid var(--nc-border); }
+
+.tag-sm {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 1px 6px; border-radius: 3px;
+  font-size: 9.5px; font-weight: 600; letter-spacing: .03em;
+  text-transform: uppercase; line-height: 1.4;
+}
+.tag-sm .icon { width: 10px; height: 10px; }
+.tag-sm-blue { background: var(--nc-primary-muted); color: var(--nc-primary); }
+.tag-sm-green { background: var(--nc-success-bg); color: var(--nc-success); }
+.tag-sm-gray { background: var(--nc-surface-2); color: var(--nc-text-tertiary); }
+
+/* ══════════════════════════════════════════════════════════
+   NAVIGATION: breadcrumbs, tabs, sidebar
+   ══════════════════════════════════════════════════════════ */
+.breadcrumb-specimen {
+  font-size: 12px; color: var(--nc-text-tertiary);
+  display: flex; align-items: center; gap: 5px; margin-bottom: 10px;
+}
+.breadcrumb-specimen .sep { color: var(--nc-text-disabled); }
+.breadcrumb-specimen a { color: var(--nc-text-tertiary); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+
+.nav-tabs-specimen {
+  display: flex; gap: 0; border-bottom: 1px solid var(--nc-border);
+  margin-bottom: 12px; transition: border-color .25s;
+}
+.nav-tab {
+  padding: 8px 14px; font-size: 13px; font-weight: 500;
+  color: var(--nc-text-tertiary); border-bottom: 2px solid transparent;
+  cursor: pointer; transition: all .15s;
+  display: flex; align-items: center; gap: 5px;
+}
+.nav-tab .icon { width: 14px; height: 14px; }
+.nav-tab.active { color: var(--nc-primary); border-bottom-color: var(--nc-primary); }
+
+.sidebar-specimen {
+  background: var(--nc-surface-0); border: 1px solid var(--nc-border);
+  border-radius: 8px; padding: 12px 0; max-width: 240px;
+  transition: all .25s;
+}
+.sidebar-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--nc-text-disabled);
+  padding: 0 16px; margin: 10px 0 4px;
+}
+.sidebar-label:first-child { margin-top: 0; }
+.sidebar-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 16px;
+  font-size: 13px; color: var(--nc-text-secondary);
+  text-decoration: none; border-left: 2px solid transparent;
+}
+.sidebar-link .icon { width: 15px; height: 15px; color: var(--nc-text-tertiary); }
+.sidebar-link.active {
+  color: var(--nc-primary); font-weight: 600;
+  border-left-color: var(--nc-primary);
+  background: var(--nc-primary-muted);
+}
+.sidebar-link.active .icon { color: var(--nc-primary); }
+
+/* ══════════════════════════════════════════════════════════
+   FORMS
+   ══════════════════════════════════════════════════════════ */
+.form-specimen {
+  background: var(--nc-surface-0); border: 1px solid var(--nc-border);
+  border-radius: 8px; padding: 16px; transition: all .25s;
+}
+.form-group { margin-bottom: 12px; }
+.form-group:last-child { margin-bottom: 0; }
+.form-label {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 13px; font-weight: 500;
+  color: var(--nc-text-primary); margin-bottom: 4px;
+}
+.form-label .icon { width: 13px; height: 13px; color: var(--nc-text-tertiary); }
+.form-hint {
+  font-size: 11.5px; color: var(--nc-text-tertiary);
+  margin-top: 3px; display: flex; align-items: center; gap: 4px;
+}
+.form-hint .icon { width: 12px; height: 12px; }
+.form-input, .form-select {
+  width: 100%; padding: 8px 12px;
+  background: var(--nc-input-bg); border: 1px solid var(--nc-border);
+  border-radius: 6px; color: var(--nc-text-primary);
+  font-size: 14px; outline: none; transition: all .25s;
+}
+.form-select { appearance: none; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-checkbox-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--nc-text-secondary);
+}
+.form-checkbox-row input { accent-color: var(--nc-primary); width: 15px; height: 15px; }
+
+/* ══════════════════════════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════════════════════════ */
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; border-radius: 6px; cursor: pointer;
+  font-weight: 600; transition: all .15s;
+}
+.btn .icon { width: 14px; height: 14px; }
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+.btn-sm .icon { width: 12px; height: 12px; }
+.btn-md { padding: 7px 16px; font-size: 13.5px; }
+.btn-lg { padding: 10px 22px; font-size: 15px; }
+.btn-lg .icon { width: 16px; height: 16px; }
+.btn-primary { background: var(--nc-primary); color: #fff; }
+.btn-secondary { background: var(--nc-surface-2); color: var(--nc-text-primary); border: 1px solid var(--nc-border); }
+.btn-outline { background: transparent; color: var(--nc-primary); border: 1px solid var(--nc-primary-border); }
+.btn-danger { background: var(--nc-error-bg); color: var(--nc-error); border: 1px solid var(--nc-error-border); }
+.btn-ghost { background: transparent; color: var(--nc-text-tertiary); }
+
+/* ══════════════════════════════════════════════════════════
+   ALERTS & TOOLTIPS
+   ══════════════════════════════════════════════════════════ */
+.alert {
+  padding: 10px 14px; border-radius: 8px;
+  border-left: 4px solid; font-size: 13px;
+  margin-bottom: 8px; transition: background .25s;
+}
+.alert-header { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+.alert-header .icon { width: 14px; height: 14px; }
+.alert-title { font-weight: 600; font-size: 13px; }
+.alert-body { font-size: 12.5px; color: var(--nc-text-secondary); padding-left: 20px; }
+.alert-info { background: var(--nc-primary-muted); border-color: var(--nc-primary); }
+.alert-info .alert-header { color: var(--nc-primary); }
+.alert-warn { background: var(--nc-warning-bg); border-color: var(--nc-warning); }
+.alert-warn .alert-header { color: var(--nc-warning); }
+
+.tooltip-specimen {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--nc-surface-2); border: 1px solid var(--nc-border-2);
+  border-radius: 6px; padding: 6px 12px;
+  font-size: 12px; color: var(--nc-text-secondary);
+  transition: all .25s;
+}
+.tooltip-specimen .icon { width: 13px; height: 13px; color: var(--nc-text-tertiary); }
+
+/* ══════════════════════════════════════════════════════════
+   BODY TEXT
+   ══════════════════════════════════════════════════════════ */
+.body-specimen { max-width: 520px; }
+.body-specimen p {
+  font-size: 15px; line-height: 1.75; color: var(--nc-text-secondary); margin-bottom: 10px;
+}
+.body-specimen p strong { color: var(--nc-text-primary); font-weight: 600; }
+.body-specimen-sm p {
+  font-size: 13px; line-height: 1.6; color: var(--nc-text-secondary);
+}
+.inline-code {
+  font-size: 12px; background: var(--nc-surface-2); padding: 1px 5px;
+  border-radius: 3px; font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  border: 1px solid var(--nc-border); transition: all .25s;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DASHBOARD
+   ══════════════════════════════════════════════════════════ */
+.mini-dash {
+  background: var(--nc-surface-0); border: 1px solid var(--nc-border);
+  border-radius: 10px; padding: 20px; transition: all .25s;
+}
+.mini-dash-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mini-dash-header h3 {
+  display: flex; align-items: center; gap: 8px;
+}
+.mini-dash-header h3 .icon { color: var(--nc-primary); }
+.mini-dash-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin-bottom: 14px;
+}
+.stat-card {
+  background: var(--nc-surface-1); border: 1px solid var(--nc-border);
+  border-radius: 8px; padding: 12px 14px; transition: all .25s;
+}
+.stat-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; }
+.stat-label {
+  font-size: 10.5px; font-weight: 600; color: var(--nc-text-disabled);
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.stat-icon { color: var(--nc-text-disabled); }
+.stat-icon .icon { width: 14px; height: 14px; }
+.stat-value { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.stat-change { font-size: 11px; font-weight: 600; margin-top: 2px; display: flex; align-items: center; gap: 3px; }
+.stat-change .icon { width: 12px; height: 12px; }
+.stat-up { color: var(--nc-success); }
+.stat-down { color: var(--nc-error); }
+
+.mini-table { width: 100%; border-collapse: collapse; }
+.mini-table th {
+  text-align: left; padding: 7px 12px;
+  font-size: 10.5px; font-weight: 600; color: var(--nc-text-disabled);
+  text-transform: uppercase; letter-spacing: .06em;
+  border-bottom: 1px solid var(--nc-border);
+}
+.mini-table td {
+  padding: 7px 12px; border-bottom: 1px solid var(--nc-border);
+  color: var(--nc-text-secondary); font-size: 13px;
+}
+.mini-table td:first-child { font-weight: 500; color: var(--nc-text-primary); }
+.td-status { display: flex; align-items: center; gap: 4px; }
+.td-status .icon { width: 12px; height: 12px; }
+
+/* ══════════════════════════════════════════════════════════
+   MARKETING
+   ══════════════════════════════════════════════════════════ */
+.specimen-marketing {
+  background: var(--nc-marketing-bg); border: 1px solid var(--nc-marketing-border);
+  border-radius: 10px; padding: 32px; text-align: center;
+}
+.specimen-marketing h2 {
+  font-size: 36px; line-height: 1.15;
+  letter-spacing: -.03em; margin-bottom: 12px;
+  color: #fff;
+}
+.specimen-marketing p {
+  font-size: 15px; color: var(--nc-marketing-sub);
+  max-width: 440px; margin: 0 auto 20px;
+}
+.specimen-marketing .btn { font-size: 15px; padding: 12px 28px; border-radius: 8px; }
+
+/* ══════════════════════════════════════════════════════════
+   NOTES
+   ══════════════════════════════════════════════════════════ */
+.font-notes {
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid var(--nc-border);
+  font-size: 12.5px; color: var(--nc-text-tertiary); line-height: 1.65;
+  transition: border-color .25s;
+}
+.font-notes strong { color: var(--nc-text-secondary); }
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .font-grid.side-by-side { grid-template-columns: 1fr; }
+  .mini-dash-stats { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .controls { padding: 12px 16px; }
+  .page { padding: 20px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <div class="controls-title">NEXT Typography Lab <span class="pill">Full-Stack · v3</span></div>
+  <div class="toggle-group" id="themeToggle">
+    <button class="toggle-btn" onclick="setTheme('light')"><i data-lucide="sun" class="icon"></i> Light</button>
+    <button class="toggle-btn active" onclick="setTheme('dark')"><i data-lucide="moon" class="icon"></i> Dark</button>
+  </div>
+  <div class="toggle-group" id="layoutToggle">
+    <button class="toggle-btn active" onclick="setMode('full')">Full View</button>
+    <button class="toggle-btn" onclick="setMode('grid')">Side by Side</button>
+  </div>
+</div>
+
+<div class="page">
+  <div class="intro">
+    <p><strong>Full-stack comparison with light/dark mode and Lucide icons.</strong> Every element uses the candidate font for everything — headings, body, form labels, badges, table cells, nav, buttons. Toggle Light mode above to see what merchants actually experience in your current platform. Pay attention to how icons sit alongside text at every size.</p>
+  </div>
+  <div class="font-grid" id="fontGrid"></div>
+</div>
+
+<script>
+const FONTS = [
+  {
+    name: "Sora",
+    family: "'Sora'",
+    vibe: "Technical · structured · wide proportions · fintech DNA",
+    notes: `<strong>Full-stack verdict:</strong> Sora's wide, open letterforms stay legible all the way down to 10px badges. Numerals are distinctive and excellent for data. The wider proportions mean ~5-8% more horizontal space than Inter — sidebar labels and dense tables will be slightly more spacious. Icons sit well next to Sora text because the open counters match Lucide's airy stroke style. <strong>Best for:</strong> data-heavy dashboards, technical credibility. <strong>Watch for:</strong> dense settings pages may need spacing adjustments.`
+  },
+  {
+    name: "Plus Jakarta Sans",
+    family: "'Plus Jakarta Sans'",
+    vibe: "Warm geometric · polished · premium · great weight range",
+    notes: `<strong>Full-stack verdict:</strong> Excellent weight range (200–800) with the most polished feel of the four. At small sizes the slightly rounded terminals create warmth without sacrificing sharpness. Icons pair naturally — the rounded terminals echo Lucide's rounded caps. Numbers are clean and professional. <strong>Best for:</strong> premium brand positioning that still feels technical. <strong>Watch for:</strong> growing SaaS adoption — could feel familiar in 12-18 months.`
+  },
+  {
+    name: "Manrope",
+    family: "'Manrope'",
+    vibe: "Semi-rounded · modern geometric · variable font · good character",
+    notes: `<strong>Full-stack verdict:</strong> Variable font = smooth weight transitions, useful for hover states and micro-interactions. The double-story 'a' gives character at body sizes. At 10-11px badges it holds up well. Pairs nicely with Lucide icons — similar visual weight. <strong>Best for:</strong> modern-but-warm, with variable font animation benefits. <strong>Watch for:</strong> at 9-10px the rounded strokes can soften slightly vs Inter.`
+  },
+  {
+    name: "Albert Sans",
+    family: "'Albert Sans'",
+    vibe: "Sharp grotesque · editorial · distinctive · fresh",
+    notes: `<strong>Full-stack verdict:</strong> The sharpest option — geometric with grotesque edges. At small sizes (10-12px) it's arguably crisper than Inter. Strong weight contrast helps hierarchy in dense UIs. Icons look clean alongside it — the sharpness matches Lucide's precision. Numerals are compact, excellent in tables. <strong>Best for:</strong> distinctive, contemporary, "nobody else uses this" positioning. <strong>Watch for:</strong> newer font, less battle-tested across platforms. Worth doing a mobile spot-check.`
+  },
+  {
+    name: "Inter (Baseline)",
+    family: "'Inter'",
+    vibe: "Current state · neutral · screen-optimized · the benchmark",
+    notes: `<strong>Baseline.</strong> This is what you have today. Designed for screen UIs — optimized x-height, apertures, tabular numerals. Lucide was essentially designed alongside fonts like Inter, so the pairing is effortless. The question: does it say enough about where NEXT is going?`
+  }
+];
+
+function ff(font) { return `${font.family},system-ui,sans-serif`; }
+
+function renderCard(font) {
+  const f = ff(font);
+  return `
+    <div class="font-card">
+      <div class="font-card-header">
+        <span class="font-name">${font.name}</span>
+        <span class="font-vibe">${font.vibe}</span>
+      </div>
+      <div class="font-card-body" style="font-family:${f}">
+
+        <!-- MICRO UI -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="scan-eye" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Micro UI — Badges, Tags, Labels (9–11px)</div>
+          <div class="micro-row">
+            <span class="badge badge-primary" style="font-family:${f}"><i data-lucide="git-branch" class="icon"></i> v2.4.1</span>
+            <span class="badge badge-success" style="font-family:${f}"><i data-lucide="circle-check" class="icon"></i> Active</span>
+            <span class="badge badge-warning" style="font-family:${f}"><i data-lucide="clock" class="icon"></i> Pending Review</span>
+            <span class="badge badge-error" style="font-family:${f}"><i data-lucide="alert-triangle" class="icon"></i> 3 Disputes</span>
+            <span class="badge badge-neutral" style="font-family:${f}"><i data-lucide="file-text" class="icon"></i> Draft</span>
+          </div>
+          <div class="micro-row">
+            <span class="tag-sm tag-sm-blue" style="font-family:${f}"><i data-lucide="credit-card" class="icon"></i> NEXT Payments</span>
+            <span class="tag-sm tag-sm-green" style="font-family:${f}"><i data-lucide="refresh-cw" class="icon"></i> Shop Sync</span>
+            <span class="tag-sm tag-sm-gray" style="font-family:${f}"><i data-lucide="code-2" class="icon"></i> API v3</span>
+            <span class="tag-sm tag-sm-gray" style="font-family:${f}"><i data-lucide="webhook" class="icon"></i> Webhook</span>
+            <span class="tag-sm tag-sm-blue" style="font-family:${f}"><i data-lucide="megaphone" class="icon"></i> Campaigns</span>
+          </div>
+          <div class="micro-row" style="margin-top:8px">
+            <span style="font-family:${f}; font-size:10.5px; color:var(--nc-text-disabled); font-weight:600; letter-spacing:.06em; text-transform:uppercase;">Stat label · 10.5px</span>
+            <span style="font-family:${f}; font-size:11px; color:var(--nc-text-tertiary); font-weight:500;">Helper text · 11px</span>
+            <span style="font-family:${f}; font-size:11.5px; color:var(--nc-text-tertiary); display:inline-flex; align-items:center; gap:3px;"><i data-lucide="clock" class="icon icon-sm" style="width:11px;height:11px;color:var(--nc-text-disabled)"></i> Updated 3 min ago · 11.5px</span>
+          </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="compass" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Navigation — Breadcrumbs, Tabs, Sidebar (10–13px)</div>
+          <div class="breadcrumb-specimen" style="font-family:${f}">
+            <a href="#" style="font-family:${f}"><i data-lucide="layout-dashboard" class="icon icon-sm" style="width:12px;height:12px"></i> Dashboard</a> <span class="sep">›</span>
+            <a href="#" style="font-family:${f}">Merchants</a> <span class="sep">›</span>
+            <span style="color:var(--nc-text-secondary); font-family:${f}">Acme Health Co.</span>
+          </div>
+          <div class="nav-tabs-specimen">
+            <span class="nav-tab active" style="font-family:${f}"><i data-lucide="bar-chart-3" class="icon"></i> Overview</span>
+            <span class="nav-tab" style="font-family:${f}"><i data-lucide="arrow-left-right" class="icon"></i> Transactions</span>
+            <span class="nav-tab" style="font-family:${f}"><i data-lucide="shield-alert" class="icon"></i> Disputes</span>
+            <span class="nav-tab" style="font-family:${f}"><i data-lucide="settings" class="icon"></i> Settings</span>
+            <span class="nav-tab" style="font-family:${f}"><i data-lucide="key" class="icon"></i> API Keys</span>
+          </div>
+          <div class="sidebar-specimen" style="font-family:${f}">
+            <div class="sidebar-label" style="font-family:${f}">Platform</div>
+            <a href="#" class="sidebar-link active" style="font-family:${f}"><i data-lucide="layout-dashboard" class="icon"></i> Dashboard</a>
+            <a href="#" class="sidebar-link" style="font-family:${f}"><i data-lucide="store" class="icon"></i> Merchants</a>
+            <a href="#" class="sidebar-link" style="font-family:${f}"><i data-lucide="arrow-left-right" class="icon"></i> Transactions</a>
+            <div class="sidebar-label" style="font-family:${f}">Payments</div>
+            <a href="#" class="sidebar-link" style="font-family:${f}"><i data-lucide="credit-card" class="icon"></i> Processing</a>
+            <a href="#" class="sidebar-link" style="font-family:${f}"><i data-lucide="shield-alert" class="icon"></i> Disputes & Chargebacks</a>
+            <a href="#" class="sidebar-link" style="font-family:${f}"><i data-lucide="banknote" class="icon"></i> Settlements</a>
+          </div>
+        </div>
+
+        <!-- FORMS -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="text-cursor-input" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Forms — Labels, Inputs, Hints (11–14px)</div>
+          <div class="form-specimen" style="font-family:${f}">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" style="font-family:${f}"><i data-lucide="building-2" class="icon"></i> Merchant Name</label>
+                <input class="form-input" style="font-family:${f}" type="text" value="Acme Health Co." readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label" style="font-family:${f}"><i data-lucide="coins" class="icon"></i> Processing Currency</label>
+                <select class="form-select" style="font-family:${f}"><option>USD — US Dollar</option></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-family:${f}"><i data-lucide="webhook" class="icon"></i> Webhook Endpoint URL</label>
+              <input class="form-input" style="font-family:${f}" type="text" value="https://api.acmehealth.com/webhooks/next" readonly>
+              <div class="form-hint" style="font-family:${f}"><i data-lucide="info" class="icon"></i> We'll send POST requests to this URL for payment events. Must be HTTPS.</div>
+            </div>
+            <div class="form-group">
+              <div class="form-checkbox-row" style="font-family:${f}">
+                <input type="checkbox" checked> <span>Enable automatic retry on failed webhook deliveries</span>
+              </div>
+              <div class="form-checkbox-row" style="font-family:${f}">
+                <input type="checkbox"> <span>Send test event after saving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="mouse-pointer-click" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Buttons & Actions (12–15px)</div>
+          <div class="btn-row" style="margin-bottom:10px">
+            <button class="btn btn-lg btn-primary" style="font-family:${f}"><i data-lucide="plus" class="icon"></i> Create Merchant</button>
+            <button class="btn btn-lg btn-secondary" style="font-family:${f}"><i data-lucide="download" class="icon"></i> Export Data</button>
+            <button class="btn btn-lg btn-outline" style="font-family:${f}"><i data-lucide="book-open" class="icon"></i> View API Docs</button>
+          </div>
+          <div class="btn-row" style="margin-bottom:10px">
+            <button class="btn btn-md btn-primary" style="font-family:${f}"><i data-lucide="check" class="icon"></i> Save Changes</button>
+            <button class="btn btn-md btn-secondary" style="font-family:${f}">Cancel</button>
+            <button class="btn btn-md btn-danger" style="font-family:${f}"><i data-lucide="trash-2" class="icon"></i> Delete</button>
+            <button class="btn btn-md btn-ghost" style="font-family:${f}"><i data-lucide="rotate-ccw" class="icon"></i> Reset</button>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-sm btn-primary" style="font-family:${f}"><i data-lucide="plus" class="icon"></i> Add</button>
+            <button class="btn btn-sm btn-secondary" style="font-family:${f}"><i data-lucide="filter" class="icon"></i> Filter</button>
+            <button class="btn btn-sm btn-outline" style="font-family:${f}"><i data-lucide="copy" class="icon"></i> Copy ID</button>
+            <button class="btn btn-sm btn-ghost" style="font-family:${f}"><i data-lucide="more-horizontal" class="icon"></i></button>
+          </div>
+        </div>
+
+        <!-- ALERTS -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="bell" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Alerts & Tooltips (12–13px)</div>
+          <div class="alert alert-info" style="font-family:${f}">
+            <div class="alert-header"><i data-lucide="refresh-cw" class="icon"></i> <span class="alert-title" style="font-family:${f}">Payment Sync Active</span></div>
+            <div class="alert-body" style="font-family:${f}">Orders from Shopify are being automatically matched to NEXT transactions. Last sync: 2 minutes ago.</div>
+          </div>
+          <div class="alert alert-warn" style="font-family:${f}">
+            <div class="alert-header"><i data-lucide="alert-triangle" class="icon"></i> <span class="alert-title" style="font-family:${f}">Dispute threshold approaching</span></div>
+            <div class="alert-body" style="font-family:${f}">Current dispute ratio is 0.87%. Visa VDMP threshold is 0.90%. Review flagged transactions.</div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+            <div class="tooltip-specimen" style="font-family:${f}"><i data-lucide="info" class="icon"></i> GPV includes all settled transactions</div>
+            <div class="tooltip-specimen" style="font-family:${f}"><i data-lucide="command" class="icon"></i> ⌘K to search</div>
+          </div>
+        </div>
+
+        <!-- BODY TEXT -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="type" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Body Text — 15px and 13px</div>
+          <div class="body-specimen">
+            <p style="font-family:${f}">NEXT Payments processes transactions across <strong style="font-family:${f}">multiple acquiring banks</strong> with intelligent routing that optimizes for approval rates and cost. The platform handles <strong style="font-family:${f}">PCI-DSS compliance</strong>, tokenization, and 3DS authentication automatically — merchants never touch raw card data.</p>
+          </div>
+          <div class="body-specimen-sm" style="margin-top:10px">
+            <p style="font-family:${f}">Webhook events are delivered with at-least-once semantics. Your endpoint should be idempotent and return a 2xx status within 30 seconds. Failed deliveries are retried with exponential backoff up to 72 hours. Each event includes a unique <code class="inline-code">event_id</code> for deduplication.</p>
+          </div>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="layout-dashboard" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Dashboard — Headings + Data (all sizes)</div>
+          <div class="mini-dash" style="font-family:${f}">
+            <div class="mini-dash-header">
+              <h3 style="font-family:${f}; font-size:18px; font-weight:600; letter-spacing:-.02em; display:flex; align-items:center; gap:8px;"><i data-lucide="activity" class="icon icon-lg icon-primary"></i> NEXT Payments Overview</h3>
+              <span class="badge badge-success" style="font-family:${f}"><i data-lucide="radio" class="icon"></i> Live</span>
+            </div>
+            <div class="mini-dash-stats">
+              <div class="stat-card">
+                <div class="stat-header"><span class="stat-label" style="font-family:${f}">Gross Volume</span><span class="stat-icon"><i data-lucide="trending-up" class="icon"></i></span></div>
+                <div class="stat-value" style="font-family:${f}">$847,291</div>
+                <div class="stat-change stat-up" style="font-family:${f}"><i data-lucide="arrow-up-right" class="icon"></i> 23.2% vs prev</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-header"><span class="stat-label" style="font-family:${f}">Transactions</span><span class="stat-icon"><i data-lucide="arrow-left-right" class="icon"></i></span></div>
+                <div class="stat-value" style="font-family:${f}">14,291</div>
+                <div class="stat-change stat-up" style="font-family:${f}"><i data-lucide="arrow-up-right" class="icon"></i> 18.7%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-header"><span class="stat-label" style="font-family:${f}">Dispute Rate</span><span class="stat-icon"><i data-lucide="shield-alert" class="icon"></i></span></div>
+                <div class="stat-value" style="font-family:${f}">0.41%</div>
+                <div class="stat-change stat-down" style="font-family:${f}"><i data-lucide="arrow-down-right" class="icon"></i> 0.08pp</div>
+              </div>
+            </div>
+            <table class="mini-table">
+              <thead><tr>
+                <th style="font-family:${f}">Merchant</th>
+                <th style="font-family:${f}">Volume</th>
+                <th style="font-family:${f}">Txns</th>
+                <th style="font-family:${f}">Disputes</th>
+                <th style="font-family:${f}">Status</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td style="font-family:${f}">Acme Health Co.</td>
+                  <td style="font-family:${f}">$124,800</td>
+                  <td style="font-family:${f}">1,847</td>
+                  <td style="font-family:${f}">3 (0.16%)</td>
+                  <td style="font-family:${f}"><span class="td-status" style="color:var(--nc-success)"><i data-lucide="circle-check" class="icon"></i> Active</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:${f}">Nordic Wellness</td>
+                  <td style="font-family:${f}">$98,400</td>
+                  <td style="font-family:${f}">1,203</td>
+                  <td style="font-family:${f}">7 (0.58%)</td>
+                  <td style="font-family:${f}"><span class="td-status" style="color:var(--nc-success)"><i data-lucide="circle-check" class="icon"></i> Active</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:${f}">Peak Performance</td>
+                  <td style="font-family:${f}">$67,200</td>
+                  <td style="font-family:${f}">892</td>
+                  <td style="font-family:${f}">8 (0.90%)</td>
+                  <td style="font-family:${f}"><span class="td-status" style="color:var(--nc-warning)"><i data-lucide="alert-circle" class="icon"></i> Review</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:${f}">Vitality Direct</td>
+                  <td style="font-family:${f}">$41,600</td>
+                  <td style="font-family:${f}">614</td>
+                  <td style="font-family:${f}">0 (0.00%)</td>
+                  <td style="font-family:${f}"><span class="td-status" style="color:var(--nc-success)"><i data-lucide="circle-check" class="icon"></i> Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MARKETING -->
+        <div class="specimen-section">
+          <div class="section-title" style="font-family:${f}"><i data-lucide="sparkles" class="icon icon-sm" style="color:var(--nc-text-disabled)"></i> Marketing — Hero (36px + 15px) — always dark</div>
+          <div class="specimen-marketing" style="font-family:${f}">
+            <h2 style="font-family:${f}">Commerce, Orchestrated<br>by Intelligence</h2>
+            <p style="font-family:${f}">AI-native payment infrastructure that adapts, optimizes, and scales with your business.</p>
+            <button class="btn btn-primary" style="font-family:${f}; font-size:15px; padding:12px 28px; border-radius:8px;"><i data-lucide="arrow-right" class="icon" style="width:16px;height:16px"></i> Start Building</button>
+          </div>
+        </div>
+
+        <div class="font-notes" style="font-family:'Inter',system-ui,sans-serif">${font.notes}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAll() {
+  document.getElementById('fontGrid').innerHTML = FONTS.map(renderCard).join('');
+  createLucideIcons();
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const btns = document.querySelectorAll('#themeToggle .toggle-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  btns[theme === 'light' ? 0 : 1].classList.add('active');
+}
+
+function setMode(mode) {
+  const grid = document.getElementById('fontGrid');
+  const btns = document.querySelectorAll('#layoutToggle .toggle-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  grid.classList.toggle('side-by-side', mode === 'grid');
+  btns[mode === 'grid' ? 1 : 0].classList.add('active');
+}
+
+renderAll();
+</script>
+</body>
+</html>
