@@ -75,7 +75,8 @@
 
     .navbar-nav {
         .nav-link {
-            padding: 0.5rem 1.5rem;
+            padding: 0.625rem 1.5rem;
+            min-height: 44px;
             align-items: center;
             display: flex;
         }

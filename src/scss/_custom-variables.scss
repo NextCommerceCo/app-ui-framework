@@ -260,6 +260,10 @@ $form-feedback-icon-invalid:            none; // remove feedback icons
 
 
 // scss-docs-start form-feedback-variables
+// Touch target sizing
+$form-check-input-width:                1.25em;  // 20px (was 15px default)
+$form-check-min-height:                 1.5rem;
+
 $form-feedback-valid-color: $success;
 $form-feedback-invalid-color: $danger;
 // scss-docs-end form-feedback-variables
