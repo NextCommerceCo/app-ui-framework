@@ -81,6 +81,9 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // scss-docs-start border-variables
+$border-radius:               0.5rem;  // 8px — matches DESIGN.md
+$border-radius-sm:            0.25rem; // 4px
+$border-radius-lg:            0.75rem; // 12px
 $border-color:$gray-300;
 $border-color-translucent: rgba(18,38,63,.1);
 
