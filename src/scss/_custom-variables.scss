@@ -111,7 +111,7 @@ $font-weight-base: 450;
 $font-size-base: .9375rem;
 $font-size-lg: $font-size-base * 1.133333333334; // 17px
 $font-size-sm: $font-size-base * .866666667; // 13px
-$font-size-xs: ($font-size-base * .6666666667) ; // 10px
+$font-size-xs: .75rem ; // 12px (was 10px — too small for readability)
 $h1-font-size: 1.625rem;
 $h2-font-size: 1.25rem;
 $h3-font-size: 1.0625rem;
