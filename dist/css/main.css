@@ -12891,6 +12891,14 @@ span.flatpickr-weekday {
   --bs-btn-color: var(--bs-gray-900);
 }
 
+.btn-outline-light {
+  --bs-btn-color: #6E84A3;
+  --bs-btn-border-color: #D2DDEC;
+  --bs-btn-hover-color: #1E293B;
+  --bs-btn-hover-bg: #EDF2F9;
+  --bs-btn-hover-border-color: #D2DDEC;
+}
+
 .dropdown-toggle::after {
   width: auto;
   height: auto;
