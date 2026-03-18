@@ -1,26 +1,26 @@
 ---
 layout: page-content
 title: "Getting Started"
-description: Getting started with 29 next app development
+description: Getting started with the NEXT Commerce Design System
 ---
-29 Next App UI framework is frontend design system for apps to blend seemlessly when embedded in the 29 Next dashboard.
+The NEXT Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.
 
 
 ## Quick start
 
 Include CSS in your app html document `<head>`.
 ```html
-<link href="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/css/next-app-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
 Include Javascript in your app html document just before the `</body>`.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 ```
 
 ### Versioning
 
-Pin your app to a [release version](https://github.com/29next/app-ui-framework/releases) by specifying in the CDN url such as `@0.1.4`.
+Pin your app to a [release version](https://github.com/NextCommerceCo/app-ui-framework/releases) by specifying in the CDN url such as `@0.1.4`.
 
 
 ### CDN links
@@ -43,11 +43,11 @@ As a reference, here are our primary CDN links.
     <tbody>
         <tr>
             <td>CSS</td>
-            <td>https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/css/next-app-ui.min.css</td>
+            <td>https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css</td>
         </tr>
         <tr>
             <td>JS</td>
-            <td>https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/js/next-app-ui.min.js</td>
+            <td>https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js</td>
         </tr>
     </tbody>
 </table>
@@ -55,7 +55,7 @@ As a reference, here are our primary CDN links.
 
 ### Base Layout
 
-Below is an example base layout to use to get startred with 29 Next App UI Framework.
+Below is an example base layout to get started with the NEXT Commerce Design System.
 
 Copy the html below into a new `layout.html` in your project and you're well on your way.
 
@@ -67,7 +67,7 @@ Copy the html below into a new `layout.html` in your project and you're well on 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Base Layout</title>
-    <link href="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/css/next-app-ui.min.css"
+    <link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css"
         rel="stylesheet" crossorigin="anonymous">
 </head>
 
@@ -100,7 +100,7 @@ Copy the html below into a new `layout.html` in your project and you're well on 
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 </body>
 
 </html>

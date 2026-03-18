@@ -3,7 +3,7 @@ layout: page-content
 group: components
 order: 6
 title: "Navigation"
-description: 29 Next's in app navigation follows the boostrap tabbed navigation. Please read the <a href="https://getbootstrap.com/docs/5.2/components/navs-tabs/" target="_blank">official documentation</a> for a full list of options from Bootstrap's core library.
+description: NEXT's in-app navigation follows the Bootstrap tabbed navigation. Please read the <a href="https://getbootstrap.com/docs/5.2/components/navs-tabs/" target="_blank">official documentation</a> for a full list of options from Bootstrap's core library.
 
 ---
 

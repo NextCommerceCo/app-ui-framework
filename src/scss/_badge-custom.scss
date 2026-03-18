@@ -1,3 +1,4 @@
+// Light badge variants
 .bg-primary-light {
     --#{$prefix}badge-color: #2b57da;
     background-color: #d6e0ff;
@@ -34,6 +35,44 @@
     border:1px solid #FFCCDF;
 }
 
+// Dark badge variants — dark backgrounds with light text
+.bg-primary-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #1a3a7a;
+    border: 1px solid #2b57da;
+}
+
+.bg-secondary-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #333a47;
+    border: 1px solid #434c5e;
+}
+
+.bg-success-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #0a4a2e;
+    border: 1px solid #22c55e;
+}
+
+.bg-info-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #0c3a5a;
+    border: 1px solid #39afd1;
+}
+
+.bg-warning-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #5a3a0a;
+    border: 1px solid #f5a623;
+}
+
+.bg-danger-dark {
+    --#{$prefix}badge-color: #e8eaf0;
+    background-color: #5a1a2a;
+    border: 1px solid #f87171;
+}
+
+// Dismissible badge close button
 .badge-dismissible button.btn-close {
     height: 0.35em;
     width: 0.35em;
@@ -41,4 +80,3 @@
     margin-top: -3px;
     background: rgba(0,0,0,0) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238d8d8d'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
 }
-

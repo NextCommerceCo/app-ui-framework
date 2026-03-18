@@ -9,7 +9,8 @@
     &.navbar-expand-md {
         @include media-breakpoint-up(md) {
             bottom: 0;
-            display: block;
+            display: flex;
+            flex-direction: column;
             max-width: 220px;
             overflow-y: auto;
             padding-left: 1.5rem;
@@ -18,8 +19,7 @@
             top: 0;
             left: 0;
             width: 100%;
-                border-width: 0 1px 0 0;
-
+            border-width: 0 1px 0 0;
         }
     }
 
@@ -57,14 +57,17 @@
         }
 
         img {
-            width: 100%;
-            max-height: 1.5rem;
+            height: auto;
             max-width: 100%;
+            width: 110px;
 
             @include media-breakpoint-up(md) {
-                max-height: 3rem;
+                width: 140px;
             }
+        }
 
+        .logo-dark {
+            display: none;
         }
 
 
@@ -118,4 +121,250 @@
     @include media-breakpoint-up(md) {
         margin-left: 220px
     }
+}
+
+// Button demo spacing — prevent rows from squashing together
+.card-body .btn {
+    margin-bottom: 0.5rem;
+}
+
+// ═══════════════════════════════════════════
+// DARK MODE — custom implementation using DESIGN.md tokens
+// ═══════════════════════════════════════════
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #13151a;
+    --bs-body-color: #e8eaf0;
+    --bs-border-color: #333a47;
+    --bs-secondary-bg: #1e2128;
+    --bs-tertiary-bg: #282d38;
+    --bs-emphasis-color: #e8eaf0;
+    --bs-link-color: #6699ff;
+    --bs-link-hover-color: #88b3ff;
+    --bs-code-color: #fb923c;
+
+    background-color: #13151a;
+    color: #e8eaf0;
+
+    .main-nav {
+        background-color: #1e2128;
+        border-color: #333a47;
+    }
+
+    .main-nav .navbar-brand .logo-light {
+        display: none;
+    }
+    .main-nav .navbar-brand .logo-dark {
+        display: inline-block;
+    }
+
+    .main-nav .nav-link {
+        color: #a8b0c0;
+        &:hover, &.active {
+            color: #e8eaf0;
+        }
+    }
+
+    .main-content {
+        background-color: #13151a;
+    }
+
+    .card {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #e8eaf0;
+    }
+
+    .card-header {
+        border-color: #333a47;
+    }
+
+    .table {
+        --bs-table-bg: #1e2128;
+        --bs-table-border-color: #333a47;
+        --bs-table-color: #e8eaf0;
+        --bs-table-hover-bg: #2e3340;
+        --bs-table-striped-bg: #282d38;
+    }
+
+    th {
+        background-color: #282d38 !important;
+        color: #a8b0c0 !important;
+    }
+
+    .form-control, .form-select {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+        &:focus {
+            background-color: #282d38;
+            border-color: #3c7dff;
+            color: #e8eaf0;
+        }
+    }
+
+    .form-control::placeholder {
+        color: #6e7a91;
+    }
+
+    // Choices.js dark mode
+    .choices__inner {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .choices__list--dropdown,
+    .choices [aria-expanded] {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .choices__input {
+        background-color: #282d38;
+        color: #e8eaf0;
+    }
+
+    .choices__list--multiple .choices__item {
+        background-color: #333a47;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    pre, code {
+        background-color: #282d38;
+        color: #e8eaf0;
+    }
+
+    pre code {
+        background-color: transparent;
+    }
+
+    .border-bottom {
+        border-color: #333a47 !important;
+    }
+
+    .btn-white {
+        --bs-btn-bg: #282d38;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-hover-bg: #2e3340;
+        --bs-btn-hover-border-color: #434c5e;
+    }
+
+    .btn-light {
+        --bs-btn-bg: #282d38;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-hover-bg: #333a47;
+        --bs-btn-hover-border-color: #434c5e;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-active-bg: #434c5e;
+        --bs-btn-active-border-color: #434c5e;
+        --bs-btn-active-color: #e8eaf0;
+    }
+
+    .btn-dark {
+        --bs-btn-bg: #e8eaf0;
+        --bs-btn-border-color: #e8eaf0;
+        --bs-btn-color: #13151a;
+        --bs-btn-hover-bg: #d0d3db;
+        --bs-btn-hover-border-color: #d0d3db;
+        --bs-btn-hover-color: #13151a;
+    }
+
+    .btn-outline-light {
+        --bs-btn-color: #a8b0c0;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-hover-bg: #282d38;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-hover-border-color: #434c5e;
+    }
+
+    .btn-outline-dark {
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-border-color: #e8eaf0;
+        --bs-btn-hover-bg: #e8eaf0;
+        --bs-btn-hover-color: #13151a;
+    }
+
+    .alert-light {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #a8b0c0;
+    }
+
+    .alert-dark {
+        background-color: #333a47;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .text-muted {
+        color: #6e7a91 !important;
+    }
+
+    .bg-white {
+        background-color: #1e2128 !important;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+    .hljs {
+        background: #282d38;
+        color: #e8eaf0;
+    }
+}
+
+// Dark mode toggle in sidebar
+.theme-toggle-wrapper {
+    margin-top: auto;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid $border-color;
+
+    @include media-breakpoint-up(md) {
+        margin-top: auto;
+    }
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+    border: none;
+    background: none;
+    color: $gray-600;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: color 0.15s ease-out;
+
+    svg {
+        flex-shrink: 0;
+        opacity: 0.6;
+    }
+
+    span {
+        font-size: $font-size-sm;
+    }
+
+    &:hover {
+        color: $gray-900;
+        svg { opacity: 1; }
+    }
+}
+
+[data-bs-theme="dark"] .theme-toggle {
+    color: #6e7a91;
+    &:hover {
+        color: #e8eaf0;
+    }
+}
+
+[data-bs-theme="dark"] .theme-toggle-wrapper {
+    border-color: #333a47;
 }

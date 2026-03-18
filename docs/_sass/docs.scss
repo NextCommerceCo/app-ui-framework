@@ -1,16 +1,16 @@
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "./../../src/scss/bootstrap/functions";
+// 1. Include functions first
+@import "bootstrap/scss/functions";
 
-// 2. Include remainder of required Bootstrap stylesheets
-@import "./../../src/scss/bootstrap/variables";
+// 2. Include Bootstrap default variables + dark mode
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 
 // 3. Include any overrides here
 @import "./../../src/scss/custom-variables";
 
 // 4. Include remainder of required parts
-@import "./../../src/scss/bootstrap/mixins";
+@import "bootstrap/scss/mixins";
 
 // CSS for docs site
 @import "layout";
 @import "syntax-highlight";
-
