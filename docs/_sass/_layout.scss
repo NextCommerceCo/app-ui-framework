@@ -25,8 +25,8 @@
 
     .navbar-collapse {
         @include media-breakpoint-up(md) {
+            display: flex !important; // Always visible on desktop (no collapse)
             align-items: stretch;
-            display: flex;
             flex: 1;
             flex-direction: column;
             margin-left: -1.5rem;
@@ -59,11 +59,7 @@
         img {
             height: auto;
             max-width: 100%;
-            width: 110px;
-
-            @include media-breakpoint-up(md) {
-                width: 140px;
-            }
+            width: 130px;
         }
 
         .logo-dark {
@@ -208,6 +204,54 @@ html {
     margin-bottom: 0.5rem;
 }
 
+// Getting Started content — muted body text (markdown-rendered paragraphs)
+// These are direct children of .col-12 rendered from index.md markdown
+#top .col-12 > p,
+#top .col-12 > h2,
+#top .col-12 > h3 {
+    color: $gray-600;
+}
+
+#top .col-12 > h2,
+#top .col-12 > h3 {
+    color: $gray-700;
+}
+
+// Mobile responsive fixes
+@include media-breakpoint-down(md) {
+    .main-nav {
+        position: sticky;
+        top: 0;
+    }
+
+    .main-content .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    // Tables scroll horizontally on mobile
+    .card-body .table-responsive,
+    .card-body table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    // Code blocks scroll
+    pre {
+        overflow-x: auto;
+    }
+
+    // Reduce section spacing
+    .component-section {
+        padding-top: 2rem;
+    }
+
+    .section-group-heading {
+        padding-top: 2rem;
+    }
+}
+
 // ═══════════════════════════════════════════
 // DARK MODE — custom implementation using DESIGN.md tokens
 // ═══════════════════════════════════════════
@@ -280,9 +324,15 @@ html {
         --bs-table-striped-bg: #282d38;
     }
 
-    th {
+    thead th {
         background-color: #282d38 !important;
         color: #a8b0c0 !important;
+    }
+
+    // Don't highlight row-header th cells in tbody
+    tbody th {
+        background-color: inherit !important;
+        color: inherit !important;
     }
 
     .form-control, .form-select {
@@ -342,8 +392,12 @@ html {
         --bs-btn-bg: #282d38;
         --bs-btn-border-color: #434c5e;
         --bs-btn-color: #e8eaf0;
-        --bs-btn-hover-bg: #2e3340;
+        --bs-btn-hover-bg: #333a47;
         --bs-btn-hover-border-color: #434c5e;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-active-bg: #434c5e;
+        --bs-btn-active-border-color: #434c5e;
+        --bs-btn-active-color: #e8eaf0;
     }
 
     .btn-light {
