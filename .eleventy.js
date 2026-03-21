@@ -86,7 +86,6 @@ module.exports = function (eleventyConfig) {
       input: "docs",
       output: "_site",
       includes: "_includes",
-      layouts: "_layouts",
       data: "_data",
     },
     templateFormats: ["md", "html", "liquid", "njk"],
