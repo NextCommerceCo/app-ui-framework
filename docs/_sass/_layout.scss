@@ -410,6 +410,164 @@ html {
         background: #282d38;
         color: #e8eaf0;
     }
+
+    // ── Badge light variants → dark-aware backgrounds ──
+    // Pastel light badges are unreadable on dark backgrounds.
+    // Swap to dark-friendly muted tones that preserve the color intent.
+    .bg-primary-light {
+        --bs-badge-color: #88b3ff;
+        background-color: #1a2d5a !important;
+        border-color: #2b57da;
+    }
+
+    .bg-secondary-light {
+        --bs-badge-color: #a8b0c0;
+        background-color: #333a47 !important;
+        border-color: #434c5e;
+    }
+
+    .bg-success-light {
+        --bs-badge-color: #4ade80;
+        background-color: #0a3a1e !important;
+        border-color: #22c55e;
+    }
+
+    .bg-info-light {
+        --bs-badge-color: #67d4e8;
+        background-color: #0c2a3a !important;
+        border-color: #39afd1;
+    }
+
+    .bg-warning-light {
+        --bs-badge-color: #fbbf24;
+        background-color: #3a2a0a !important;
+        border-color: #f5a623;
+    }
+
+    .bg-danger-light {
+        --bs-badge-color: #fca5a5;
+        background-color: #3a1520 !important;
+        border-color: #f87171;
+    }
+
+    .badge.text-bg-light {
+        background-color: #333a47 !important;
+        color: #a8b0c0 !important;
+    }
+
+    .badge.text-bg-dark {
+        background-color: #e8eaf0 !important;
+        color: #13151a !important;
+    }
+
+    // ── Timeline note card ──
+    // The .is-note card uses --bs-gray-100 which is near-white
+    .card-timeline--item.is-note .card {
+        background-color: #282d38 !important;
+        border-color: #434c5e;
+    }
+
+    // ── Pagination ──
+    .page-link {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #a8b0c0;
+
+        &:hover {
+            background-color: #282d38;
+            border-color: #434c5e;
+            color: #e8eaf0;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: #3266ff;
+        border-color: #3266ff;
+        color: #fff;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #434c5e;
+    }
+
+    // ── Nav tabs (component demos, not sidebar) ──
+    .nav-tabs {
+        border-color: #333a47;
+    }
+
+    .nav-tabs .nav-link {
+        color: #a8b0c0;
+
+        &:hover {
+            color: #e8eaf0;
+            border-color: transparent transparent #434c5e;
+        }
+
+        &.active {
+            color: #e8eaf0;
+            border-color: transparent transparent #3266ff;
+            background-color: transparent;
+        }
+    }
+
+    // ── Card footer border ──
+    .card-footer {
+        border-color: #333a47;
+    }
+
+    // ── Flatpickr date picker ──
+    .flatpickr-calendar {
+        background: #1e2128;
+        border-color: #333a47;
+        box-shadow: 0 3px 13px rgba(0,0,0,0.3);
+    }
+
+    .flatpickr-months, .flatpickr-month {
+        background: #1e2128;
+        color: #e8eaf0;
+    }
+
+    .flatpickr-weekdays, span.flatpickr-weekday {
+        background: #1e2128;
+        color: #6e7a91;
+    }
+
+    .flatpickr-day {
+        color: #a8b0c0;
+
+        &:hover {
+            background: #282d38;
+            border-color: #434c5e;
+        }
+
+        &.selected {
+            background: #3266ff;
+            border-color: #3266ff;
+            color: #fff;
+        }
+    }
+
+    // ── Breadcrumb ──
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: #6e7a91;
+    }
+
+    // ── Dropdown menus ──
+    .dropdown-menu {
+        background-color: #1e2128;
+        border-color: #333a47;
+    }
+
+    .dropdown-item {
+        color: #a8b0c0;
+
+        &:hover, &:focus {
+            color: #e8eaf0;
+            background-color: #282d38;
+        }
+    }
 }
 
 // Dark mode toggle in sidebar
