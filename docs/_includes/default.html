@@ -25,11 +25,10 @@
       })();
     </script>
   </head>
-  <body>
+  <body data-bs-spy="scroll" data-bs-target="#sidebar-nav" data-bs-offset="100" tabindex="0">
     {% include "navigation.html" %}
-    <div class="main-content">
+    <div class="main-content" id="main-content">
       <div class="container">
-        {% include "page-header.html" %}
         {{ content}}
       </div>
     </div>

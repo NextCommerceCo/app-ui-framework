@@ -1,4 +1,5 @@
-    <nav class="main-nav navbar navbar-expand-md navbar-light" id="sidebar" role="navigation">
+    <a href="#main-content" class="visually-hidden-focusable">Skip to content</a>
+    <nav class="main-nav navbar navbar-expand-md navbar-light" id="sidebar" role="navigation" aria-label="Component navigation">
         <div class="main-nav__content">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -8,33 +9,30 @@
                 <img src="/assets/img/next-commerce-logo-white.svg" class="logo-dark">
             </a>
             <div class="collapse navbar-collapse show" id="sidebarCollapse">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" id="sidebar-nav">
                     {% for item in navigation %}
-                        {% if item.group %}
+                        {% if item.section %}
+                            <!-- Group heading -->
+                            <li class="nav-item nav-group-heading">
+                                <span class="nav-group-label">
+                                    <i class="ti {{ item.icon }}"></i>
+                                    {{ item.title }}
+                                </span>
+                            </li>
+                            <!-- Component links in this section -->
+                            {% assign section_comps = collections.components | where: "section", item.section %}
+                            {% for comp in section_comps %}
+                                <li class="nav-item nav-sub-item">
+                                    <a class="nav-link" href="#{{ comp.data.title | slug }}">{{ comp.data.title }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <!-- Direct link (Getting Started) -->
                             <li class="nav-item">
-                                <a class="nav-link {% if page.url contains item.group %}active{% endif %}"
-                                   role="button" data-bs-toggle="collapse" data-bs-target="#{{ item.group }}"
-                                   aria-expanded="{% if page.url contains item.group %}true{% else %}false{% endif %}"
-                                   aria-controls="{{ item.group }}">
+                                <a class="nav-link" href="{{ item.url }}">
+                                    <i class="ti {{ item.icon }}"></i>
                                     {{ item.title }}
                                 </a>
-                                <div class="{% if page.url contains item.group %}collapse show{% else %}collapse{% endif %}" id="{{ item.group }}">
-                                    <ul class="nav flex-column">
-                                        {% for comp in collections.components %}
-                                            <li>
-                                                <a class="nav-link {% if comp.url == page.url %}active{% endif %}"
-                                                   href="{{ comp.url }}"
-                                                   {% if comp.url == page.url %}aria-current="true"{% endif %}>
-                                                    {{ comp.data.title }}
-                                                </a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link {% if page.url == item.url %}active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}

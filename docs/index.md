@@ -1,7 +1,7 @@
 ---
-layout: page-content
-title: "Getting Started"
-description: Getting started with the NEXT Commerce Design System
+layout: playground
+title: "NEXT Commerce Design System"
+description: The frontend framework for apps that integrate with the NEXT platform.
 ---
 The NEXT Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.
 
@@ -107,7 +107,4 @@ Copy the html below into a new `layout.html` in your project and you're well on 
 ```
 
 
-### Next Steps
-
-Once you have your base layout, you can start using components such as [cards](/components/cards/) in your design.
 
