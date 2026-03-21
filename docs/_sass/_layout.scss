@@ -51,15 +51,15 @@
     .navbar-brand {
         @include media-breakpoint-up(md) {
             display: block;
-            padding-bottom: 1rem;
-            padding-top: 1rem;
+            padding-bottom: 1.25rem;
+            padding-top: 1.5rem;
+            margin-bottom: 0.25rem;
         }
 
         img {
-            height: auto;
-            max-width: 100%;
-            width: 130px;
-            max-height: 43px; // Match dark SVG height for consistency
+            height: 43px; // Fixed height — matches dark SVG natural height
+            width: auto;
+            max-width: 160px;
             object-fit: contain;
             object-position: left center;
         }
@@ -448,6 +448,11 @@ table {
 
     .text-muted {
         color: #6e7a91 !important;
+    }
+
+    // Dashboard stat labels — need to pop on dark card backgrounds
+    h6.text-uppercase.text-muted {
+        color: #a8b0c0 !important;
     }
 
     .bg-white {
