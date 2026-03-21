@@ -464,9 +464,9 @@ table {
         color: #6e7a91 !important;
     }
 
-    // Dashboard stat labels — need to pop on dark card backgrounds
+    // Dashboard stat labels — white on dark cards, these are metrics that must pop
     h6.text-uppercase.text-muted {
-        color: #a8b0c0 !important;
+        color: #e8eaf0 !important;
     }
 
     .bg-white {
