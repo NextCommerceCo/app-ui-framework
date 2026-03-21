@@ -121,7 +121,7 @@ $h2-font-size: 1.25rem;
 $h3-font-size: 1.0625rem;
 $h4-font-size: $font-size-base;
 $h5-font-size: 0.8125rem;
-$h6-font-size: 0.625rem;
+$h6-font-size: 0.75rem; // 12px — matches $font-size-xs and table headers
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
@@ -159,6 +159,7 @@ $text-muted: #6B7280;
 // scss-docs-end type-variables
 
 // Dropdowns
+$dropdown-bg: $white;
 $dropdown-link-hover-bg: transparent;
 $dropdown-link-color: $gray-700;
 $dropdown-link-hover-color: $black;
@@ -385,6 +386,7 @@ $badge-font-weight:                 500;
 // scss-docs-start pagination-variables
 $pagination-font-size:$font-size-base ;
 $pagination-color:$dark;
+$pagination-bg: $white;
 // scss-docs-end pagination-variables
 
 
