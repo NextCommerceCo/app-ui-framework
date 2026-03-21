@@ -1,7 +1,9 @@
 ---
 layout: page-content
 group: components
-order: 7
+section: feedback
+order: 10
+permalink: false
 title: "Loaders"
 description: Available loaders to use while waiting for content to load.
 
