@@ -227,17 +227,34 @@ table {
         padding-right: 1rem;
     }
 
+    // Card headers — wrap title + buttons on narrow screens
+    .card-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
     // Tables scroll horizontally on mobile
-    .card-body .table-responsive,
-    .card-body table {
+    .table-responsive,
+    .card-body table,
+    .card table {
         display: block;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
+    // Prevent long URLs / text from breaking layout
+    td, th {
+        word-break: break-word;
+    }
+
     // Code blocks scroll
     pre {
         overflow-x: auto;
+        max-width: 100%;
+    }
+
+    code {
+        word-break: break-all;
     }
 
     // Reduce section spacing
