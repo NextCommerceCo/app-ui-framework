@@ -51,15 +51,17 @@
     .navbar-brand {
         @include media-breakpoint-up(md) {
             display: block;
-            padding-bottom: 1.25rem;
-            padding-top: 1.25rem;
-            text-align: center;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
         }
 
         img {
             height: auto;
             max-width: 100%;
             width: 130px;
+            max-height: 43px; // Match dark SVG height for consistency
+            object-fit: contain;
+            object-position: left center;
         }
 
         .logo-dark {
@@ -204,17 +206,13 @@ html {
     margin-bottom: 0.5rem;
 }
 
-// Getting Started content — muted body text (markdown-rendered paragraphs)
-// These are direct children of .col-12 rendered from index.md markdown
-#top .col-12 > p,
-#top .col-12 > h2,
-#top .col-12 > h3 {
-    color: $gray-600;
+// All tables should be responsive (prevent horizontal overflow)
+table {
+    width: 100%;
 }
 
-#top .col-12 > h2,
-#top .col-12 > h3 {
-    color: $gray-700;
+.card table {
+    margin-bottom: 0;
 }
 
 // Mobile responsive fixes

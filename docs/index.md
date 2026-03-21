@@ -3,37 +3,36 @@ layout: playground
 title: "NEXT Commerce Design System"
 description: The frontend framework for apps that integrate with the NEXT platform.
 ---
-The NEXT Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.
 
+<p class="text-muted mb-4">The NEXT Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.</p>
 
-## Quick start
+<h2 class="display-6 mb-2">Quick start</h2>
+<p class="text-muted mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
 
-Include CSS in your app html document `<head>`.
 ```html
 <link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
-Include Javascript in your app html document just before the `</body>`.
+<p class="text-muted mb-4">Include Javascript in your app html document just before the <code>&lt;/body&gt;</code>.</p>
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 ```
 
-### Versioning
+<h2 class="display-6 mb-2">Versioning</h2>
+<p class="text-muted mb-4">Pin your app to a <a href="https://github.com/NextCommerceCo/app-ui-framework/releases">release version</a> by specifying in the CDN url such as <code>@0.1.4</code>.</p>
 
-Pin your app to a [release version](https://github.com/NextCommerceCo/app-ui-framework/releases) by specifying in the CDN url such as `@0.1.4`.
+<h2 class="display-6 mb-2">CDN links</h2>
+<p class="text-muted mb-4">As a reference, here are our primary CDN links.</p>
 
-
-### CDN links
-
-As a reference, here are our primary CDN links.
-
-<div class="card">
+<div class="card mb-4">
 <div class="card-header">
 <div>
 <h4 class="card-header-title">CDN Links</h4>
 </div>
 </div>
-<table class="table table-sm bg-white">
+<div class="table-responsive">
+<table class="table table-sm mb-0">
     <thead>
         <tr>
             <th>Description</th>
@@ -43,21 +42,20 @@ As a reference, here are our primary CDN links.
     <tbody>
         <tr>
             <td>CSS</td>
-            <td>https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css</td>
+            <td><code class="text-break">https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css</code></td>
         </tr>
         <tr>
             <td>JS</td>
-            <td>https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js</td>
+            <td><code class="text-break">https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js</code></td>
         </tr>
     </tbody>
 </table>
 </div>
+</div>
 
-### Base Layout
-
-Below is an example base layout to get started with the NEXT Commerce Design System.
-
-Copy the html below into a new `layout.html` in your project and you're well on your way.
+<h2 class="display-6 mb-2">Base Layout</h2>
+<p class="text-muted mb-4">Below is an example base layout to get started with the NEXT Commerce Design System.</p>
+<p class="text-muted mb-4">Copy the html below into a new <code>layout.html</code> in your project and you're well on your way.</p>
 
 ```html
 <!DOCTYPE html>
@@ -105,6 +103,3 @@ Copy the html below into a new `layout.html` in your project and you're well on 
 
 </html>
 ```
-
-
-
