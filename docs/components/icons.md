@@ -1,7 +1,9 @@
 ---
 layout: page-content
 group: components
-order: 5
+section: data
+order: 13
+permalink: false
 title: "Icons"
 description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a> comes fully bundled for a large selection of over 5,900 icons for UI elements that need a little extra spark."
 ---

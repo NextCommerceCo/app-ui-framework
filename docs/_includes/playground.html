@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<div id="top" class="row justify-content-center">
+  <div class="col-12 py-5">
+
+    <!-- Getting Started section -->
+    <div class="pt-3 pb-4 border-bottom mb-5">
+      <h1 class="display-5">{{ title }}</h1>
+      {% if description %}
+        <p class="mb-0">{{ description }}</p>
+      {% endif %}
+    </div>
+
+    {{ content }}
+
+    <!-- Component sections grouped by category -->
+    {% assign sections = "layout,actions,feedback,data" | split: "," %}
+    {% assign section_titles = "Layout,Actions,Feedback,Data" | split: "," %}
+    {% assign section_icons = "ti-layout,ti-click,ti-bell,ti-chart-bar" | split: "," %}
+
+    {% for section in sections %}
+      {% assign section_index = forloop.index0 %}
+      {% assign section_components = collections.components | where: "section", section %}
+
+      {% if section_components.size > 0 %}
+        <!-- Section group heading -->
+        <div class="section-group-heading" id="section-{{ section }}">
+          <i class="ti {{ section_icons[section_index] }}"></i>
+          <h6>{{ section_titles[section_index] }}</h6>
+        </div>
+
+        {% for comp in section_components %}
+          <section id="{{ comp.data.title | slug }}" class="component-section">
+            <h2 class="display-6 mb-2">{{ comp.data.title }}</h2>
+            {% if comp.data.description %}
+              <p class="text-muted mb-4">{{ comp.data.description }}</p>
+            {% endif %}
+            {{ comp.content }}
+          </section>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- Footer -->
+    <footer class="text-center py-5 mt-5 border-top">
+      <p class="text-muted mb-2">Built with the NEXT Commerce Design System</p>
+      <a href="https://github.com/NextCommerceCo/app-ui-framework" class="text-muted me-3" target="_blank">View on GitHub</a>
+      <a href="#top" class="text-muted">Back to top</a>
+    </footer>
+
+  </div>
+</div>

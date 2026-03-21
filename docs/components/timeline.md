@@ -1,7 +1,9 @@
 ---
 layout: page-content
 group: components
-order: 7
+section: data
+order: 14
+permalink: false
 title: "Timeline"
 description: Timelines are a great way to show historical events to and provide context to for how things have changed over time.
 ---

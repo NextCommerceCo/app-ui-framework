@@ -1,7 +1,9 @@
 ---
 layout: page-content
 group: components
-order: 3
+section: data
+order: 12
+permalink: false
 title: "Charts"
 description: Chart.js is an excellent, fully customizable charting library bundled with a custom theme and styling. See examples below and <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> documenation for deep reference on chart integration.
 

@@ -1,7 +1,9 @@
 ---
 layout: page-content
 group: components
-order: 3
+section: actions
+order: 7
+permalink: false
 title: "Date Picker"
 description: flatpickr.js is an excellent full featured date picker library that comes bundled and styled to work natively. See <a target="_blank" href="https://flatpickr.js.org/examples/">flatpickr.js docs</a> for additional options to when initializing.
 ---

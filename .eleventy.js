@@ -44,6 +44,17 @@ module.exports = function (eleventyConfig) {
     return array.filter((item) => item.data ? item.data[key] === value : item[key] === value);
   });
 
+  // Slug filter — convert title to URL-safe anchor id
+  eleventyConfig.addFilter("slug", function (value) {
+    if (!value) return "";
+    return value.toString().toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "")
+      .replace(/--+/g, "-")
+      .replace(/^-+/, "")
+      .replace(/-+$/, "");
+  });
+
   // Sort filter (works on arrays of objects)
   eleventyConfig.addFilter("sort_by", function (array, key) {
     if (!array) return [];
