@@ -1,14 +1,53 @@
 // JS file for docs features and ui demos
 
-// main nav
+// ═══════════════════════════════════════════
+// SCROLL-SPY: highlight active sidebar link
+// ═══════════════════════════════════════════
 (function () {
-    const myCollapsible = document.getElementById('components')
-    myCollapsible.addEventListener('shown.bs.collapse', event => {
-        location.href = '/components/alerts/';
-    })
-});
+    var sidebarNav = document.getElementById('sidebar-nav');
+    if (!sidebarNav) return;
 
-// charts
+    // Initialize Bootstrap ScrollSpy on the body, targeting sidebar nav
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#sidebar-nav',
+        offset: 100,
+        smoothScroll: true
+    });
+
+    // Update URL hash on scroll-spy activation
+    document.addEventListener('activate.bs.scrollspy', function (e) {
+        var id = e.relatedTarget;
+        if (id && id !== '#top') {
+            history.replaceState(null, '', id);
+        }
+    });
+
+    // Mobile: close hamburger menu after clicking a nav link
+    var navCollapse = document.getElementById('sidebarCollapse');
+    if (navCollapse) {
+        sidebarNav.addEventListener('click', function (e) {
+            var link = e.target.closest('a.nav-link');
+            if (link && window.innerWidth < 768) {
+                var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+                if (bsCollapse) bsCollapse.hide();
+            }
+        });
+    }
+
+    // On page load with hash, scroll to that section
+    if (window.location.hash) {
+        var target = document.querySelector(window.location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }
+})();
+
+// ═══════════════════════════════════════════
+// CHARTS
+// ═══════════════════════════════════════════
 var lineComparison = document.getElementById('lineComparison');
 
 if (typeof Chart !== 'undefined' && lineComparison) {
