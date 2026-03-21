@@ -1,4 +1,7 @@
 _site/
 node_modules/
+dist/css/
+docs/assets/css/main.css
+docs/assets/css/main.css.map
 .DS_Store
 .gstack/
