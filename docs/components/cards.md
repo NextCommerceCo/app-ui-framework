@@ -137,7 +137,7 @@ description: Bootstrap’s cards provide a flexible and extensible content conta
             <div class="col-lg-2 col-sm-6 col-xs-12 px-3 py-2">
                 <div class="row justify-content-between align-items-end">
                     <div class="col-12">
-                        <h6 class="text-uppercase text-muted mb-2">Active Vistors
+                        <h6 class="text-uppercase text-muted mb-2">Active Visitors
                         </h6>
                     </div>
                     <div class="col pb-1 pt-1">
@@ -349,7 +349,7 @@ description: Bootstrap’s cards provide a flexible and extensible content conta
             <div class="col-lg-2 col-sm-6 col-xs-12 px-3 py-2">
                 <div class="row justify-content-between align-items-end">
                     <div class="col-12">
-                        <h6 class="text-uppercase text-muted mb-2">Active Vistors
+                        <h6 class="text-uppercase text-muted mb-2">Active Visitors
                         </h6>
                     </div>
                     <div class="col pb-1 pt-1">

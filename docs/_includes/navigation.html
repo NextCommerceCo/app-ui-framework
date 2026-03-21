@@ -4,18 +4,44 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/" style="text-align: left;">
-                <img src="/assets/img/next-commerce-logo.png" style="max-height: 25px;" class="w-auto">
+                <img src="/assets/img/next-commerce-logo.png" class="logo-light">
+                <img src="/assets/img/next-commerce-logo-white.svg" class="logo-dark">
             </a>
             <div class="collapse navbar-collapse show" id="sidebarCollapse">
                 <ul class="navbar-nav">
-                    {% for item in site.data.navigation %}
+                    {% for item in navigation %}
                         {% if item.group %}
-                            {% include navigation-item.html group=item.group title=item.title %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if page.url contains item.group %}active{% endif %}"
+                                   role="button" data-bs-toggle="collapse" data-bs-target="#{{ item.group }}"
+                                   aria-expanded="{% if page.url contains item.group %}true{% else %}false{% endif %}"
+                                   aria-controls="{{ item.group }}">
+                                    {{ item.title }}
+                                </a>
+                                <div class="{% if page.url contains item.group %}collapse show{% else %}collapse{% endif %}" id="{{ item.group }}">
+                                    <ul class="nav flex-column">
+                                        {% for comp in collections.components %}
+                                            <li>
+                                                <a class="nav-link {% if comp.url == page.url %}active{% endif %}"
+                                                   href="{{ comp.url }}"
+                                                   {% if comp.url == page.url %}aria-current="true"{% endif %}>
+                                                    {{ comp.data.title }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
                         {% else %}
-                            {% include navigation-item.html url=item.url title=item.title %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if page.url == item.url %}active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
+                            </li>
                         {% endif %}
                     {% endfor %}
                 </ul>
+                <div class="theme-toggle-wrapper">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+                </div>
             </div>
         </div>
     </nav>

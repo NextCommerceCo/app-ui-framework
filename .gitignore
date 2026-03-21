@@ -1,7 +1,7 @@
-_site
-.sass-cache
-.jekyll-metadata
-.jekyll-cache/
+_site/
 node_modules/
-package-lock.json
+dist/css/
+docs/assets/css/main.css
+docs/assets/css/main.css.map
 .DS_Store
+.gstack/

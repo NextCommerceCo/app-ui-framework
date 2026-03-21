@@ -30,6 +30,7 @@
 
 .table a.sort {
     color: $table-th-color !important;
+    cursor: pointer;
     &::after {
         font-family: "tabler-icons" !important;
         font-size: 14px;

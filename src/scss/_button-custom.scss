@@ -6,7 +6,11 @@
   --bs-btn-color: var(--bs-gray-900);
 }
 
-// TODO: fix temporary work around when update bootstrap
-.btn-sm {
-    line-height: 1.75;
+// Fix btn-outline-light visibility — too faint by default
+.btn-outline-light {
+  --bs-btn-color: #{$gray-700};
+  --bs-btn-border-color: #{$gray-400};
+  --bs-btn-hover-color: #{$black};
+  --bs-btn-hover-bg: #{$gray-200};
+  --bs-btn-hover-border-color: #{$gray-400};
 }
