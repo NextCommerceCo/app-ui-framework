@@ -1,3 +1,10 @@
+// Cross-platform vertical text centering
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 // Light badge variants
 .bg-primary-light {
     --#{$prefix}badge-color: #2b57da;
