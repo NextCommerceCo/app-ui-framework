@@ -128,12 +128,16 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
     const paginationContainer = cardContainer.querySelector('.pagination');
     if (!paginationContainer) return;
     const paginationItems = paginationContainer.querySelectorAll('li');
-    paginationItems.forEach((li) => {
+    paginationItems.forEach(function(li) {
       li.classList.add('page-item');
       const a = li.querySelector('a');
       if (a) {
         a.classList.add('page-link');
         a.style.cursor = 'pointer';
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          setTimeout(function() { cardContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        });
       }
       if (li.classList.contains('active')) {
         li.classList.add('active');
