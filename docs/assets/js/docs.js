@@ -86,6 +86,14 @@ if (typeof Chart !== 'undefined' && stackedBar) {
 }
 
 
+// Prevent demo pagination links from scrolling to top
+document.addEventListener('click', function(e) {
+    var link = e.target.closest('.page-link[href="#"]');
+    if (link) {
+        e.preventDefault();
+    }
+});
+
 var barLineChart = document.getElementById('barLineCombo');
 
 if (typeof Chart !== 'undefined' && barLineChart) {
