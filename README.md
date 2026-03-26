@@ -34,6 +34,7 @@ npm run scss
 - **Dropdowns** - [Choices](https://choices-js.github.io/Choices/)
 - **Date Picker** - [Flatpicker](https://flatpickr.js.org/examples/)
 - **Icons** - [Tabler Icons](https://tabler.io/icons)
+- **Country flags** - [flag-icons](https://flagicons.lipis.dev/) (bundled via npm; stylesheet loaded from `main.scss`)
 
 
 ### Contributing
