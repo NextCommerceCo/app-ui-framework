@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@tabler/icons-webfont": "^3.34.0",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "flag-icons": "^7.5.0"
   }
 }
