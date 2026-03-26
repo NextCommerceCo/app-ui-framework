@@ -5,7 +5,7 @@ section: data
 order: 13
 permalink: false
 title: "Icons"
-description: "Tabler icons for UI; flag-icons (npm) for ISO country flags — see page for links and examples."
+description: "Tabler icons for UI; flag-icons (CDN) for ISO country flags — see page for links and examples."
 ---
 <div class="card mb-5">
     <div class="card-header">
@@ -35,36 +35,6 @@ description: "Tabler icons for UI; flag-icons (npm) for ISO country flags — se
 <i class="ti ti-chevron-left"></i>
 <i class="ti ti-chevron-right"></i>
 <i class="ti ti-search"></i>
-```
-
-</div>
-</div>
-</div>
-
-<div class="card mb-5">
-    <div class="card-header">
-        <div>
-            <h4 class="card-header-title">Country flags</h4>
-        </div>
-    </div>
-    <div class="card-body">
-        <p>Flags from <a href="https://flagicons.lipis.dev/" target="_blank" rel="noopener">flag-icons</a> (bundled via npm). Use <code class="user-select-all">fi</code> plus <code class="user-select-all">fi-&lt;ISO 3166-1 alpha-2&gt;</code> on a <code>&lt;span&gt;</code>. Add <code class="user-select-all">fis</code> for square (1:1) format.</p>
-        <p class="mb-3">
-            <span class="fi fi-us me-1" title="United States" aria-label="United States"></span> United States
-            <span class="ms-3 fi fi-gb me-1" title="United Kingdom" aria-label="United Kingdom"></span> United Kingdom
-            <span class="ms-3 fi fi-de me-1" title="Germany" aria-label="Germany"></span> Germany
-            <span class="ms-3 fi fi-jp fis me-1" title="Japan (square)" aria-label="Japan"></span> Japan (square)
-        </p>
-    </div>
-    <div class="card-footer">
-    <a class="btn btn-white btn-sm" data-bs-toggle="collapse" href="#flagIconsMarkup" role="button" aria-expanded="false" aria-controls="flagIconsMarkup">
-    See Markup Example
-    </a>
-    <div id="flagIconsMarkup" class="collapse" markdown="1">
-
-```html
-<span class="fi fi-us" title="United States" aria-label="United States"></span>
-<span class="fi fi-gb fis" title="United Kingdom" aria-label="United Kingdom"></span>
 ```
 
 </div>
@@ -107,7 +77,7 @@ description: "Tabler icons for UI; flag-icons (npm) for ISO country flags — se
 <div class="card mb-5">
     <div class="card-header">
         <div>
-            <h4 class="card-header-title">All Icons</h4>
+            <h4 class="card-header-title">All UI Icons</h4>
         </div>
     </div>
     <div class="card-body" id="iconsCard">
@@ -122,6 +92,36 @@ description: "Tabler icons for UI; flag-icons (npm) for ISO country flags — se
         </div>
     </div>
 </div>
+<div class="card mb-5">
+    <div class="card-header">
+        <div>
+            <h4 class="card-header-title">Country flags</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <p>Flags from <a href="https://flagicons.lipis.dev/" target="_blank" rel="noopener">flag-icons</a> (loaded via CDN). Use <code class="user-select-all">fi</code> plus <code class="user-select-all">fi-&lt;ISO 3166-1 alpha-2&gt;</code> on a <code>&lt;span&gt;</code>. Add <code class="user-select-all">fis</code> for square (1:1) format.</p>
+        <p class="mb-3">
+            <span class="fi fi-us me-1" title="United States" aria-label="United States"></span> United States
+            <span class="ms-3 fi fi-gb me-1" title="United Kingdom" aria-label="United Kingdom"></span> United Kingdom
+            <span class="ms-3 fi fi-de me-1" title="Germany" aria-label="Germany"></span> Germany
+            <span class="ms-3 fi fi-jp fis me-1" title="Japan (square)" aria-label="Japan"></span> Japan (square)
+        </p>
+    </div>
+    <div class="card-footer">
+    <a class="btn btn-white btn-sm" data-bs-toggle="collapse" href="#flagIconsMarkup" role="button" aria-expanded="false" aria-controls="flagIconsMarkup">
+    See Markup Example
+    </a>
+    <div id="flagIconsMarkup" class="collapse" markdown="1">
+
+```html
+<span class="fi fi-us" title="United States" aria-label="United States"></span>
+<span class="fi fi-gb fis" title="United Kingdom" aria-label="United Kingdom"></span>
+```
+
+</div>
+</div>
+</div>
+
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="iconModal" tabindex="-1" aria-labelledby="iconModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
