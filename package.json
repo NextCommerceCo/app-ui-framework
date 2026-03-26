@@ -6,7 +6,8 @@
   "scripts": {
     "scss": "npx sass src/scss/main.scss dist/css/main.css --load-path=node_modules --load-path=src/scss",
     "scss:docs": "npx sass docs/assets/css/main.scss docs/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass --style=compressed",
-    "dev": "npm run scss:docs && npx @11ty/eleventy --serve",
+    "watch:scss": "npx sass --watch src/scss/main.scss:dist/css/main.css docs/assets/css/main.scss:docs/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass",
+    "dev": "npm run scss:docs && npx @11ty/eleventy --serve & npm run watch:scss",
     "build": "npm run scss:docs && npx @11ty/eleventy"
   },
   "repository": {

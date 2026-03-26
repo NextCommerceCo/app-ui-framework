@@ -1,3 +1,12 @@
+// Cross-platform vertical text centering
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: inherit;
+    --bs-badge-padding-y: 0.15em;
+}
+
 // Light badge variants
 .bg-primary-light {
     --#{$prefix}badge-color: #2b57da;
@@ -74,9 +83,11 @@
 
 // Dismissible badge close button
 .badge-dismissible button.btn-close {
-    height: 0.35em;
-    width: 0.35em;
-    vertical-align: middle;
-    margin-top: -3px;
+    box-sizing: border-box;
+    height: .7rem;
+    width: .7rem;
+    align-self: center;
+    margin: 0 0 0 0.25rem;
+    padding: 0;
     background: rgba(0,0,0,0) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238d8d8d'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
 }

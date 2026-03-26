@@ -74,20 +74,20 @@ description: "Tabler icons for UI; flag-icons (npm) for ISO country flags — se
 <style>
 #iconsCard .icons-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(auto-fill, 64px);
     gap: 0.5rem;
+    justify-content: center;
 }
 #iconsCard .ti {
-    font-size: 2rem;
-    color: var(--bs-gray-dark)
+    font-size: 1.5rem;
+    color: var(--bs-body-color);
 }
 #iconsCard .item .name {
     font-size: 10px;
 }
 #iconsCard .icon-square {
-aspect-ratio: 1 / 1;
-  width: 100%;
-  min-width: 0;
+  width: 64px;
+  height: 64px;
   background: transparent;
   padding: 0;
   display: flex;
@@ -103,24 +103,6 @@ aspect-ratio: 1 / 1;
   box-shadow: 0 0 0 2px var(--bs-blue);
   background: rgba(13,110,253,0.05);
 }
-@media (max-width: 960px) {
-  #iconsCard .icons-grid,
-  .icons-grid {
-    grid-template-columns: repeat(9, 1fr);
-  }
-}
-@media (max-width: 750px) {
-  #iconsCard .icons-grid,
-  .icons-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-@media (max-width: 576px) {
-  #iconsCard .icons-grid,
-  .icons-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 </style>
 <div class="card mb-5">
     <div class="card-header">
@@ -131,16 +113,7 @@ aspect-ratio: 1 / 1;
     <div class="card-body" id="iconsCard">
         <input class="search form-control mb-3" placeholder="Search icons by name or tag..." />
         <div class="icons-grid list">
-            {% for icon in site.data.icons %}
-                {% assign icon_name = icon[0] %}
-                {% assign icon_obj = icon[1] %}
-                <div class="item icon-click" data-icon="{{ icon_name }}" data-tags="{{ icon_obj.tags | default: '' | join: ' ' }}">
-                    <div class="icon-square border rounded d-flex flex-column align-items-center justify-content-center">
-                        <span class="ti ti-{{ icon_name }}"></span>
-                        <span class="d-none name">{{ icon_name }}</span>
-                    </div>
-                </div>
-            {% endfor %}
+{%- for icon in icons -%}{%- assign icon_name = icon[0] -%}{%- assign icon_obj = icon[1] -%}<div class="item icon-click" data-icon="{{ icon_name }}" data-tags="{{ icon_obj.tags | default: '' | join: ' ' }}"><div class="icon-square border rounded d-flex flex-column align-items-center justify-content-center"><span class="ti ti-{{ icon_name }}"></span><span class="d-none name">{{ icon_name }}</span></div></div>{%- endfor -%}
         </div>
         <div class="row align-items-center mt-5">
             <div class="col">
@@ -178,7 +151,7 @@ aspect-ratio: 1 / 1;
         'name',
         { name: 'tags', attr: 'data-tags' }
     ],
-    page: 144,
+    page: 48,
     pagination: true
   };
   const iconList = new List(cardContainer, options);
@@ -186,12 +159,16 @@ aspect-ratio: 1 / 1;
     const paginationContainer = cardContainer.querySelector('.pagination');
     if (!paginationContainer) return;
     const paginationItems = paginationContainer.querySelectorAll('li');
-    paginationItems.forEach((li) => {
+    paginationItems.forEach(function(li) {
       li.classList.add('page-item');
       const a = li.querySelector('a');
       if (a) {
         a.classList.add('page-link');
         a.style.cursor = 'pointer';
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          setTimeout(function() { cardContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        });
       }
       if (li.classList.contains('active')) {
         li.classList.add('active');
@@ -235,12 +212,10 @@ aspect-ratio: 1 / 1;
   document.addEventListener('DOMContentLoaded', function () {
     bindIconClicks();
   });
-
   // Always remove modal-backdrop on modal close
   document.getElementById('iconModal').addEventListener('hidden.bs.modal', function () {
-    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+    document.querySelectorAll('.modal-backdrop').forEach(function(el) { el.remove(); });
   });
-
   // Re-bind after every List.js update (pagination, search, etc)
   iconList.on('updated', bindIconClicks);
 </script>
