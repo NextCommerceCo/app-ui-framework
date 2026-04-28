@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
 
   // --- Global data ---
   eleventyConfig.addGlobalData("site", {
-    title: "NEXT Commerce Design System",
+    title: "Next Commerce Design System",
     lang: "en-US",
     baseurl: "",
   });

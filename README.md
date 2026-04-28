@@ -1,6 +1,6 @@
-# NEXT Commerce App UI Framework
+# Next Commerce App UI Framework
 
-A UI Framework for creating apps with a seamless UX in the NEXT Commerce dashboard.
+A UI Framework for creating apps with a seamless UX in the Next Commerce dashboard.
 
 [See documentation](https://nextcommerceco.github.io/app-ui-framework/)
 

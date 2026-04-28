@@ -1,10 +1,10 @@
 ---
 layout: playground
-title: "NEXT Commerce Design System"
+title: "Next Commerce Design System"
 description: The frontend framework for apps that integrate with the NEXT platform.
 ---
 
-<p class="text-muted mb-4">The NEXT Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.</p>
+<p class="text-muted mb-4">The Next Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.</p>
 
 <h2 class="display-6 mb-2">Quick start</h2>
 <p class="text-muted mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
@@ -54,7 +54,7 @@ description: The frontend framework for apps that integrate with the NEXT platfo
 </div>
 
 <h2 class="display-6 mb-2">Base Layout</h2>
-<p class="text-muted mb-4">Below is an example base layout to get started with the NEXT Commerce Design System.</p>
+<p class="text-muted mb-4">Below is an example base layout to get started with the Next Commerce Design System.</p>
 <p class="text-muted mb-4">Copy the html below into a new <code>layout.html</code> in your project and you're well on your way.</p>
 
 ```html

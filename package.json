@@ -1,7 +1,7 @@
 {
   "name": "app-ui-framework",
   "version": "latest",
-  "description": "NEXT Commerce Design System",
+  "description": "Next Commerce Design System",
   "main": "index.js",
   "scripts": {
     "scss": "npx sass src/scss/main.scss dist/css/main.css --load-path=node_modules --load-path=src/scss",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/NextCommerceCo/app-ui-framework.git"
   },
-  "author": "NEXT Commerce",
+  "author": "Next Commerce",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/NextCommerceCo/app-ui-framework/issues"
