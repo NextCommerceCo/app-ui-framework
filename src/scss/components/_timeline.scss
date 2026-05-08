@@ -1,0 +1,102 @@
+// _timeline.scss
+// Vertical timeline for activity/event/audit lists. Token-pure rewrite of
+// the v1 .card-timeline pattern, namespaced as `.timeline` to coexist
+// cleanly with cards.
+//
+// Markup (typical):
+//   <ul class="timeline">
+//     <li class="timeline-item">
+//       <div class="timeline-dot"></div>
+//       <div class="timeline-content">
+//         <div class="timeline-meta">2h ago · Rina Okafor</div>
+//         <div class="timeline-title">Payment captured</div>
+//         <p>$240.00 · ch_3PaB...</p>
+//       </div>
+//     </li>
+//     …
+//   </ul>
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 var(--ds-space-lg) var(--ds-space-xl);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Vertical connector line — sits behind the dot, hidden on the last item
+  &::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 14px;
+    bottom: -8px;
+    width: 1px;
+    background: var(--ds-border);
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-bg-elevated);
+  border: 2px solid var(--ds-border-2);
+  z-index: 1;
+
+  // Variant dots — pair with status colors
+  &.green  { border-color: var(--ds-green); }
+  &.yellow { border-color: var(--ds-yellow); }
+  &.red    { border-color: var(--ds-red); }
+  &.blue   { border-color: var(--ds-primary); }
+
+  // Filled variant — solid dot, no inner whitespace
+  &.filled {
+    background: var(--ds-primary);
+    border-color: var(--ds-primary);
+  }
+  &.filled.green  { background: var(--ds-green);  border-color: var(--ds-green); }
+  &.filled.yellow { background: var(--ds-yellow); border-color: var(--ds-yellow); }
+  &.filled.red    { background: var(--ds-red);    border-color: var(--ds-red); }
+}
+
+.timeline-content { min-width: 0; }
+
+.timeline-meta {
+  font-size: var(--ds-text-3xs);
+  color: var(--ds-txt-3);
+  font-weight: var(--ds-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.timeline-title {
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-weight-semibold);
+  color: var(--ds-txt);
+  margin-bottom: 2px;
+}
+
+.timeline-content p {
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt-2);
+  margin: 0;
+}
+
+// Card-embedded variant — keep the timeline tight inside a .card.card-body
+.card .timeline { padding: 0; }

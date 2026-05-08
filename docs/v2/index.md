@@ -28,18 +28,6 @@ That's it. If you also use Bootstrap JS (modals, dropdowns, tabs), include the b
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 ```
 
-## Brand
-
-NEXT is the default brand. Switch to Sellmore at runtime with one attribute on `<html>`:
-
-```html
-<html data-brand="sellmore">
-  …
-</html>
-```
-
-This swaps the primary color from `#3c7dff` (NEXT) to `#3366ff` (Sellmore) along with the muted/border/ring variants. No CSS rebuild required.
-
 ## Pin a version
 
 `@latest` follows main. For production, pin to a release:
@@ -78,11 +66,11 @@ Each component is documented on the [Components](/v2/components/) page with copy
 
 ## What ships
 
-- **Bootstrap 5.3** — grid, utilities, forms, buttons, cards, badges, dropdowns, modals, offcanvas, etc.
+- **Bootstrap 5.3** — grid, utilities, forms, buttons, cards, badges, dropdowns, modals, offcanvas, spinners, tooltips
 - **Inter + JetBrains Mono** — loaded from Google Fonts, no extra include needed
+- **Tabler icons** — 5,000+ outline icons via `<i class="ti ti-*">` ([reference](/v2/components/#icons))
 - **`--ds-*` design tokens** — color, type, spacing, radius, shadow ([reference](/v2/foundation/))
-- **Seven app-shell components** — sidebar, page head, metric strip, filter bar, data table, status pill, notice
-- **Two brand variants** — NEXT (default) and Sellmore via `data-brand`
+- **App-shell components** — sidebar, page head, metric strip, filter bar, data table, status pill, notice, timeline ([reference](/v2/components/))
 
 ## Compatibility
 

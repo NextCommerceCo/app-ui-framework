@@ -12,13 +12,13 @@ permalink: /v2/foundation/
   <code>var(--ds-name)</code>.
 </p>
 
-## Brand
+## Primary
 
 <div class="swatches">
   <div class="swatch">
     <div class="chip" style="background: var(--ds-primary);"></div>
     <div class="name">--ds-primary</div>
-    <div class="value">#3c7dff (NEXT)</div>
+    <div class="value">#3c7dff</div>
   </div>
   <div class="swatch">
     <div class="chip" style="background: var(--ds-primary-light);"></div>
@@ -34,21 +34,6 @@ permalink: /v2/foundation/
     <div class="chip" style="background: #fff; border-color: var(--ds-primary-border);"></div>
     <div class="name">--ds-primary-border</div>
     <div class="value">rgba(60, 125, 255, 0.20)</div>
-  </div>
-</div>
-
-Sellmore brand swap (opt-in via `<html data-brand="sellmore">`):
-
-<div class="swatches">
-  <div class="swatch">
-    <div class="chip" style="background: #3366ff;"></div>
-    <div class="name">--ds-primary</div>
-    <div class="value">#3366ff (Sellmore)</div>
-  </div>
-  <div class="swatch">
-    <div class="chip" style="background: #6080ff;"></div>
-    <div class="name">--ds-primary-light</div>
-    <div class="value">#6080ff</div>
   </div>
 </div>
 

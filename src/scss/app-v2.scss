@@ -68,7 +68,7 @@
 //    reduced-motion)
 @import "typography-v2";
 
-// 7. Components — lifted from campaigns_app variant kit
+// 7. Components
 @import "components/sidebar";
 @import "components/pagehead";
 @import "components/metrics";
@@ -76,6 +76,8 @@
 @import "components/data-table";
 @import "components/status-pill";
 @import "components/notice";
+@import "components/timeline";
 
-// 8. Web fonts (Inter + JetBrains Mono per DESIGN.md typography)
+// 8. Web fonts + icon font
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.34.0/dist/tabler-icons.min.css');
