@@ -1,0 +1,118 @@
+// _data-table.scss
+// Source: campaigns_app kit — table.data, .camp, .rowactions, .iconbtn
+//
+// Data table for transactional/admin lists. Class is `.data` (used as
+// `<table class="data">`) so it doesn't fight Bootstrap's `.table`. If you
+// want both — Bootstrap utilities + this aesthetic — apply both classes.
+
+.tablewrap {
+  padding: 0 var(--ds-space-xl) var(--ds-space-xl);
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ds-bg-elevated);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-md);
+  overflow: hidden;
+  margin-top: var(--ds-space-base);
+
+  th {
+    text-align: left;
+    font-size: var(--ds-text-3xs);
+    font-weight: var(--ds-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ds-txt-3);
+    padding: 10px var(--ds-space-base);
+    background: var(--ds-bg-3);
+    border-bottom: 1px solid var(--ds-border);
+  }
+
+  td {
+    padding: 14px var(--ds-space-base);
+    border-bottom: 1px solid var(--ds-border);
+    font-size: var(--ds-text-xs);
+    color: var(--ds-txt);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td      { background: var(--ds-bg-hover); }
+
+  // Inline mono / amount helpers used inside cells
+  .mono {
+    font-family: var(--ds-font-mono);
+    font-size: var(--ds-text-2xs);
+    color: var(--ds-txt-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .amount {
+    font-family: var(--ds-font-mono);
+    font-size: var(--ds-text-xs);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-weight: var(--ds-weight-medium);
+    letter-spacing: var(--ds-num-spacing);
+  }
+}
+
+// Campaign-cell pattern: thumbnail + name + mono sub-id
+.camp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--ds-radius-sm);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: var(--ds-text-2xs);
+    font-weight: var(--ds-weight-semibold);
+    font-family: var(--ds-font-mono);
+    background: linear-gradient(135deg, var(--ds-primary), var(--ds-primary-light));
+  }
+
+  .name { font-weight: var(--ds-weight-medium); }
+  .sub {
+    font-size: var(--ds-text-3xs);
+    color: var(--ds-txt-3);
+    font-family: var(--ds-font-mono);
+    margin-top: 1px;
+  }
+}
+
+// Right-aligned row actions (open / overflow menu)
+.rowactions {
+  display: flex;
+  gap: var(--ds-space-xs);
+  justify-content: flex-end;
+}
+
+.iconbtn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ds-radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ds-txt-3);
+
+  &:hover {
+    background: var(--ds-bg-hover);
+    color: var(--ds-txt);
+    border-color: var(--ds-border);
+  }
+
+  svg { width: 14px; height: 14px; }
+}

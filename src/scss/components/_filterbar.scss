@@ -1,0 +1,84 @@
+// _filterbar.scss
+// Source: campaigns_app kit — .filterbar, .chip, .search
+//
+// Segmented chip filter row + right-aligned mono search input. Sits between
+// metric strip and data table.
+
+.filterbar {
+  display: flex;
+  gap: var(--ds-space-sm);
+  padding: var(--ds-space-base) var(--ds-space-xl);
+  align-items: center;
+  background: var(--ds-bg-elevated);
+  border-bottom: 1px solid var(--ds-border);
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-bg);
+  font-size: var(--ds-text-2xs);
+  font-weight: var(--ds-weight-medium);
+  color: var(--ds-txt-2);
+  cursor: pointer;
+  font-family: inherit;
+
+  &:hover {
+    background: var(--ds-bg-hover);
+    color: var(--ds-txt);
+  }
+
+  &.active {
+    background: var(--ds-primary-muted);
+    color: var(--ds-primary);
+    border-color: var(--ds-primary-border);
+  }
+
+  // "Add filter" affordance — dashed border to read as additive
+  &.chip-add { border-style: dashed; }
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  // Inline count next to chip label
+  .mono {
+    color: var(--ds-txt-3);
+  }
+}
+
+// Right-aligned search input. Mono font signals "type a query / id".
+.filterbar .search {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ds-border);
+  padding: 5px 10px;
+  border-radius: var(--ds-radius-sm);
+  min-width: 240px;
+  background: var(--ds-bg);
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt-3);
+  font-family: var(--ds-font-mono);
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    outline: none;
+    color: var(--ds-txt);
+    font: inherit;
+  }
+}

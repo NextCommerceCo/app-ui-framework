@@ -1,0 +1,67 @@
+// _notice.scss
+// Source: campaigns_app kit — .banner (notice/info banner)
+//
+// "Notice not Alert" pattern (DESIGN.md §Component Patterns + decisions
+// log 2026-03-18). Full subtle background + matching border on all sides.
+// NEVER colored-left-border-only — that's AI Slop Blacklist item #9.
+//
+// Class is `.notice` (canonical); `.banner` is kept as a kit-back-compat alias.
+
+.notice,
+.banner {
+  margin: var(--ds-space-base) var(--ds-space-xl) 0;
+  padding: var(--ds-space-md) var(--ds-space-base);
+  background: var(--ds-primary-muted);
+  border: 1px solid var(--ds-primary-border);
+  border-radius: var(--ds-radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-md);
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt);
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ds-primary);
+    flex-shrink: 0;
+  }
+
+  b { color: var(--ds-txt); }
+
+  // Dismiss button (kit uses .x; v2 also accepts .notice-close)
+  .x,
+  .notice-close {
+    margin-left: auto;
+    color: var(--ds-txt-3);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    font-size: var(--ds-text-base);
+    line-height: 1;
+
+    &:hover { color: var(--ds-txt); }
+  }
+
+  // Variants
+  &.notice-success {
+    background: var(--ds-green-bg);
+    border-color: var(--ds-green-border);
+    svg { color: var(--ds-green); }
+  }
+  &.notice-warning {
+    background: var(--ds-yellow-bg);
+    border-color: var(--ds-yellow-border);
+    svg { color: var(--ds-yellow); }
+  }
+  &.notice-danger {
+    background: var(--ds-red-bg);
+    border-color: var(--ds-red-border);
+    svg { color: var(--ds-red); }
+  }
+  &.notice-pending {
+    background: var(--ds-orange-bg);
+    border-color: var(--ds-orange-border);
+    svg { color: var(--ds-orange); }
+  }
+}

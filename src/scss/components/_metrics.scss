@@ -1,0 +1,63 @@
+// _metrics.scss
+// Source: campaigns_app kit — .metrics, .metric, .metric .delta
+//
+// 4-up KPI strip below the pagehead. Uses 1px-gap grid trick for hairline
+// dividers between cells (no internal borders needed).
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--ds-border);
+  border-bottom: 1px solid var(--ds-border);
+}
+
+.metric {
+  background: var(--ds-bg-elevated);
+  padding: var(--ds-space-lg) var(--ds-space-lg);
+
+  .label {
+    font-size: var(--ds-text-2xs);
+    color: var(--ds-txt-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .value {
+    font-size: var(--ds-text-3xl);
+    font-weight: var(--ds-weight-semibold);
+    letter-spacing: var(--ds-num-spacing);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--ds-leading-tight);
+    font-family: var(--ds-font-mono);
+  }
+
+  .delta {
+    font-size: var(--ds-text-2xs);
+    font-weight: var(--ds-weight-medium);
+    margin-top: 4px;
+    font-family: var(--ds-font-mono);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &.up   { color: var(--ds-green); }
+    &.down { color: var(--ds-red);   }
+    &.flat { color: var(--ds-txt-3); }
+  }
+}
+
+// Variants: 2-up / 3-up / 5-up
+.metrics-2 { grid-template-columns: repeat(2, 1fr); }
+.metrics-3 { grid-template-columns: repeat(3, 1fr); }
+.metrics-5 { grid-template-columns: repeat(5, 1fr); }
+
+@media (max-width: 768px) {
+  .metrics,
+  .metrics-2,
+  .metrics-3,
+  .metrics-5 {
+    grid-template-columns: 1fr;
+  }
+}

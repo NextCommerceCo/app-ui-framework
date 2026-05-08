@@ -1,0 +1,81 @@
+// app-v2.scss
+//
+// app-ui-framework v2 entry point.
+//
+// Light-first. Consumes design-system/ tokens via _ds-tokens.scss.
+// Bootstrap 5.3 stays as the grid/utilities/forms/buttons layer; component
+// aesthetics come from components/ files lifted from the campaigns_app
+// variant kit (design-system/variants/claude-design-2026-04-19/).
+//
+// Migration plan: docs/_drafts/migration-v2.md
+// Decisions log entry: design-system/DESIGN.md (2026-05-08)
+//
+// v1 (main.scss → next-app-ui.min.css) ships unchanged alongside this.
+
+// 1. Pull design-system/ tokens (light at :root, dark deferred)
+@import "ds-tokens";
+
+// 2. Bootstrap functions + default variables + dark variant defaults
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// 3. v2 SCSS overrides
+@import "ds-bridge";
+@import "custom-variables-v2";
+
+// 4. Bootstrap maps + mixins + root
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 5. Bootstrap layer
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
+
+// 6. Typography (DESIGN.md heading scale, mono, focus, ::selection,
+//    reduced-motion)
+@import "typography-v2";
+
+// 7. Components — lifted from campaigns_app variant kit
+@import "components/sidebar";
+@import "components/pagehead";
+@import "components/metrics";
+@import "components/filterbar";
+@import "components/data-table";
+@import "components/status-pill";
+@import "components/notice";
+
+// 8. Web fonts (Inter + JetBrains Mono per DESIGN.md typography)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');

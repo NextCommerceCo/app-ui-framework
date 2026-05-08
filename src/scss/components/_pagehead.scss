@@ -1,0 +1,72 @@
+// _pagehead.scss
+// Source: campaigns_app kit — .pagehead, .crumb, .pageactions, .envbadge
+//
+// Top-of-page block: breadcrumb crumb → H1 with optional env badge →
+// right-aligned action buttons. Lives directly under <main>.
+
+.pagehead {
+  padding: var(--ds-space-lg) var(--ds-space-xl);
+  border-bottom: 1px solid var(--ds-border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-base);
+  background: var(--ds-bg-elevated);
+  flex-wrap: wrap;
+
+  h1 {
+    font-size: var(--ds-text-xl);
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: var(--ds-leading-tight);
+  }
+}
+
+.crumb {
+  font-size: var(--ds-text-2xs);
+  color: var(--ds-txt-3);
+  font-family: var(--ds-font-mono);
+  margin-bottom: 6px;
+
+  a {
+    color: var(--ds-txt-3);
+    text-decoration: none;
+
+    &:hover { color: var(--ds-txt); }
+  }
+}
+
+.pageactions {
+  display: flex;
+  gap: var(--ds-space-sm);
+  align-items: center;
+}
+
+// Env mode pill (Test mode / Live / Sandbox) — sits inline with the H1
+.envbadge {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: var(--ds-text-3xs);
+  font-weight: var(--ds-weight-medium);
+  padding: 3px 8px;
+  background: var(--ds-yellow-bg);
+  color: var(--ds-yellow);
+  border-radius: var(--ds-radius-full);
+  border: 1px solid var(--ds-yellow-border);
+  font-family: var(--ds-font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  // Variants for live / sandbox modes
+  &.live {
+    background: var(--ds-green-bg);
+    color: var(--ds-green);
+    border-color: var(--ds-green-border);
+  }
+  &.draft {
+    background: var(--ds-bg-3);
+    color: var(--ds-txt-3);
+    border-color: var(--ds-border);
+  }
+}

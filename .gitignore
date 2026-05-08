@@ -1,6 +1,9 @@
 _site/
 node_modules/
-dist/css/
+# dist/css/: track CDN-shipped artifacts (next-app-ui.css, app-v2.css,
+# app-v2.min.css), ignore intermediate dev builds + source maps.
+dist/css/main.css
+dist/css/*.map
 docs/assets/css/main.css
 docs/assets/css/main.css.map
 .DS_Store

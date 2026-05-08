@@ -1,0 +1,87 @@
+// _typography-v2.scss
+//
+// DESIGN.md typography rules, app-density tuned. Body/heading scale comes
+// from Bootstrap (configured in _ds-bridge.scss). This file adds:
+//   - text-wrap balance / pretty for prose readability
+//   - h6 uppercase tracking (DESIGN.md §Component Patterns)
+//   - tabular numerics for finance/data
+//   - focus-visible outline (DESIGN.md §Accessibility)
+//   - ::selection accent
+//   - prefers-reduced-motion (DESIGN.md §Motion)
+
+html, body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  text-wrap: balance;
+  letter-spacing: -0.005em;
+  margin-bottom: 0;
+}
+h1, .h1 { letter-spacing: -0.02em; }
+h2, .h2 { letter-spacing: -0.015em; }
+
+h6, .h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ds-txt-3);
+}
+
+p {
+  text-wrap: pretty;
+  color: var(--ds-txt-2);
+  margin-bottom: var(--ds-space-base);
+}
+
+small, .ds-caption, .text-small {
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt-3);
+}
+
+a {
+  color: var(--ds-primary);
+  text-decoration: none;
+}
+a:hover { color: var(--ds-primary-light); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--ds-border);
+  margin: var(--ds-space-xl) 0;
+  opacity: 1;
+}
+
+::selection { background: var(--ds-primary-muted); }
+
+:focus-visible {
+  outline: 2px solid var(--ds-primary);
+  outline-offset: 2px;
+  border-radius: var(--ds-radius-sm);
+}
+
+// Tabular numerics (apply via class or [data-nums])
+.ds-nums,
+[data-nums],
+td.num, th.num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ds-num-spacing);
+}
+
+.mono {
+  font-family: var(--ds-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ds-num-spacing);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

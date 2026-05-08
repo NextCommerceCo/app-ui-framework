@@ -1,0 +1,65 @@
+// _status-pill.scss
+// Source: campaigns_app kit — .stat (with .live / .paused / .draft / .fail)
+//
+// Status pill: 6px dot in matching tone + label, full border. Specifically
+// NOT a colored-left-border alert (DESIGN.md AI Slop Blacklist item #9).
+//
+// State → token pair (DESIGN.md §Color Semantic Variants):
+//   .live   → green-bg / green-border / green text
+//   .paused → yellow
+//   .draft  → bg-3 / border / txt-3 (neutral)
+//   .fail   → red
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px 3px 7px;
+  border-radius: var(--ds-radius-full);
+  font-size: var(--ds-text-3xs);
+  font-weight: var(--ds-weight-medium);
+  border: 1px solid;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  // Leading dot inherits color from the pill's color
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: var(--ds-radius-full);
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  &.live {
+    color: var(--ds-green);
+    background: var(--ds-green-bg);
+    border-color: var(--ds-green-border);
+  }
+
+  &.paused {
+    color: var(--ds-yellow);
+    background: var(--ds-yellow-bg);
+    border-color: var(--ds-yellow-border);
+  }
+
+  &.draft {
+    color: var(--ds-txt-3);
+    background: var(--ds-bg-3);
+    border-color: var(--ds-border);
+  }
+
+  &.fail {
+    color: var(--ds-red);
+    background: var(--ds-red-bg);
+    border-color: var(--ds-red-border);
+  }
+
+  // Pending / processing — orange family
+  &.pending {
+    color: var(--ds-orange);
+    background: var(--ds-orange-bg);
+    border-color: var(--ds-orange-border);
+  }
+}
