@@ -62,14 +62,13 @@
   --ds-weight-bold: 700;
   --ds-weight-extrabold: 800;
   /* ──────────────────────────────────────────────────────────
-   * Surfaces — DEVIATION from docs-channel light values:
-   * Page background sits at #fafafa (DESIGN.md's --ds-bg-2 in
-   * docs); panels at pure white. Provides panel-elevation cue
-   * without leaning on shadows. Documented in
-   * docs/_drafts/migration-v2.md §3.3.
+   * Surfaces — page background sits darker than panels so cards
+   * have a visible material/elevation cue without shadows.
+   * Page bg matches the existing app baseline (#F0F4F9 from v1's
+   * $body-bg); panels stay pure white.
    * ──────────────────────────────────────────────────────── */
   color-scheme: light;
-  --ds-bg: #fafafa;
+  --ds-bg: #f0f4f9;
   --ds-bg-2: #f4f4f5;
   --ds-bg-3: #f4f4f5;
   --ds-bg-hover: #f4f7fb;
@@ -106,7 +105,48 @@
   --ds-primary-ring: rgba(51, 102, 255, 0.16);
 }
 
-:root {
+/* Dark mode — opt-in via [data-theme="dark"] on <html> or any ancestor.
+   Mirrors design-system/tokens/dark.css values. Pair with Bootstrap's
+   own [data-bs-theme="dark"] (set both attributes together) so the
+   --ds-* layer and the Bootstrap-layer surfaces stay in sync. */
+[data-theme=dark] {
+  color-scheme: dark;
+  --ds-bg: #09090b;
+  --ds-bg-2: rgba(255, 255, 255, 0.03);
+  --ds-bg-3: rgba(255, 255, 255, 0.055);
+  --ds-bg-hover: rgba(255, 255, 255, 0.07);
+  --ds-bg-elevated: rgba(255, 255, 255, 0.045);
+  --ds-border: rgba(255, 255, 255, 0.08);
+  --ds-border-2: rgba(255, 255, 255, 0.14);
+  --ds-txt: #fafafa;
+  --ds-txt-2: #d4d4d8;
+  --ds-txt-3: #a1a1aa;
+  --ds-txt-4: #71717a;
+  --ds-primary-muted: rgba(60, 125, 255, 0.12);
+  --ds-primary-border: rgba(60, 125, 255, 0.26);
+  --ds-primary-ring: rgba(60, 125, 255, 0.32);
+  --ds-yellow-bg: rgba(245, 158, 11, 0.12);
+  --ds-yellow-border: rgba(245, 158, 11, 0.28);
+  --ds-green-bg: rgba(34, 197, 94, 0.12);
+  --ds-green-border: rgba(34, 197, 94, 0.28);
+  --ds-red-bg: rgba(248, 113, 113, 0.12);
+  --ds-red-border: rgba(248, 113, 113, 0.28);
+  --ds-orange-bg: rgba(251, 146, 60, 0.12);
+  --ds-orange-border: rgba(251, 146, 60, 0.28);
+}
+
+/* Sellmore + dark stacked — Sellmore primary picks up dark-mode
+   muted/border/ring opacities. */
+[data-brand=sellmore][data-theme=dark],
+[data-theme=dark] [data-brand=sellmore] {
+  --ds-primary-muted: rgba(51, 102, 255, 0.12);
+  --ds-primary-border: rgba(51, 102, 255, 0.26);
+  --ds-primary-ring: rgba(51, 102, 255, 0.32);
+}
+
+:root,
+[data-bs-theme=light],
+[data-bs-theme=dark] {
   --bs-primary: var(--ds-primary);
   --bs-primary-rgb: 60, 125, 255;
   --bs-secondary: var(--ds-txt-3);
@@ -121,6 +161,22 @@
   --bs-warning: var(--ds-yellow);
   --bs-danger: var(--ds-red);
   --bs-info: var(--ds-primary-light);
+  --bs-card-bg: var(--ds-bg-elevated);
+  --bs-card-cap-bg: transparent;
+  --bs-card-border-color: var(--ds-border);
+  --bs-modal-bg: var(--ds-bg-elevated);
+  --bs-modal-border-color:var(--ds-border);
+  --bs-dropdown-bg: var(--ds-bg-elevated);
+  --bs-dropdown-border-color: var(--ds-border);
+  --bs-list-group-bg: var(--ds-bg-elevated);
+  --bs-list-group-border-color: var(--ds-border);
+  --bs-popover-bg: var(--ds-bg-elevated);
+  --bs-popover-border-color: var(--ds-border);
+  --bs-offcanvas-bg: var(--ds-bg-elevated);
+  --bs-tertiary-bg: var(--ds-bg-3);
+  --bs-secondary-bg: var(--ds-bg-2);
+  --bs-form-control-bg: var(--ds-bg-elevated);
+  --bs-form-control-color: var(--ds-txt);
 }
 
 [data-brand=sellmore] {
@@ -4393,12 +4449,12 @@ textarea.form-control-lg {
 
 .card {
   --bs-card-spacer-y: 1rem;
-  --bs-card-spacer-x: 1.25rem;
+  --bs-card-spacer-x: 1.5rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-title-color: ;
   --bs-card-subtitle-color: ;
   --bs-card-border-width: var(--bs-border-width);
-  --bs-card-border-color: #e4e4e7;
+  --bs-card-border-color: var(--bs-border-color-translucent);
   --bs-card-border-radius: 0.5rem;
   --bs-card-box-shadow: none;
   --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
@@ -4408,7 +4464,7 @@ textarea.form-control-lg {
   --bs-card-cap-color: ;
   --bs-card-height: ;
   --bs-card-color: ;
-  --bs-card-bg: #ffffff;
+  --bs-card-bg: var(--bs-body-bg);
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -12758,6 +12814,44 @@ td.num, th.num {
     scroll-behavior: auto !important;
   }
 }
+.card {
+  --bs-card-bg: var(--ds-bg-elevated);
+  --bs-card-border-color: var(--ds-border);
+  --bs-card-color: var(--ds-txt-2);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 60px;
+  padding: 0.875rem 1.5rem;
+}
+.card-header > *:first-child {
+  flex: 1;
+}
+
+.card-header-title {
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-weight-semibold);
+  margin: 0;
+  color: var(--ds-txt);
+}
+
+.card-header-subtitle {
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt-3);
+  margin: 2px 0 0;
+}
+
+.card-footer {
+  padding: 0.875rem 1.5rem;
+  background: var(--ds-bg-3);
+  border-top: 1px solid var(--ds-border);
+  font-size: var(--ds-text-xs);
+  color: var(--ds-txt-3);
+}
+
 aside.app {
   background: var(--ds-bg-elevated);
   border-right: 1px solid var(--ds-border);

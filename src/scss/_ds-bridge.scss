@@ -82,18 +82,22 @@ $input-padding-y:          0.5rem;
 $input-padding-x:          0.75rem;
 
 // ── Cards ─────────────────────────────────────────────────
-$card-bg:                #ffffff;     // --ds-bg-elevated (light-first)
-$card-border-color:      #e4e4e7;
+// Don't pin $card-bg as a literal — let it stay null so Bootstrap's
+// `--bs-card-bg: var(--bs-body-bg)` default applies. We override the
+// elevated treatment via the .card component itself in _card.scss.
 $card-cap-bg:            transparent;
 $card-spacer-y:          1rem;
-$card-spacer-x:          1.25rem;
+$card-spacer-x:          1.5rem;
 $card-border-radius:     0.5rem;      // --ds-radius-md
 $card-box-shadow:        none;
 
-// ── Override Bootstrap's --bs-* at runtime so brand swaps work ──
-// Re-tokenization inside :root so [data-brand="sellmore"] picks up
-// --ds-primary changes without a rebuild.
-:root {
+// ── Override Bootstrap's --bs-* at runtime ─────────────────
+// Re-tokenization runs at every Bootstrap theme attribute level so it
+// wins specificity vs Bootstrap's own [data-bs-theme="dark"] block.
+// (Plain :root would be lower specificity than [data-bs-theme].)
+:root,
+[data-bs-theme="light"],
+[data-bs-theme="dark"] {
   --bs-primary:           var(--ds-primary);
   --bs-primary-rgb:       60, 125, 255;
   --bs-secondary:         var(--ds-txt-3);
@@ -108,6 +112,26 @@ $card-box-shadow:        none;
   --bs-warning:           var(--ds-yellow);
   --bs-danger:            var(--ds-red);
   --bs-info:              var(--ds-primary-light);
+
+  // Surface tokens — Bootstrap baked $card-bg etc as SCSS literals at
+  // compile time. Override the resulting --bs-*-bg at runtime so dark
+  // mode flips them (--ds-bg-elevated picks up the dark value).
+  --bs-card-bg:           var(--ds-bg-elevated);
+  --bs-card-cap-bg:       transparent;
+  --bs-card-border-color: var(--ds-border);
+  --bs-modal-bg:          var(--ds-bg-elevated);
+  --bs-modal-border-color:var(--ds-border);
+  --bs-dropdown-bg:       var(--ds-bg-elevated);
+  --bs-dropdown-border-color: var(--ds-border);
+  --bs-list-group-bg:     var(--ds-bg-elevated);
+  --bs-list-group-border-color: var(--ds-border);
+  --bs-popover-bg:        var(--ds-bg-elevated);
+  --bs-popover-border-color: var(--ds-border);
+  --bs-offcanvas-bg:      var(--ds-bg-elevated);
+  --bs-tertiary-bg:       var(--ds-bg-3);
+  --bs-secondary-bg:      var(--ds-bg-2);
+  --bs-form-control-bg:   var(--ds-bg-elevated);
+  --bs-form-control-color: var(--ds-txt);
 }
 
 [data-brand="sellmore"] {
