@@ -20,6 +20,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("docs/assets/js");
   eleventyConfig.addPassthroughCopy("docs/assets/img");
 
+  // v2 reference portal pulls the actual built dist artifacts so the
+  // portal IS the dogfood site (consumers ship the same file).
+  eleventyConfig.addPassthroughCopy({ "dist/css/app-v2.css":     "v2/assets/app-v2.css" });
+  eleventyConfig.addPassthroughCopy({ "dist/css/app-v2.min.css": "v2/assets/app-v2.min.css" });
+
   // --- Global data ---
   eleventyConfig.addGlobalData("site", {
     title: "Next Commerce Design System",
