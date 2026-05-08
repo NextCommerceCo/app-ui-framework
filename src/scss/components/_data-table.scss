@@ -49,8 +49,10 @@ table.data {
     font-variant-numeric: tabular-nums;
   }
 
+  // Money / percentage cells. Inter with tabular-nums (DESIGN.md typography
+  // reserves mono for code + long technical IDs only). Use `.mono` helper
+  // on individual cells when the value is genuinely an identifier.
   .amount {
-    font-family: var(--ds-font-mono);
     font-size: var(--ds-text-xs);
     font-variant-numeric: tabular-nums;
     text-align: right;
@@ -76,7 +78,7 @@ table.data {
     color: #fff;
     font-size: var(--ds-text-2xs);
     font-weight: var(--ds-weight-semibold);
-    font-family: var(--ds-font-mono);
+    letter-spacing: 0.02em;
     background: linear-gradient(135deg, var(--ds-primary), var(--ds-primary-light));
   }
 

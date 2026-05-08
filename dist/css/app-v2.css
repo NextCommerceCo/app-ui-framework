@@ -12817,6 +12817,7 @@ aside.app .orgpick svg {
   flex-shrink: 0;
 }
 aside.app .nav {
+  display: block;
   padding: var(--ds-space-sm) var(--ds-space-md);
   flex: 1;
   overflow-y: auto;
@@ -12858,7 +12859,7 @@ aside.app .nav a .count {
   margin-left: auto;
   font-size: var(--ds-text-3xs);
   color: var(--ds-txt-3);
-  font-family: var(--ds-font-mono);
+  font-variant-numeric: tabular-nums;
 }
 aside.app .subnav {
   margin: var(--ds-space-2xs) 0 var(--ds-space-sm) 26px;
@@ -12930,7 +12931,6 @@ aside.app .user span {
 .crumb {
   font-size: var(--ds-text-2xs);
   color: var(--ds-txt-3);
-  font-family: var(--ds-font-mono);
   margin-bottom: 6px;
 }
 .crumb a {
@@ -12958,7 +12958,6 @@ aside.app .user span {
   color: var(--ds-yellow);
   border-radius: var(--ds-radius-full);
   border: 1px solid var(--ds-yellow-border);
-  font-family: var(--ds-font-mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -12998,13 +12997,11 @@ aside.app .user span {
   letter-spacing: var(--ds-num-spacing);
   font-variant-numeric: tabular-nums;
   line-height: var(--ds-leading-tight);
-  font-family: var(--ds-font-mono);
 }
 .metric .delta {
   font-size: var(--ds-text-2xs);
   font-weight: var(--ds-weight-medium);
   margin-top: 4px;
-  font-family: var(--ds-font-mono);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -13095,7 +13092,6 @@ aside.app .user span {
   background: var(--ds-bg);
   font-size: var(--ds-text-xs);
   color: var(--ds-txt-3);
-  font-family: var(--ds-font-mono);
 }
 .filterbar .search svg {
   width: 13px;
@@ -13154,7 +13150,6 @@ table.data .mono {
   font-variant-numeric: tabular-nums;
 }
 table.data .amount {
-  font-family: var(--ds-font-mono);
   font-size: var(--ds-text-xs);
   font-variant-numeric: tabular-nums;
   text-align: right;
@@ -13178,7 +13173,7 @@ table.data .amount {
   color: #fff;
   font-size: var(--ds-text-2xs);
   font-weight: var(--ds-weight-semibold);
-  font-family: var(--ds-font-mono);
+  letter-spacing: 0.02em;
   background: linear-gradient(135deg, var(--ds-primary), var(--ds-primary-light));
 }
 .camp .name {

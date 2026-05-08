@@ -7,9 +7,9 @@ permalink: /v2/foundation/
 
 <h1>Foundation tokens</h1>
 <p class="lede">
-  Every v2 surface composes against these tokens. They're sourced from
-  <code>design-system/tokens/{base,light,typography}.css</code> and inlined
-  in <code>src/scss/_ds-tokens.scss</code> with the light-first inversion.
+  CSS custom properties defined on <code>:root</code>. Every component
+  composes against these. Reference any of them in your own CSS as
+  <code>var(--ds-name)</code>.
 </p>
 
 ## Brand
@@ -56,33 +56,31 @@ Sellmore brand swap (opt-in via `<html data-brand="sellmore">`):
 
 <div class="swatches">
   <div class="swatch">
-    <div class="chip" style="background: var(--ds-bg);"></div>
+    <div class="chip" style="background: var(--ds-bg); border: 1px solid var(--ds-border-2);"></div>
     <div class="name">--ds-bg</div>
-    <div class="value">#fafafa (page bg)</div>
+    <div class="value">#fafafa — page background</div>
   </div>
   <div class="swatch">
-    <div class="chip" style="background: var(--ds-bg-elevated);"></div>
+    <div class="chip" style="background: var(--ds-bg-elevated); border: 1px solid var(--ds-border-2);"></div>
     <div class="name">--ds-bg-elevated</div>
-    <div class="value">#ffffff (panels)</div>
+    <div class="value">#ffffff — panels, cards</div>
   </div>
   <div class="swatch">
-    <div class="chip" style="background: var(--ds-bg-2);"></div>
+    <div class="chip" style="background: var(--ds-bg-2); border: 1px solid var(--ds-border-2);"></div>
     <div class="name">--ds-bg-2</div>
     <div class="value">#f4f4f5</div>
   </div>
   <div class="swatch">
-    <div class="chip" style="background: var(--ds-bg-3);"></div>
+    <div class="chip" style="background: var(--ds-bg-3); border: 1px solid var(--ds-border-2);"></div>
     <div class="name">--ds-bg-3</div>
-    <div class="value">#f4f4f5</div>
+    <div class="value">#f4f4f5 — table headers</div>
   </div>
   <div class="swatch">
-    <div class="chip" style="background: var(--ds-bg-hover);"></div>
+    <div class="chip" style="background: var(--ds-bg-hover); border: 1px solid var(--ds-border-2);"></div>
     <div class="name">--ds-bg-hover</div>
-    <div class="value">#f4f7fb</div>
+    <div class="value">#f4f7fb — hover state</div>
   </div>
 </div>
-
-**Deviation from docs-channel:** docs-channel light puts `--ds-bg: #ffffff` and `--ds-bg-elevated: rgba(255,255,255,0.96)`. App UI uses `#fafafa` for page bg and `#ffffff` for panels — provides panel-elevation cue without shadows. Documented in [migration-v2.md §3.3](https://github.com/NextCommerceCo/app-ui-framework/blob/main/docs/_drafts/migration-v2.md).
 
 ## Borders
 
@@ -156,10 +154,10 @@ Each semantic color has matching `-bg` (8% rgba) and `-border` (20% rgba) varian
 <div class="scale">
   <div class="scale-row"><span class="lbl">text-3xl</span><span class="px">36px</span><span class="sample" style="font-size: var(--ds-text-3xl); font-weight: 700;">Page title — H1</span></div>
   <div class="scale-row"><span class="lbl">text-2xl</span><span class="px">30px</span><span class="sample" style="font-size: var(--ds-text-2xl); font-weight: 700;">Section heading</span></div>
-  <div class="scale-row"><span class="lbl">text-xl</span><span class="px">24px</span><span class="sample" style="font-size: var(--ds-text-xl); font-weight: 600;">Page-head H1 (app density)</span></div>
+  <div class="scale-row"><span class="lbl">text-xl</span><span class="px">24px</span><span class="sample" style="font-size: var(--ds-text-xl); font-weight: 600;">Page-head H1</span></div>
   <div class="scale-row"><span class="lbl">text-lg</span><span class="px">19px</span><span class="sample" style="font-size: var(--ds-text-lg); font-weight: 600;">Card title</span></div>
   <div class="scale-row"><span class="lbl">text-base</span><span class="px">16px</span><span class="sample" style="font-size: var(--ds-text-base);">Body text — long-form</span></div>
-  <div class="scale-row"><span class="lbl">text-sm</span><span class="px">14px</span><span class="sample" style="font-size: var(--ds-text-sm);">Body text — app density (default)</span></div>
+  <div class="scale-row"><span class="lbl">text-sm</span><span class="px">14px</span><span class="sample" style="font-size: var(--ds-text-sm);">Body text (default)</span></div>
   <div class="scale-row"><span class="lbl">text-xs</span><span class="px">13px</span><span class="sample" style="font-size: var(--ds-text-xs);">UI labels, table cells, captions</span></div>
   <div class="scale-row"><span class="lbl">text-2xs</span><span class="px">12px</span><span class="sample" style="font-size: var(--ds-text-2xs);">Badges, tags, metadata</span></div>
   <div class="scale-row"><span class="lbl">text-3xs</span><span class="px">11px</span><span class="sample" style="font-size: var(--ds-text-3xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ds-txt-3);">FINE PRINT, NAV LABELS</span></div>
@@ -172,7 +170,7 @@ Each semantic color has matching `-bg` (8% rgba) and `-border` (20% rgba) varian
 --ds-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 ```
 
-**Body base size:** 14px (`--ds-text-sm`). Deviation from docs-channel's 16px — app density.
+**Body base size:** 14px (`--ds-text-sm`). Larger sizes for headings, smaller for UI labels and metadata.
 
 ## Spacing (4px base)
 

@@ -69,6 +69,10 @@ aside.app {
   }
 
   .nav {
+    // Override Bootstrap's `.nav { display: flex; flex-wrap: wrap }`. The
+    // sidebar nav is a stacked column of links + group headings, not a
+    // horizontal nav-tabs/nav-pills row.
+    display: block;
     padding: var(--ds-space-sm) var(--ds-space-md);
     flex: 1;
     overflow-y: auto;
@@ -114,7 +118,7 @@ aside.app {
         margin-left: auto;
         font-size: var(--ds-text-3xs);
         color: var(--ds-txt-3);
-        font-family: var(--ds-font-mono);
+        font-variant-numeric: tabular-nums;
       }
     }
   }

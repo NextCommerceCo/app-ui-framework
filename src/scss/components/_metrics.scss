@@ -30,14 +30,12 @@
     letter-spacing: var(--ds-num-spacing);
     font-variant-numeric: tabular-nums;
     line-height: var(--ds-leading-tight);
-    font-family: var(--ds-font-mono);
   }
 
   .delta {
     font-size: var(--ds-text-2xs);
     font-weight: var(--ds-weight-medium);
     margin-top: 4px;
-    font-family: var(--ds-font-mono);
     display: inline-flex;
     align-items: center;
     gap: 4px;

@@ -1,102 +1,99 @@
 ---
 layout: v2-layout
-title: "Overview"
-description: "Reference portal for app-ui-framework v2 — the Next Commerce design language for app/dashboard surfaces."
+title: "Getting started"
+description: "App UI Framework — design system reference for apps built on the Next Commerce platform."
 permalink: /v2/
 ---
 
-<h1>app-ui-framework <span class="badge bg-primary-soft" style="vertical-align: middle; font-size: var(--ds-text-2xs);">v2</span></h1>
+<h1>App UI Framework</h1>
 <p class="lede">
-  The Next Commerce design language for app/dashboard surfaces. Light-first.
-  Consumes <code>--ds-*</code> tokens from <code>design-system/</code>. Bootstrap 5.3 is the
-  grid/utility layer; component aesthetics come from the kit lifted into
-  <code>src/scss/components/</code>. This portal IS the dogfood — every page
-  here loads <code>app-v2.min.css</code>.
+  Design system reference for apps built on the Next Commerce platform. Light-first.
+  Bootstrap 5.3 grid + utilities + form/button/card primitives, paired with seven
+  app-shell components (sidebar, page head, metric strip, filter bar, data table,
+  status pill, notice). Drop-in CSS via CDN — no JS required.
 </p>
 
-<div class="hero">
-  <div class="hero-meta">
-    <span class="label">Live preview · admin shell rendered with v2 CSS</span>
-    <a href="/v2/admin-shell/">Open full preview →</a>
-  </div>
-  <div class="frame">
-    <iframe src="/v2/admin-shell/" title="v2 admin shell preview" loading="lazy"></iframe>
-  </div>
-</div>
+## Install
 
-## Quick start
-
-Drop one CSS link into your app's `<head>`:
+Add one CSS link to your app's `<head>`:
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/app-v2.min.css"
       rel="stylesheet" crossorigin="anonymous">
 ```
 
-That's it. Bootstrap 5.3 grid + utilities + form/button/card primitives are bundled in. The seven v2 components (sidebar, pagehead, metric strip, filter bar, data table, status pill, notice) are class-based — no JS required.
+That's it. If you also use Bootstrap JS (modals, dropdowns, tabs), include the bundle the same way:
 
-## Brand override
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+## Brand
 
 NEXT is the default brand. Switch to Sellmore at runtime with one attribute on `<html>`:
 
 ```html
-<html data-brand="sellmore"> ... </html>
+<html data-brand="sellmore">
+  …
+</html>
 ```
 
-This swaps `--ds-primary` from `#3c7dff` (NEXT) to `#3366ff` (Sellmore) and the muted/border/ring variants too. No SCSS rebuild required.
+This swaps the primary color from `#3c7dff` (NEXT) to `#3366ff` (Sellmore) along with the muted/border/ring variants. No CSS rebuild required.
 
-## Light-first, dark deferred
+## Pin a version
 
-App UI is **light-only**. Prime is light-only across all surfaces, and a dark sub-app would clash on every nav transition. v2 inverts the docs-channel design system's dark-first structure: `:root` carries light tokens, dark mode is deferred (opt-in via `[data-theme="dark"]` if/when a real surface need justifies it).
+`@latest` follows main. For production, pin to a release:
 
-The token *values* match `design-system/tokens/light.css` exactly. Three documented deviations:
+```html
+<link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@v2.0.0/dist/css/app-v2.min.css"
+      rel="stylesheet" crossorigin="anonymous">
+```
 
-- `--ds-bg: #fafafa` / `--ds-bg-elevated: #ffffff` — page slightly off-white, panels pure white. Provides panel-elevation cue without shadows.
-- `$font-size-base: 14px` (`--ds-text-sm`) — app density vs docs' 16px.
-- `:root` carries light tokens — structural inversion (Prime constraint).
+Releases: [github.com/NextCommerceCo/app-ui-framework/releases](https://github.com/NextCommerceCo/app-ui-framework/releases)
 
-Everything else (typography stack, type scale, spacing, radius, semantic colors, AI Slop Blacklist, Notice-not-Alert) carries unchanged.
+## Base layout
 
-## What's in v2
+A typical app uses a fixed sidebar + main content area. Drop this skeleton into your `<body>`:
 
-<div class="row" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 16px 0;">
-  <div class="card">
-    <div class="card-header"><h4 class="card-header-title">Foundation</h4></div>
-    <div class="card-body">
-      <p style="margin: 0 0 12px;">Color, typography, spacing, radius, shadow, layout — all sourced from <code>--ds-*</code>.</p>
-      <a href="/v2/foundation/" class="btn btn-primary btn-sm">View tokens →</a>
+```html
+<body style="margin: 0; display: grid; grid-template-columns: var(--ds-sidebar-w) minmax(0, 1fr); min-height: 100vh; background: var(--ds-bg);">
+
+  <aside class="app">
+    <!-- brand · org picker · nav · user footer -->
+  </aside>
+
+  <main class="app">
+    <div class="pagehead"> … </div>
+    <div class="metrics"> … </div>
+    <div class="filterbar"> … </div>
+    <div class="tablewrap">
+      <table class="data"> … </table>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header"><h4 class="card-header-title">Components</h4></div>
-    <div class="card-body">
-      <p style="margin: 0 0 12px;">Seven surfaces lifted from the campaigns_app variant kit. Class-based, JS-free.</p>
-      <a href="/v2/components/" class="btn btn-primary btn-sm">View components →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header"><h4 class="card-header-title">Admin shell (kitchen sink)</h4></div>
-    <div class="card-body">
-      <p style="margin: 0 0 12px;">Full campaigns-style admin surface rendered with v2 CSS. Compare against the kit source.</p>
-      <a href="/v2/admin-shell/" class="btn btn-primary btn-sm">Open shell →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header"><h4 class="card-header-title">Migration plan</h4></div>
-    <div class="card-body">
-      <p style="margin: 0 0 12px;">Why v2 exists, drift report, file structure, decisions log.</p>
-      <a href="https://github.com/NextCommerceCo/app-ui-framework/blob/main/docs/_drafts/migration-v2.md" class="btn btn-white btn-sm">Read on GitHub →</a>
-    </div>
-  </div>
-</div>
+  </main>
 
-## Versioning + v1 coexistence
+</body>
+```
 
-v1 (`next-app-ui.min.css`) ships unchanged at the same CDN URL it always did. v2 ships at a *new* URL (`app-v2.min.css`) so existing v1 consumers aren't disturbed. Migrate on your own schedule.
+Each component is documented on the [Components](/v2/components/) page with copy-pasteable markup.
 
-## Source
+## What ships
 
-- Migration plan: [`docs/_drafts/migration-v2.md`](https://github.com/NextCommerceCo/app-ui-framework/blob/main/docs/_drafts/migration-v2.md)
-- v2 SCSS: [`src/scss/`](https://github.com/NextCommerceCo/app-ui-framework/tree/main/src/scss)
-- Components lifted from: [`design-system/variants/claude-design-2026-04-19/project/ui_kits/campaigns_app/`](https://github.com/NextCommerceCo/design-system/tree/main/variants/claude-design-2026-04-19/project/ui_kits/campaigns_app)
-- Decisions log: [`design-system/DESIGN.md`](https://github.com/NextCommerceCo/design-system/blob/main/DESIGN.md#decisions-log) (entries dated 2026-05-08)
+- **Bootstrap 5.3** — grid, utilities, forms, buttons, cards, badges, dropdowns, modals, offcanvas, etc.
+- **Inter + JetBrains Mono** — loaded from Google Fonts, no extra include needed
+- **`--ds-*` design tokens** — color, type, spacing, radius, shadow ([reference](/v2/foundation/))
+- **Seven app-shell components** — sidebar, page head, metric strip, filter bar, data table, status pill, notice
+- **Two brand variants** — NEXT (default) and Sellmore via `data-brand`
+
+## Compatibility
+
+The previous version of this framework (`next-app-ui.min.css`) continues to ship at its existing URL with no changes. v2 is additive — it ships at a new URL, so existing apps consume v1 untouched. Migrate at your own pace.
+
+```html
+<!-- v1 (no changes) -->
+<link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css"
+      rel="stylesheet" crossorigin="anonymous">
+
+<!-- v2 -->
+<link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/app-v2.min.css"
+      rel="stylesheet" crossorigin="anonymous">
+```

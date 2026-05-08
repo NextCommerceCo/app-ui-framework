@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} — app-ui-framework v2</title>
-  <meta name="description" content="{{ description | default: 'Reference portal for app-ui-framework v2 — the Next Commerce design language for app/dashboard surfaces.' }}">
+  <title>{{ title }} — Next Commerce App UI</title>
+  <meta name="description" content="{{ description | default: 'App UI Framework — design system reference for apps built on the Next Commerce platform.' }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,49 +19,124 @@
   <link rel="shortcut icon" href="/assets/img/favicon-32x32.png" type="image/x-icon">
 
   <style>
-    /* Portal chrome — minimal v2-styled wrapper. */
-    body { display: grid; grid-template-columns: var(--ds-sidebar-w) minmax(0, 1fr); min-height: 100vh; }
-    .portal-aside { background: var(--ds-bg-elevated); border-right: 1px solid var(--ds-border); padding: 20px 16px; display: flex; flex-direction: column; gap: 24px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-    .portal-aside .brand { display: flex; align-items: baseline; gap: 8px; padding: 0 8px 16px; border-bottom: 1px solid var(--ds-border); }
-    .portal-aside .brand b { font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold); color: var(--ds-txt); }
-    .portal-aside .brand .v { font-size: var(--ds-text-3xs); font-weight: var(--ds-weight-bold); color: var(--ds-primary); background: var(--ds-primary-muted); padding: 2px 6px; border-radius: var(--ds-radius-sm); border: 1px solid var(--ds-primary-border); letter-spacing: 0.06em; text-transform: uppercase; }
-    .portal-aside h6 { font-size: var(--ds-text-3xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ds-txt-3); padding: 0 8px 4px; margin: 0; font-weight: var(--ds-weight-semibold); }
-    .portal-aside ul { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 1px; }
-    .portal-aside a { display: block; padding: 6px 8px; font-size: var(--ds-text-xs); color: var(--ds-txt-2); border-radius: var(--ds-radius-sm); text-decoration: none; }
-    .portal-aside a:hover { background: var(--ds-bg-hover); color: var(--ds-txt); }
-    .portal-aside a.active { background: var(--ds-primary-muted); color: var(--ds-primary); }
-    .portal-aside .footer { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--ds-border); font-size: var(--ds-text-3xs); color: var(--ds-txt-3); }
-    .portal-aside .footer a { color: var(--ds-txt-3); padding: 2px 8px; }
-    .portal-aside .footer a:hover { color: var(--ds-txt); background: transparent; }
+    /* Portal chrome — modeled on v1's main-nav ergonomics, v2 tokens. */
+    body {
+      margin: 0;
+      background: var(--ds-bg);
+    }
+    .portal-nav {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 220px;
+      background: var(--ds-bg-elevated);
+      border-right: 1px solid var(--ds-border);
+      padding: 24px 16px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .portal-nav .brand {
+      display: block;
+      padding: 0 8px 20px;
+      margin-bottom: 8px;
+    }
+    .portal-nav .brand img { width: 130px; height: auto; display: block; }
+    .portal-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .portal-nav .nav-group-heading {
+      padding: 14px 8px 4px;
+      font-size: var(--ds-text-3xs);
+      font-weight: var(--ds-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ds-txt-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .portal-nav .nav-group-heading svg { width: 14px; height: 14px; opacity: 0.6; }
+    .portal-nav a {
+      display: flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 6px 12px 6px 24px;
+      color: var(--ds-txt-2);
+      font-size: var(--ds-text-xs);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: color 0.12s ease, border-color 0.12s ease;
+    }
+    .portal-nav a:hover { color: var(--ds-txt); }
+    .portal-nav a.active {
+      color: var(--ds-primary);
+      font-weight: var(--ds-weight-medium);
+      border-left-color: var(--ds-primary);
+    }
 
-    .portal-main { padding: 32px 40px 80px; max-width: 1080px; }
+    .portal-main {
+      margin-left: 220px;
+      padding: 40px 56px 80px;
+      max-width: 920px;
+    }
+
     .portal-main h1 { font-size: var(--ds-text-3xl); margin: 0 0 8px; letter-spacing: -0.02em; }
     .portal-main .lede { font-size: var(--ds-text-base); color: var(--ds-txt-2); margin: 0 0 32px; max-width: 720px; }
-    .portal-main h2 { font-size: var(--ds-text-xl); margin: 40px 0 12px; letter-spacing: -0.01em; }
-    .portal-main h3 { font-size: var(--ds-text-lg); margin: 24px 0 8px; }
+    .portal-main h2 { font-size: var(--ds-text-xl); margin: 48px 0 12px; letter-spacing: -0.01em; padding-top: 16px; border-top: 1px solid var(--ds-border); }
+    .portal-main h2:first-of-type { border-top: 0; padding-top: 0; }
+    .portal-main h3 { font-size: var(--ds-text-lg); margin: 28px 0 8px; }
     .portal-main h4 { font-size: var(--ds-text-base); margin: 20px 0 6px; font-weight: var(--ds-weight-semibold); }
     .portal-main p { margin: 0 0 16px; }
-    .portal-main p code, .portal-main li code { background: var(--ds-bg-3); border: 1px solid var(--ds-border); padding: 1px 6px; border-radius: var(--ds-radius-sm); font-size: 0.9em; }
+    .portal-main p code, .portal-main li code, .portal-main td code {
+      background: var(--ds-bg-3);
+      border: 1px solid var(--ds-border);
+      padding: 1px 6px;
+      border-radius: var(--ds-radius-sm);
+      font-size: 0.9em;
+      font-family: var(--ds-font-mono);
+    }
     .portal-main ul, .portal-main ol { padding-left: 22px; }
     .portal-main ul li, .portal-main ol li { margin: 4px 0; color: var(--ds-txt-2); }
 
-    /* Live example block — bordered surface that renders the component above its markup */
-    .demo { border: 1px solid var(--ds-border); border-radius: var(--ds-radius-md); margin: 16px 0 8px; overflow: hidden; }
+    /* Live demo block — render the component above its markup */
+    .demo {
+      border: 1px solid var(--ds-border);
+      border-radius: var(--ds-radius-md);
+      margin: 12px 0 24px;
+      overflow: hidden;
+    }
     .demo .render { padding: 24px; background: var(--ds-bg-elevated); }
-    .demo .render.compact { padding: 12px; }
     .demo .render.bg { background: var(--ds-bg); }
-    .demo .render.contained { background: var(--ds-bg); border-bottom: 1px solid var(--ds-border); padding: 0; }
+    .demo .render.contained { padding: 0; background: var(--ds-bg); }
     .demo pre { margin: 0; border-top: 1px solid var(--ds-border); }
-    .demo pre code { font-size: var(--ds-text-2xs); padding: 16px 20px; display: block; background: var(--ds-bg-3); border: 0; border-radius: 0; }
+    .demo pre code {
+      font-size: var(--ds-text-2xs);
+      padding: 16px 20px;
+      display: block;
+      background: var(--ds-bg-3);
+      border: 0;
+      border-radius: 0;
+      color: var(--ds-txt-2);
+    }
 
-    /* Token swatches */
+    pre code.hljs {
+      padding: 16px 20px;
+      border-radius: var(--ds-radius-md);
+      font-family: var(--ds-font-mono);
+      font-size: var(--ds-text-2xs);
+      line-height: 1.6;
+    }
+    pre { margin: 12px 0 16px; border-radius: var(--ds-radius-md); overflow: hidden; }
+
+    /* Foundation page primitives */
     .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
     .swatch { background: var(--ds-bg-elevated); border: 1px solid var(--ds-border); border-radius: var(--ds-radius-md); padding: 12px; }
-    .swatch .chip { width: 100%; height: 56px; border-radius: var(--ds-radius-sm); border: 1px solid var(--ds-border); margin-bottom: 8px; }
+    .swatch .chip { width: 100%; height: 56px; border-radius: var(--ds-radius-sm); border: 1px solid var(--ds-border-2); margin-bottom: 8px; }
     .swatch .name { font-size: var(--ds-text-xs); font-weight: var(--ds-weight-semibold); color: var(--ds-txt); font-family: var(--ds-font-mono); }
     .swatch .value { font-size: var(--ds-text-3xs); color: var(--ds-txt-3); font-family: var(--ds-font-mono); margin-top: 2px; }
 
-    /* Type scale strip */
     .scale { background: var(--ds-bg-elevated); border: 1px solid var(--ds-border); border-radius: var(--ds-radius-md); padding: 4px 0; margin: 16px 0; }
     .scale-row { display: grid; grid-template-columns: 100px 80px minmax(0, 1fr); align-items: baseline; gap: 16px; padding: 10px 18px; border-bottom: 1px solid var(--ds-border); }
     .scale-row:last-child { border-bottom: 0; }
@@ -69,75 +144,49 @@
     .scale-row .px { font-size: var(--ds-text-3xs); color: var(--ds-txt-3); font-family: var(--ds-font-mono); }
     .scale-row .sample { color: var(--ds-txt); }
 
-    /* Spacing track */
     .spacing-track { display: grid; gap: 8px; margin: 16px 0; }
     .spacing-row { display: grid; grid-template-columns: 100px 80px minmax(0, 1fr); align-items: center; gap: 16px; padding: 8px 0; }
     .spacing-row .lbl { font-size: var(--ds-text-3xs); color: var(--ds-txt-3); font-family: var(--ds-font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
     .spacing-row .px { font-size: var(--ds-text-3xs); color: var(--ds-txt-3); font-family: var(--ds-font-mono); }
     .spacing-row .bar { height: 16px; background: var(--ds-primary-muted); border: 1px solid var(--ds-primary-border); border-radius: 2px; }
 
-    /* Hero — used on landing for big page-fill iframe of admin shell */
-    .hero {
-      margin: 0 0 32px;
-      border: 1px solid var(--ds-border);
-      border-radius: var(--ds-radius-lg);
-      overflow: hidden;
-      background: var(--ds-bg);
-    }
-    .hero .frame { background: #fff; }
-    .hero iframe { width: 100%; height: 720px; border: 0; display: block; }
-    .hero-meta { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; background: var(--ds-bg-elevated); border-bottom: 1px solid var(--ds-border); }
-    .hero-meta .label { font-size: var(--ds-text-3xs); font-weight: var(--ds-weight-semibold); color: var(--ds-txt-3); text-transform: uppercase; letter-spacing: 0.08em; }
-    .hero-meta a { font-size: var(--ds-text-2xs); color: var(--ds-primary); text-decoration: none; font-weight: var(--ds-weight-medium); }
-
-    /* Mark blocks pre/code styled */
-    pre code.hljs { padding: 16px 20px; border-radius: var(--ds-radius-md); font-family: var(--ds-font-mono); font-size: var(--ds-text-2xs); line-height: 1.6; }
-    pre { margin: 12px 0 16px; border-radius: var(--ds-radius-md); overflow: hidden; }
-
     @media (max-width: 900px) {
-      body { grid-template-columns: 1fr; }
-      .portal-aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--ds-border); }
-      .portal-main { padding: 24px 20px 60px; }
+      .portal-nav { position: static; width: auto; height: auto; border-right: 0; border-bottom: 1px solid var(--ds-border); }
+      .portal-main { margin-left: 0; padding: 24px 20px 60px; }
     }
   </style>
 </head>
 <body>
 
-<aside class="portal-aside">
-  <a href="/v2/" class="brand" style="text-decoration: none;">
-    <b>Next Commerce</b>
-    <span class="v">v2</span>
+<nav class="portal-nav" aria-label="App UI v2 navigation">
+  <a class="brand" href="/v2/">
+    <img src="/assets/img/next-commerce-logo.svg" alt="Next Commerce">
   </a>
 
-  <div>
-    <h6>Reference</h6>
-    <ul>
-      <li><a href="/v2/" {% if page.url == "/v2/" %}class="active"{% endif %}>Overview</a></li>
-      <li><a href="/v2/admin-shell/" {% if page.url == "/v2/admin-shell/" %}class="active"{% endif %}>Admin shell (kitchen sink)</a></li>
-      <li><a href="/v2/foundation/" {% if page.url == "/v2/foundation/" %}class="active"{% endif %}>Foundation tokens</a></li>
-      <li><a href="/v2/components/" {% if page.url == "/v2/components/" %}class="active"{% endif %}>Components</a></li>
-    </ul>
-  </div>
+  <ul>
+    <li>
+      <a href="/v2/" {% if page.url == "/v2/" %}class="active"{% endif %}>Getting started</a>
+    </li>
 
-  <div>
-    <h6>Components</h6>
-    <ul>
-      <li><a href="/v2/components/#sidebar">Sidebar</a></li>
-      <li><a href="/v2/components/#pagehead">Page head</a></li>
-      <li><a href="/v2/components/#metrics">Metric strip</a></li>
-      <li><a href="/v2/components/#filterbar">Filter bar</a></li>
-      <li><a href="/v2/components/#data-table">Data table</a></li>
-      <li><a href="/v2/components/#status-pill">Status pill</a></li>
-      <li><a href="/v2/components/#notice">Notice</a></li>
-    </ul>
-  </div>
+    <li class="nav-group-heading">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      Foundation
+    </li>
+    <li><a href="/v2/foundation/#brand"  {% if page.url == "/v2/foundation/" %}class="active"{% endif %}>Tokens</a></li>
 
-  <div class="footer">
-    <a href="/">v1 reference →</a>
-    <a href="https://github.com/NextCommerceCo/app-ui-framework">GitHub →</a>
-    <a href="https://github.com/NextCommerceCo/app-ui-framework/blob/main/docs/_drafts/migration-v2.md">Migration plan →</a>
-  </div>
-</aside>
+    <li class="nav-group-heading">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Components
+    </li>
+    <li><a href="/v2/components/#sidebar"     {% if page.url == "/v2/components/" %}class="active"{% endif %}>Sidebar</a></li>
+    <li><a href="/v2/components/#pagehead"    {% if page.url == "/v2/components/" %}class="active"{% endif %}>Page head</a></li>
+    <li><a href="/v2/components/#metrics"     {% if page.url == "/v2/components/" %}class="active"{% endif %}>Metric strip</a></li>
+    <li><a href="/v2/components/#filterbar"   {% if page.url == "/v2/components/" %}class="active"{% endif %}>Filter bar</a></li>
+    <li><a href="/v2/components/#data-table"  {% if page.url == "/v2/components/" %}class="active"{% endif %}>Data table</a></li>
+    <li><a href="/v2/components/#status-pill" {% if page.url == "/v2/components/" %}class="active"{% endif %}>Status pill</a></li>
+    <li><a href="/v2/components/#notice"      {% if page.url == "/v2/components/" %}class="active"{% endif %}>Notice</a></li>
+  </ul>
+</nav>
 
 <main class="portal-main">
   {{ content }}
