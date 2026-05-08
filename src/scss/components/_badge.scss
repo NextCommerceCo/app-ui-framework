@@ -1,0 +1,48 @@
+// _badge.scss
+// Soft / token-light variants of Bootstrap badges. Matches the .stat
+// status-pill aesthetic so badges sit comfortably alongside pills in
+// tables, headings, and inline list items.
+//
+// Use the *-soft variants by default. The solid Bootstrap defaults
+// (.badge.bg-primary etc.) remain available when stronger emphasis
+// is needed.
+
+.badge {
+  letter-spacing: 0.01em;
+}
+
+.badge.bg-primary-soft {
+  background: var(--ds-primary-muted) !important;
+  color: var(--ds-primary) !important;
+  border: 1px solid var(--ds-primary-border);
+}
+.badge.bg-success-soft {
+  background: var(--ds-green-bg) !important;
+  color: var(--ds-green) !important;
+  border: 1px solid var(--ds-green-border);
+}
+.badge.bg-warning-soft {
+  background: var(--ds-yellow-bg) !important;
+  color: var(--ds-yellow) !important;
+  border: 1px solid var(--ds-yellow-border);
+}
+.badge.bg-danger-soft {
+  background: var(--ds-red-bg) !important;
+  color: var(--ds-red) !important;
+  border: 1px solid var(--ds-red-border);
+}
+.badge.bg-info-soft {
+  background: var(--ds-primary-muted) !important;
+  color: var(--ds-primary) !important;
+  border: 1px solid var(--ds-primary-border);
+}
+.badge.bg-secondary-soft {
+  background: var(--ds-bg-3) !important;
+  color: var(--ds-txt-3) !important;
+  border: 1px solid var(--ds-border);
+}
+.badge.bg-orange-soft {
+  background: var(--ds-orange-bg) !important;
+  color: var(--ds-orange) !important;
+  border: 1px solid var(--ds-orange-border);
+}

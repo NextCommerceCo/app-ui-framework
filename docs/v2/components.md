@@ -260,7 +260,35 @@ permalink: /v2/components/
 </div>
 
 <h2 id="badges">Badges</h2>
-<p>Bootstrap badges. Use for compact counts and tag-style labels in headings, buttons, and navigation.</p>
+<p>Compact counts and tag-style labels in headings, buttons, and inline lists. Soft variants are the default — they sit comfortably alongside <a href="#status-pill">status pills</a>. Solid variants are available for stronger emphasis.</p>
+
+<h4 style="margin-top: 20px;">Soft (default)</h4>
+
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <span class="badge bg-primary-soft">Default</span>
+      <span class="badge bg-success-soft">Success</span>
+      <span class="badge bg-warning-soft">Warning</span>
+      <span class="badge bg-danger-soft">Danger</span>
+      <span class="badge bg-secondary-soft">Secondary</span>
+    </div>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 16px;">
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Messages <span class="badge bg-primary-soft">12</span></h4>
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Failed <span class="badge bg-danger-soft">3</span></h4>
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Drafts <span class="badge bg-secondary-soft">7</span></h4>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;span class="badge bg-primary-soft"&gt;Default&lt;/span&gt;
+&lt;span class="badge bg-success-soft"&gt;Success&lt;/span&gt;
+&lt;span class="badge bg-warning-soft"&gt;Warning&lt;/span&gt;
+&lt;span class="badge bg-danger-soft"&gt;Danger&lt;/span&gt;
+&lt;span class="badge bg-secondary-soft"&gt;Secondary&lt;/span&gt;
+
+&lt;h4&gt;Messages &lt;span class="badge bg-primary-soft"&gt;12&lt;/span&gt;&lt;/h4&gt;</code></pre>
+</div>
+
+<h4>Solid (high-emphasis)</h4>
 
 <div class="demo">
   <div class="render">
@@ -271,16 +299,9 @@ permalink: /v2/components/
       <span class="badge bg-danger">Danger</span>
       <span class="badge bg-secondary">Secondary</span>
     </div>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px;">
-      <h4 style="margin: 0; font-size: var(--ds-text-base);">Messages <span class="badge bg-primary">12</span></h4>
-      <h4 style="margin: 0; font-size: var(--ds-text-base);">Failed <span class="badge bg-danger">3</span></h4>
-    </div>
   </div>
   <pre><code class="language-html">&lt;span class="badge bg-primary"&gt;Default&lt;/span&gt;
-&lt;span class="badge bg-success"&gt;Success&lt;/span&gt;
-&lt;span class="badge bg-danger"&gt;Danger&lt;/span&gt;
-
-&lt;h4&gt;Messages &lt;span class="badge bg-primary"&gt;12&lt;/span&gt;&lt;/h4&gt;</code></pre>
+&lt;span class="badge bg-success"&gt;Success&lt;/span&gt;</code></pre>
 </div>
 
 <h2 id="loaders">Loaders</h2>
