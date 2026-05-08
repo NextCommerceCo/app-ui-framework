@@ -6,9 +6,9 @@ description: Bring app-ui-framework forward to consume design-system/ tokens wit
 
 # app-ui-framework v2 — migration plan
 
-**Status:** draft for review · no source changes yet · review with @[Alex]
+**Status:** Phases 0 + 1 shipped 2026-05-08 (Devin signoff on §9 decisions). Phase 2 (campaigns-app dogfood) parked.
 **Author:** Devin
-**Supersedes (if approved):** `design-system/DESIGN.md` decisions log entry `2026-04-02 · Design system scoped to docs/publication channel`
+**Supersedes:** `design-system/DESIGN.md` decisions log entry `2026-04-02 · Design system scoped to docs/publication channel` — formally retracted in DESIGN.md decisions log (2026-05-08).
 **Audience:** app-ui-framework maintainers + campaigns-app frontend
 
 ---
@@ -672,17 +672,23 @@ No drop-dead dates pinned without Alex's input on his team's bandwidth.
 
 ---
 
-## 9. Open questions for Alex
+## 9. Decisions resolved
 
-1. **§3.1 — light `-border` tokens.** Patch upstream in `design-system/tokens/light.css`, or carry the fill-in only in v2's `_ds-tokens.scss`? Recommend upstream — the omission looks like a typo against DESIGN.md's §Color text.
-2. **§3.2 — Sellmore tokens.** Add to `design-system/tokens/base.css`, or keep them only in the consolidated `colors_and_type.css`? Recommend upstream for consistency with the brand-split table in `DESIGN.md`.
-3. **§3.3 — `--ds-bg-elevated` deviation.** Approve the `--ds-bg: #fafafa` / `--ds-bg-elevated: #ffffff` pair for app UI light, deviating from DESIGN.md docs-channel values? Or hold to DESIGN.md exactly and rely on borders alone for elevation?
-4. **§2 — body font size deviation.** v1 currently uses 15px (`0.9375rem`). DESIGN.md docs-channel default is 16px. Kit and Stripe-style admin convention is 14px. v2 proposes 14px (`--ds-text-sm`). OK?
-5. **§5.2 — v2 source location.** Land alongside v1 in `src/scss/` (sketch above) or in a new `src/scss-v2/` directory? Sketch keeps everything visible together; separate dir keeps v1 fully isolated. Slight preference for sketch shape — Bootstrap imports once.
-6. **§6 — CDN URL strategy.** Should v2 ship at `dist/css/app-v2.min.css` (sketched) or rename to something brand-neutral like `dist/css/next-app-v2.min.css`? Bikeshed-able.
-7. **Dark mode deferral horizon.** Hard "no dark mode in v2 ever" or soft "deferred to a later phase, opt-in if a real surface needs it"? Sketch is the soft version.
-8. **§5.3 — campaigns-app dogfood scope.** First slice = Campaigns list view (matches the kit). Or pick a smaller slice (e.g., metric strip alone) for faster v2 SCSS iteration? Recommend full list view — that's where the components compound.
-9. **Decisions log retraction** (§1). Word the replacement entry however you'd like; sketch above is a starting draft, not a final.
+Devin signed off on the open questions on 2026-05-08. Phases 0 + 1 shipped against these answers; Phase 2 (campaigns-app dogfood) is parked until further notice.
+
+| # | Question | Decision | Where it landed |
+|---|---|---|---|
+| 1 | Light `-border` tokens — upstream patch or v2-only fill-in? | **Upstream** | `design-system` `a0b9136` — `tokens/light.css`, `colors_and_type.css` |
+| 2 | Sellmore tokens — split files or consolidated only? | **Upstream** in split files | `design-system` `a0b9136` — `tokens/base.css` |
+| 3 | `--ds-bg-elevated` deviation (`#fafafa` page / `#ffffff` panel) | **Approved** | `app-ui-framework` `2542bce` — `_ds-tokens.scss` + DESIGN.md decisions log |
+| 4 | Body font size — 14px (`--ds-text-sm`) for app density? | **Yes, 14px** | `app-ui-framework` `2542bce` — `_ds-bridge.scss` `$font-size-base: 0.875rem` |
+| 5 | v2 source location — alongside v1 in `src/scss/`? | **Alongside** | `app-ui-framework` `2542bce` — same dir as v1 |
+| 6 | CDN URL — `dist/css/app-v2.min.css`? | **Yes** | `app-ui-framework` `2542bce` — `dist/css/app-v2.{css,min.css}` shipped |
+| 7 | Dark mode deferral — hard "never" or soft "later"? | **Soft (deferred, opt-in)** | `_ds-tokens.scss` header comment — `[data-theme="dark"]` opt-in path documented |
+| 8 | campaigns-app dogfood — first slice = Campaigns list view? | **Held — campaigns-app stays read-only** | No campaigns-app changes. Phase 2 unblocked only on explicit further instruction. |
+| 9 | Decisions log retraction wording | **Accepted as proposed** | `design-system` `a0b9136` — DESIGN.md decisions log 2026-05-08 entries |
+
+**What this doc is now:** historical record of the migration rationale + drift report + file-structure sketches. Phases 0 + 1 are shipped artifacts; the doc no longer gates them. If/when Phase 2 unparks, the campaigns-app dogfood scope question (Q8) reopens.
 
 ---
 
