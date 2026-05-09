@@ -22,16 +22,46 @@
   <!-- v2 stylesheet — same artifact consumers ship -->
   <link rel="stylesheet" href="/v2/assets/app-v2.min.css">
 
-  <!-- highlight.js — github-dark always so code panels read as a distinct
-       "code zone" in both light and dark modes (Stripe / Tailwind / Vercel
-       docs convention). -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
+  <!-- highlight.js — light + dark themes, gated by data-bs-theme.
+       Code panels match page surface (calmer than github-dark always). -->
+  <link rel="stylesheet" media="(prefers-color-scheme: no-preference), all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="hljs-light">
+  <link rel="stylesheet" disabled href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" id="hljs-dark">
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script>
+    // Toggle hljs stylesheet to match data-bs-theme. Runs once at load and
+    // again whenever the theme attribute changes.
+    (function () {
+      function syncHljsTheme() {
+        var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+        var l = document.getElementById('hljs-light');
+        var d = document.getElementById('hljs-dark');
+        if (l) l.disabled = dark;
+        if (d) d.disabled = !dark;
+      }
+      syncHljsTheme();
+      new MutationObserver(syncHljsTheme).observe(document.documentElement, {
+        attributes: true, attributeFilter: ['data-bs-theme']
+      });
+    })();
+  </script>
 
   <link rel="shortcut icon" href="/assets/img/favicon-32x32.png" type="image/x-icon">
 
   <style>
     /* Portal chrome — modeled on v1's main-nav ergonomics, v2 tokens. */
+
+    /* Code panel surface — light by default, lifted-dark in dark mode.
+       Paired with hljs github / github-dark themes (gated by data-bs-theme).
+       Calmer than github-dark-everywhere; reads as embedded in the page. */
+    :root {
+      --ds-code-bg: #f6f8fa;
+      --ds-code-fg: #24292f;
+    }
+    [data-theme="dark"] {
+      --ds-code-bg: #161b22;
+      --ds-code-fg: #c9d1d9;
+    }
+
     body {
       margin: 0;
       background: var(--ds-bg);
@@ -156,15 +186,21 @@
       margin: 12px 0 24px;
       overflow: hidden;
     }
-    .demo .render { padding: 24px; background: var(--ds-bg-elevated); }
+    .demo .render {
+      padding: 24px;
+      background: var(--ds-bg-elevated);
+      overflow-x: auto;
+    }
     .demo .render.bg { background: var(--ds-bg); }
     .demo .render.contained { padding: 0; background: var(--ds-bg); }
-    /* Code panel — dark in both modes for clear "this is code" delineation.
-       Collapsed by default; expanded via the .demo-code-toggle strip
-       inserted just above the pre by demo-code-toggle JS at the bottom. */
+    /* Code panel — surface bg matching the page (light by default, dark in
+       data-bs-theme="dark"). Hljs theme is gated to match. Collapsed by
+       default; expanded via the .demo-code-toggle strip inserted just above
+       the pre by demo-code-toggle JS at the bottom. */
     .demo pre {
       margin: 0;
-      background: #0d1117; /* matches github-dark */
+      background: var(--ds-code-bg);
+      border-top: 1px solid var(--ds-border);
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.18s ease;
@@ -173,13 +209,16 @@
     .demo pre code {
       font-family: var(--ds-font-mono);
       font-size: var(--ds-text-2xs);
-      line-height: 1.55;
+      line-height: 1.6;
       padding: 18px 22px;
       display: block;
       background: transparent;
       border: 0;
       border-radius: 0;
-      color: #c9d1d9; /* matches github-dark default text */
+      color: var(--ds-code-fg);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .demo-code-toggle {
       width: 100%;
@@ -212,7 +251,7 @@
       margin: 12px 0 16px;
       border-radius: var(--ds-radius-md);
       overflow: hidden;
-      background: #0d1117;
+      background: var(--ds-code-bg);
       border: 1px solid var(--ds-border);
     }
     pre code.hljs {
@@ -220,8 +259,12 @@
       border-radius: 0;
       font-family: var(--ds-font-mono);
       font-size: var(--ds-text-2xs);
-      line-height: 1.55;
+      line-height: 1.6;
       background: transparent;
+      color: var(--ds-code-fg);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     /* Foundation page primitives */
