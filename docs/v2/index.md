@@ -7,10 +7,8 @@ permalink: /v2/
 
 <h1>App UI Framework</h1>
 <p class="lede">
-  Design system reference for apps built on the Next Commerce platform. Light-first.
-  Bootstrap 5.3 grid + utilities + form/button/card primitives, paired with seven
-  app-shell components (sidebar, page head, metric strip, filter bar, data table,
-  status pill, notice). Drop-in CSS via CDN — no JS required.
+  Primitives for admin and dashboard surfaces. Bootstrap 5.3 underneath,
+  light-first, drop-in via CDN.
 </p>
 
 ## Install
