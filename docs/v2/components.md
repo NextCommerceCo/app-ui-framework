@@ -307,7 +307,7 @@ permalink: /v2/components/
 </div>
 
 <h2 id="forms">Forms</h2>
-<p>Bootstrap form controls themed via v2 tokens. Inputs sit on white over the page's <code>--ds-bg</code>.</p>
+<p>Bootstrap form controls themed via v2 tokens. Inputs read <code>--ds-bg-elevated</code> against the page's <code>--ds-bg</code> — both flip in dark mode.</p>
 
 <div class="demo">
   <div class="render">
