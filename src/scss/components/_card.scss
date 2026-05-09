@@ -12,6 +12,11 @@
   --bs-card-bg: var(--ds-bg-elevated);
   --bs-card-border-color: var(--ds-border);
   --bs-card-color: var(--ds-txt-2);
+
+  // Subtle drop shadow gives material lift over the page surface.
+  // Soft enough to honor the flat aesthetic, strong enough that cards
+  // don't fade into the page in light mode and have presence in dark.
+  box-shadow: var(--ds-shadow-md);
 }
 
 .card-header {

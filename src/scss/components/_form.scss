@@ -1,0 +1,71 @@
+// _form.scss
+// Theme-aware form-control / form-select / form-check overrides.
+//
+// Bootstrap pins $input-bg / $input-color as SCSS literals at compile
+// time, which would block the dark-mode flip. Bridge drops those
+// literals; this component rebinds the surfaces against runtime
+// --ds-* tokens so inputs flip with [data-theme="dark"].
+
+.form-control,
+.form-select {
+  background-color: var(--ds-bg-elevated);
+  color: var(--ds-txt);
+  border-color: var(--ds-border-2);
+}
+
+.form-control::placeholder {
+  color: var(--ds-txt-4);
+  opacity: 1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--ds-bg-elevated);
+  color: var(--ds-txt);
+  border-color: var(--ds-primary);
+  box-shadow: 0 0 0 3px var(--ds-primary-ring);
+}
+
+.form-control:disabled,
+.form-control[readonly],
+.form-select:disabled {
+  background-color: var(--ds-bg-3);
+  color: var(--ds-txt-3);
+}
+
+.form-label {
+  color: var(--ds-txt);
+  font-weight: var(--ds-weight-medium);
+  font-size: var(--ds-text-xs);
+  margin-bottom: 6px;
+}
+
+.form-text {
+  color: var(--ds-txt-3);
+  font-size: var(--ds-text-2xs);
+}
+
+.form-check-input {
+  background-color: var(--ds-bg-elevated);
+  border-color: var(--ds-border-2);
+}
+
+.form-check-input:checked {
+  background-color: var(--ds-primary);
+  border-color: var(--ds-primary);
+}
+
+.form-check-input:focus {
+  border-color: var(--ds-primary);
+  box-shadow: 0 0 0 3px var(--ds-primary-ring);
+}
+
+.form-check-label {
+  color: var(--ds-txt-2);
+}
+
+// Bootstrap's form-select chevron is a baked-in light-mode SVG. Re-emit
+// for dark mode so it stays visible on the dark input surface.
+[data-theme="dark"] .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}

@@ -170,6 +170,11 @@
   --ds-red-border:    rgba(248, 113, 113, 0.28);
   --ds-orange-bg:     rgba(251, 146, 60,  0.12);
   --ds-orange-border: rgba(251, 146, 60,  0.28);
+
+  /* Shadows are punchier on dark — light-mode rgba(0,0,0,0.06-0.08)
+     is invisible on a #09090b page bg. */
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ds-shadow-md: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Sellmore + dark stacked — Sellmore primary picks up dark-mode
