@@ -263,7 +263,6 @@ permalink: /v2/components/
       <button type="button" class="btn btn-outline-danger">Danger</button>
       <button type="button" class="btn btn-outline-warning">Warning</button>
       <button type="button" class="btn btn-outline-info">Info</button>
-      <button type="button" class="btn btn-outline-light">Light</button>
       <button type="button" class="btn btn-outline-dark">Dark</button>
     </div>
   </div>
@@ -273,7 +272,6 @@ permalink: /v2/components/
 &lt;button type="button" class="btn btn-outline-danger"&gt;Danger&lt;/button&gt;
 &lt;button type="button" class="btn btn-outline-warning"&gt;Warning&lt;/button&gt;
 &lt;button type="button" class="btn btn-outline-info"&gt;Info&lt;/button&gt;
-&lt;button type="button" class="btn btn-outline-light"&gt;Light&lt;/button&gt;
 &lt;button type="button" class="btn btn-outline-dark"&gt;Dark&lt;/button&gt;</code></pre>
 </div>
 
