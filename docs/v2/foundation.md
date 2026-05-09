@@ -198,7 +198,7 @@ Each semantic color has matching `-bg` (8% rgba) and `-border` (20% rgba) varian
 
 ## Shadow (flat aesthetic)
 
-DESIGN.md §Shadow uses borders over drop-shadow. Two tokens for the rare cases shadow is the right call:
+v2 prefers borders over drop-shadow. Two tokens cover the rare cases where shadow earns its weight:
 
 ```css
 --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
