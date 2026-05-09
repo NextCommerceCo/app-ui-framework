@@ -15,20 +15,20 @@ permalink: /v2/components/
 <!-- ════════════════════════════════════════════════════════ -->
 
 <h2 id="cards">Cards</h2>
-<p>Container surface. Bootstrap card with v2 token treatment — light panel, 1px border, 8px radius, no drop shadow.</p>
+<p>Container surface. Bootstrap card with v2 token treatment — elevated panel, 1px border, 8px radius, subtle drop shadow for material lift.</p>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Basic</h3>
 
 <div class="demo">
   <div class="render bg">
     <div class="card" style="max-width: 480px;">
       <div class="card-header">
-        <h4 class="card-header-title" style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Card title</h4>
+        <h4 class="card-header-title">Card title</h4>
       </div>
       <div class="card-body">
         <p style="margin: 0;">Body content sits in the card-body. Border-color, radius, and padding all read from <code>--ds-*</code> tokens.</p>
       </div>
-      <div class="card-footer" style="background: var(--ds-bg-3); padding: 12px 20px; border-top: 1px solid var(--ds-border); font-size: var(--ds-text-xs); color: var(--ds-txt-3);">
-        Footer
-      </div>
+      <div class="card-footer">Footer</div>
     </div>
   </div>
   <pre><code class="language-html">&lt;div class="card"&gt;
@@ -39,6 +39,132 @@ permalink: /v2/components/
     &lt;p&gt;Body content.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class="card-footer"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Header with actions</h3>
+
+<div class="demo">
+  <div class="render bg">
+    <div class="card" style="max-width: 640px;">
+      <div class="card-header">
+        <div>
+          <h4 class="card-header-title">Recent activity</h4>
+          <div class="card-header-subtitle">Last 24 hours · 47 events</div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-white btn-sm"><i class="ti ti-filter"></i> Filter</button>
+          <button class="btn btn-primary btn-sm"><i class="ti ti-plus"></i> New</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <p style="margin: 0; color: var(--ds-txt-2);">First child of <code>.card-header</code> takes <code>flex: 1</code>, so right-aligned actions sit at the right edge automatically.</p>
+      </div>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div&gt;
+      &lt;h4 class="card-header-title"&gt;Recent activity&lt;/h4&gt;
+      &lt;div class="card-header-subtitle"&gt;Last 24 hours · 47 events&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;button class="btn btn-white btn-sm"&gt;&lt;i class="ti ti-filter"&gt;&lt;/i&gt; Filter&lt;/button&gt;
+      &lt;button class="btn btn-primary btn-sm"&gt;&lt;i class="ti ti-plus"&gt;&lt;/i&gt; New&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt; … &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Kitchen sink</h3>
+<p>Card composing multiple primitives — title with badge, subtitle, header actions, embedded data table, footer with pagination.</p>
+
+<div class="demo">
+  <div class="render bg">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h4 class="card-header-title">Active campaigns <span class="badge bg-success-light">8 live</span></h4>
+          <div class="card-header-subtitle">Acme Co · last 30 days</div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <select class="form-select form-select-sm" style="width: auto;">
+            <option>Last 30 days</option>
+            <option>Last 7 days</option>
+            <option>This quarter</option>
+          </select>
+          <button class="btn btn-white btn-sm"><i class="ti ti-download"></i> Export</button>
+        </div>
+      </div>
+      <div class="card-body" style="padding: 0;">
+        <table class="data" style="border-radius: 0; border-left: 0; border-right: 0; border-top: 0; border-bottom: 0; margin: 0;">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Status</th>
+              <th>Sessions</th>
+              <th>Revenue</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="camp"><div class="thumb">A1</div><div><div class="name">Spring serum launch</div><div class="sub">item_7x4q</div></div></div></td>
+              <td><span class="stat live">Live</span></td>
+              <td>48,412</td>
+              <td class="amount">$92,340.00</td>
+              <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
+            </tr>
+            <tr>
+              <td><div class="camp"><div class="thumb" style="background: linear-gradient(135deg, #22c55e, #16a34a);">A2</div><div><div class="name">Retargeting funnel</div><div class="sub">item_4j8p</div></div></div></td>
+              <td><span class="stat paused">Paused</span></td>
+              <td>12,104</td>
+              <td class="amount">$14,812.00</td>
+              <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
+            </tr>
+            <tr>
+              <td><div class="camp"><div class="thumb" style="background: linear-gradient(135deg, #a78bfa, #8b5cf6);">A3</div><div><div class="name">TikTok video hero</div><div class="sub">item_2k8w</div></div></div></td>
+              <td><span class="stat draft">Draft</span></td>
+              <td>—</td>
+              <td class="amount" style="color: var(--ds-txt-3);">—</td>
+              <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer" style="display: flex; align-items: center; justify-content: space-between;">
+        <span>Showing 3 of 8</span>
+        <nav>
+          <ul class="pagination pagination-sm" style="margin: 0;">
+            <li class="page-item disabled"><a class="page-link" href="#"><i class="ti ti-chevron-left"></i></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="ti ti-chevron-right"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div&gt;
+      &lt;h4 class="card-header-title"&gt;Active campaigns &lt;span class="badge bg-success-light"&gt;8 live&lt;/span&gt;&lt;/h4&gt;
+      &lt;div class="card-header-subtitle"&gt;Acme Co · last 30 days&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;select class="form-select form-select-sm"&gt; … &lt;/select&gt;
+      &lt;button class="btn btn-white btn-sm"&gt;Export&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body" style="padding: 0;"&gt;
+    &lt;table class="data"&gt; … &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;div class="card-footer"&gt;
+    &lt;span&gt;Showing 3 of 8&lt;/span&gt;
+    &lt;nav&gt;&lt;ul class="pagination pagination-sm"&gt; … &lt;/ul&gt;&lt;/nav&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
 
@@ -260,48 +386,68 @@ permalink: /v2/components/
 </div>
 
 <h2 id="badges">Badges</h2>
-<p>Compact counts and tag-style labels in headings, buttons, and inline lists. Soft variants are the default — they sit comfortably alongside <a href="#status-pill">status pills</a>. Solid variants are available for stronger emphasis.</p>
+<p>Compact counts and tag-style labels for headings, buttons, and inline lists. Light variants are the default — they sit comfortably alongside <a href="#status-pill">status pills</a>. Solid variants are available for stronger emphasis. Pill shape (round) is opt-in.</p>
 
-<h4 style="margin-top: 20px;">Soft (default)</h4>
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Light (default)</h3>
 
 <div class="demo">
   <div class="render">
     <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-      <span class="badge bg-primary-soft">Default</span>
-      <span class="badge bg-success-soft">Success</span>
-      <span class="badge bg-warning-soft">Warning</span>
-      <span class="badge bg-danger-soft">Danger</span>
-      <span class="badge bg-secondary-soft">Secondary</span>
+      <span class="badge bg-primary-light">Primary</span>
+      <span class="badge bg-secondary-light">Secondary</span>
+      <span class="badge bg-success-light">Success</span>
+      <span class="badge bg-info-light">Info</span>
+      <span class="badge bg-warning-light">Warning</span>
+      <span class="badge bg-danger-light">Danger</span>
     </div>
     <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 16px;">
-      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Messages <span class="badge bg-primary-soft">12</span></h4>
-      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Failed <span class="badge bg-danger-soft">3</span></h4>
-      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Drafts <span class="badge bg-secondary-soft">7</span></h4>
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Messages <span class="badge bg-primary-light">12</span></h4>
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Open issues <span class="badge bg-info-light">5</span></h4>
+      <h4 style="margin: 0; font-size: var(--ds-text-base); font-weight: var(--ds-weight-semibold);">Failed <span class="badge bg-danger-light">3</span></h4>
     </div>
   </div>
-  <pre><code class="language-html">&lt;span class="badge bg-primary-soft"&gt;Default&lt;/span&gt;
-&lt;span class="badge bg-success-soft"&gt;Success&lt;/span&gt;
-&lt;span class="badge bg-warning-soft"&gt;Warning&lt;/span&gt;
-&lt;span class="badge bg-danger-soft"&gt;Danger&lt;/span&gt;
-&lt;span class="badge bg-secondary-soft"&gt;Secondary&lt;/span&gt;
+  <pre><code class="language-html">&lt;span class="badge bg-primary-light"&gt;Primary&lt;/span&gt;
+&lt;span class="badge bg-secondary-light"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge bg-success-light"&gt;Success&lt;/span&gt;
+&lt;span class="badge bg-info-light"&gt;Info&lt;/span&gt;
+&lt;span class="badge bg-warning-light"&gt;Warning&lt;/span&gt;
+&lt;span class="badge bg-danger-light"&gt;Danger&lt;/span&gt;
 
-&lt;h4&gt;Messages &lt;span class="badge bg-primary-soft"&gt;12&lt;/span&gt;&lt;/h4&gt;</code></pre>
+&lt;h4&gt;Messages &lt;span class="badge bg-primary-light"&gt;12&lt;/span&gt;&lt;/h4&gt;</code></pre>
 </div>
 
-<h4>Solid (high-emphasis)</h4>
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Solid (high-emphasis)</h3>
 
 <div class="demo">
   <div class="render">
     <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-      <span class="badge bg-primary">Default</span>
+      <span class="badge bg-primary">Primary</span>
+      <span class="badge bg-secondary">Secondary</span>
       <span class="badge bg-success">Success</span>
+      <span class="badge bg-info">Info</span>
       <span class="badge bg-warning">Warning</span>
       <span class="badge bg-danger">Danger</span>
-      <span class="badge bg-secondary">Secondary</span>
     </div>
   </div>
-  <pre><code class="language-html">&lt;span class="badge bg-primary"&gt;Default&lt;/span&gt;
-&lt;span class="badge bg-success"&gt;Success&lt;/span&gt;</code></pre>
+  <pre><code class="language-html">&lt;span class="badge bg-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge bg-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge bg-info"&gt;Info&lt;/span&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Pill shape</h3>
+<p>Add <code>.rounded-pill</code> for fully-round badges — useful for inline counts where a ticked label would feel boxy.</p>
+
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <span class="badge bg-primary-light rounded-pill">12</span>
+      <span class="badge bg-success-light rounded-pill">Live</span>
+      <span class="badge bg-warning-light rounded-pill">3 pending</span>
+      <span class="badge bg-info-light rounded-pill">New</span>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;span class="badge bg-primary-light rounded-pill"&gt;12&lt;/span&gt;
+&lt;span class="badge bg-success-light rounded-pill"&gt;Live&lt;/span&gt;</code></pre>
 </div>
 
 <h2 id="loaders">Loaders</h2>

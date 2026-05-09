@@ -11,6 +11,7 @@
   --ds-yellow: #f59e0b;
   --ds-red: #f87171;
   --ds-orange: #fb923c;
+  --ds-cyan: #0ea5e9; /* info — distinct from primary blue */
   /* ── Layout ───────────────────────────────────────────── */
   --ds-layout-max: 1600px;
   --ds-sidebar-w: 248px; /* App UI deviation: 248px (kit) vs docs 320px */
@@ -92,6 +93,8 @@
   --ds-red-border: rgba(248, 113, 113, 0.20);
   --ds-orange-bg: rgba(251, 146, 60, 0.08);
   --ds-orange-border: rgba(251, 146, 60, 0.20);
+  --ds-cyan-bg: rgba(14, 165, 233, 0.10);
+  --ds-cyan-border: rgba(14, 165, 233, 0.24);
 }
 
 /* Sellmore brand override — opt-in via [data-brand="sellmore"]
@@ -133,6 +136,8 @@
   --ds-red-border: rgba(248, 113, 113, 0.28);
   --ds-orange-bg: rgba(251, 146, 60, 0.12);
   --ds-orange-border: rgba(251, 146, 60, 0.28);
+  --ds-cyan-bg: rgba(14, 165, 233, 0.14);
+  --ds-cyan-border: rgba(14, 165, 233, 0.30);
   /* Shadows are punchier on dark — light-mode rgba(0,0,0,0.06-0.08)
      is invisible on a #09090b page bg. */
   --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -13502,49 +13507,75 @@ table.data .amount {
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
   letter-spacing: 0.01em;
+  --bs-badge-font-size: 0.8rem;
+  --bs-badge-padding-y: 0.35em;
+  --bs-badge-padding-x: 0.7em;
+  --bs-badge-border-radius: var(--ds-radius-sm);
+  --bs-badge-font-weight: 500;
 }
 
+.badge.rounded-pill,
+.badge.badge-pill {
+  --bs-badge-border-radius: 9999px;
+}
+
+.badge.bg-primary-light,
 .badge.bg-primary-soft {
   background: var(--ds-primary-muted) !important;
   color: var(--ds-primary) !important;
   border: 1px solid var(--ds-primary-border);
 }
 
+.badge.bg-success-light,
 .badge.bg-success-soft {
   background: var(--ds-green-bg) !important;
   color: var(--ds-green) !important;
   border: 1px solid var(--ds-green-border);
 }
 
+.badge.bg-warning-light,
 .badge.bg-warning-soft {
   background: var(--ds-yellow-bg) !important;
   color: var(--ds-yellow) !important;
   border: 1px solid var(--ds-yellow-border);
 }
 
+.badge.bg-danger-light,
 .badge.bg-danger-soft {
   background: var(--ds-red-bg) !important;
   color: var(--ds-red) !important;
   border: 1px solid var(--ds-red-border);
 }
 
+.badge.bg-info-light,
 .badge.bg-info-soft {
-  background: var(--ds-primary-muted) !important;
-  color: var(--ds-primary) !important;
-  border: 1px solid var(--ds-primary-border);
+  background: var(--ds-cyan-bg) !important;
+  color: var(--ds-cyan) !important;
+  border: 1px solid var(--ds-cyan-border);
 }
 
+.badge.bg-secondary-light,
 .badge.bg-secondary-soft {
   background: var(--ds-bg-3) !important;
-  color: var(--ds-txt-3) !important;
+  color: var(--ds-txt-2) !important;
   border: 1px solid var(--ds-border);
 }
 
+.badge.bg-orange-light,
 .badge.bg-orange-soft {
   background: var(--ds-orange-bg) !important;
   color: var(--ds-orange) !important;
   border: 1px solid var(--ds-orange-border);
+}
+
+.badge.bg-info {
+  background: var(--ds-cyan) !important;
+  color: #fff !important;
 }
 
 .timeline {

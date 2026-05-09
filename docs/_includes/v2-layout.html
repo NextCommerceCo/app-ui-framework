@@ -22,20 +22,11 @@
   <!-- v2 stylesheet — same artifact consumers ship -->
   <link rel="stylesheet" href="/v2/assets/app-v2.min.css">
 
-  <!-- highlight.js for code samples — light + dark stylesheets, dark
-       toggled via media on theme change -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" media="none" id="hljs-dark">
+  <!-- highlight.js — github-dark always so code panels read as a distinct
+       "code zone" in both light and dark modes (Stripe / Tailwind / Vercel
+       docs convention). -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
-  <script>
-    // Apply hljs theme to match data-theme on first paint
-    (function () {
-      var dark = document.getElementById('hljs-dark');
-      if (!dark) return;
-      var current = document.documentElement.getAttribute('data-theme') || 'light';
-      dark.media = current === 'dark' ? 'all' : 'none';
-    })();
-  </script>
 
   <link rel="shortcut icon" href="/assets/img/favicon-32x32.png" type="image/x-icon">
 
@@ -136,8 +127,8 @@
 
     .portal-main {
       margin-left: 220px;
-      padding: 40px 56px 80px;
-      max-width: 920px;
+      padding: 32px 40px 80px;
+      max-width: 1320px;
     }
 
     .portal-main h1 { font-size: var(--ds-text-3xl); margin: 0 0 8px; letter-spacing: -0.02em; }
@@ -168,25 +159,40 @@
     .demo .render { padding: 24px; background: var(--ds-bg-elevated); }
     .demo .render.bg { background: var(--ds-bg); }
     .demo .render.contained { padding: 0; background: var(--ds-bg); }
-    .demo pre { margin: 0; border-top: 1px solid var(--ds-border); }
-    .demo pre code {
-      font-size: var(--ds-text-2xs);
-      padding: 16px 20px;
-      display: block;
-      background: var(--ds-bg-3);
-      border: 0;
-      border-radius: 0;
-      color: var(--ds-txt-2);
+    /* Code panel — dark in both modes for clear "this is code" delineation */
+    .demo pre {
+      margin: 0;
+      border-top: 1px solid var(--ds-border);
+      background: #0d1117; /* matches github-dark */
     }
-
-    pre code.hljs {
-      padding: 16px 20px;
-      border-radius: var(--ds-radius-md);
+    .demo pre code {
       font-family: var(--ds-font-mono);
       font-size: var(--ds-text-2xs);
-      line-height: 1.6;
+      line-height: 1.55;
+      padding: 18px 22px;
+      display: block;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: #c9d1d9; /* matches github-dark default text */
     }
-    pre { margin: 12px 0 16px; border-radius: var(--ds-radius-md); overflow: hidden; }
+
+    /* Inline / standalone code blocks (outside .demo) */
+    pre {
+      margin: 12px 0 16px;
+      border-radius: var(--ds-radius-md);
+      overflow: hidden;
+      background: #0d1117;
+      border: 1px solid var(--ds-border);
+    }
+    pre code.hljs {
+      padding: 18px 22px;
+      border-radius: 0;
+      font-family: var(--ds-font-mono);
+      font-size: var(--ds-text-2xs);
+      line-height: 1.55;
+      background: transparent;
+    }
 
     /* Foundation page primitives */
     .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
@@ -310,8 +316,6 @@
       document.documentElement.setAttribute('data-theme', next);
       document.documentElement.setAttribute('data-bs-theme', next);
       localStorage.setItem('theme', next);
-      var hljsDark = document.getElementById('hljs-dark');
-      if (hljsDark) hljsDark.media = next === 'dark' ? 'all' : 'none';
     });
   })();
 </script>

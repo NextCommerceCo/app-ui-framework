@@ -1,48 +1,87 @@
 // _badge.scss
-// Soft / token-light variants of Bootstrap badges. Matches the .stat
-// status-pill aesthetic so badges sit comfortably alongside pills in
-// tables, headings, and inline list items.
+// Light variants of Bootstrap badges. Naming matches v1
+// (.bg-{color}-light) so v1 markup migrates without rewrites.
 //
-// Use the *-soft variants by default. The solid Bootstrap defaults
-// (.badge.bg-primary etc.) remain available when stronger emphasis
-// is needed.
+// Sizing follows v1: inline-flex centering, ~12.8px font, slimmer
+// vertical padding, and a small (not pill) radius so badges sit as
+// distinct labels rather than pillows.
 
 .badge {
+  // Bootstrap default --bs-badge-padding-* applies; we just adjust the
+  // shape so labels read like v1.
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
   letter-spacing: 0.01em;
+  --bs-badge-font-size:    0.8rem;       // 12.8px — v1 parity
+  --bs-badge-padding-y:    0.35em;
+  --bs-badge-padding-x:    0.7em;
+  --bs-badge-border-radius: var(--ds-radius-sm); // 6px (v1 was tighter, v2 default was 9999)
+  --bs-badge-font-weight:  500;
 }
 
-.badge.bg-primary-soft {
+// Pill variant for cases where the round shape is wanted (e.g. inline counts).
+.badge.rounded-pill,
+.badge.badge-pill {
+  --bs-badge-border-radius: 9999px;
+}
+
+// Light variants — soft bg, matching colored text, subtle border.
+// Sit comfortably alongside .stat status pills.
+
+.badge.bg-primary-light,
+.badge.bg-primary-soft { // back-compat with the v2-soft naming
   background: var(--ds-primary-muted) !important;
   color: var(--ds-primary) !important;
   border: 1px solid var(--ds-primary-border);
 }
+
+.badge.bg-success-light,
 .badge.bg-success-soft {
   background: var(--ds-green-bg) !important;
   color: var(--ds-green) !important;
   border: 1px solid var(--ds-green-border);
 }
+
+.badge.bg-warning-light,
 .badge.bg-warning-soft {
   background: var(--ds-yellow-bg) !important;
   color: var(--ds-yellow) !important;
   border: 1px solid var(--ds-yellow-border);
 }
+
+.badge.bg-danger-light,
 .badge.bg-danger-soft {
   background: var(--ds-red-bg) !important;
   color: var(--ds-red) !important;
   border: 1px solid var(--ds-red-border);
 }
+
+.badge.bg-info-light,
 .badge.bg-info-soft {
-  background: var(--ds-primary-muted) !important;
-  color: var(--ds-primary) !important;
-  border: 1px solid var(--ds-primary-border);
+  background: var(--ds-cyan-bg) !important;
+  color: var(--ds-cyan) !important;
+  border: 1px solid var(--ds-cyan-border);
 }
+
+.badge.bg-secondary-light,
 .badge.bg-secondary-soft {
   background: var(--ds-bg-3) !important;
-  color: var(--ds-txt-3) !important;
+  color: var(--ds-txt-2) !important;
   border: 1px solid var(--ds-border);
 }
+
+.badge.bg-orange-light,
 .badge.bg-orange-soft {
   background: var(--ds-orange-bg) !important;
   color: var(--ds-orange) !important;
   border: 1px solid var(--ds-orange-border);
+}
+
+// Solid info variant — Bootstrap doesn't ship one cleanly with our
+// cyan token, so define it here too.
+.badge.bg-info {
+  background: var(--ds-cyan) !important;
+  color: #fff !important;
 }
