@@ -23,8 +23,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 52px;
-  padding: 0.625rem 1.5rem; // 10px / 24px — tighter so title sits proper
+  min-height: 44px;
+  padding: 0.5rem 1.5rem; // 8px / 24px — tight, balanced cap-height-wise
 
   // First child (typically the title block) takes remaining width so
   // any right-aligned actions sit at the right edge.
@@ -38,7 +38,7 @@
   font-weight: var(--ds-weight-semibold);
   margin: 0;
   color: var(--ds-txt);
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .card-header-subtitle {
