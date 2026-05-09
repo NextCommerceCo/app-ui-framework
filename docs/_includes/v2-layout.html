@@ -52,14 +52,20 @@
 
     /* Code panel surface — light by default, lifted-dark in dark mode.
        Paired with hljs github / github-dark themes (gated by data-bs-theme).
-       Calmer than github-dark-everywhere; reads as embedded in the page. */
+       Calmer than github-dark-everywhere; reads as embedded in the page.
+
+       Portal chrome surface — solid in both modes. dark mode --ds-bg-elevated
+       is rgba alpha which goes transparent over the scrim when the mobile
+       sidebar slides in; portal chrome needs an opaque base instead. */
     :root {
       --ds-code-bg: #f6f8fa;
       --ds-code-fg: #24292f;
+      --portal-chrome-bg: var(--ds-bg-elevated);
     }
     [data-theme="dark"] {
       --ds-code-bg: #161b22;
       --ds-code-fg: #c9d1d9;
+      --portal-chrome-bg: #18181b;
     }
 
     body {
@@ -70,7 +76,7 @@
       position: fixed;
       top: 0; left: 0; bottom: 0;
       width: 220px;
-      background: var(--ds-bg-elevated);
+      background: var(--portal-chrome-bg);
       border-right: 1px solid var(--ds-border);
       padding: 24px 16px 16px;
       overflow-y: auto;
@@ -79,8 +85,8 @@
     }
     .portal-nav .brand {
       display: block;
-      padding: 0 8px 20px;
-      margin-bottom: 8px;
+      padding: 0 8px;
+      margin-bottom: 32px;
     }
     .portal-nav .brand img { width: 130px; height: auto; display: block; }
     /* Light/dark logo swap — show one or the other based on data-theme */
@@ -138,21 +144,31 @@
     }
     .portal-nav .nav-group-heading svg { width: 14px; height: 14px; opacity: 0.6; }
     .portal-nav a {
+      position: relative;
       display: flex;
       align-items: center;
-      min-height: 36px;
+      min-height: 32px;
       padding: 6px 12px 6px 24px;
       color: var(--ds-txt-2);
       font-size: var(--ds-text-xs);
       text-decoration: none;
-      border-left: 3px solid transparent;
-      transition: color 0.12s ease, border-color 0.12s ease;
+      transition: color 0.12s ease;
     }
     .portal-nav a:hover { color: var(--ds-txt); }
     .portal-nav a.active {
       color: var(--ds-primary);
       font-weight: var(--ds-weight-medium);
-      border-left-color: var(--ds-primary);
+    }
+    .portal-nav a.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 14px;
+      background: var(--ds-primary);
+      border-radius: 1px;
     }
 
     .portal-main {
@@ -179,12 +195,19 @@
     .portal-main ul, .portal-main ol { padding-left: 22px; }
     .portal-main ul li, .portal-main ol li { margin: 4px 0; color: var(--ds-txt-2); }
 
-    /* Live demo block — render the component above its markup */
+    /* Live demo block — render the component above its markup. Light mode
+       relies on --ds-bg-elevated card on gray page bg + --ds-shadow-sm for
+       quiet material lift (no outer border, calmer than v1's framed demo).
+       Dark mode adds a hairline border because shadows don't read on dark. */
     .demo {
-      border: 1px solid var(--ds-border);
       border-radius: var(--ds-radius-md);
       margin: 12px 0 24px;
       overflow: hidden;
+      box-shadow: var(--ds-shadow-sm);
+    }
+    [data-theme="dark"] .demo {
+      border: 1px solid var(--ds-border);
+      box-shadow: none;
     }
     .demo .render {
       padding: 24px;
@@ -225,15 +248,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border: 0;
       border-top: 1px solid var(--ds-border);
       background: var(--ds-bg-elevated);
       color: var(--ds-txt-3);
-      font-family: var(--ds-font-mono);
-      font-size: var(--ds-text-3xs);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-family: inherit;
+      font-size: var(--ds-text-2xs);
       cursor: pointer;
       transition: color 0.12s ease, background 0.12s ease;
     }
@@ -267,12 +288,45 @@
       word-break: break-word;
     }
 
-    /* Foundation page primitives */
-    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
-    .swatch { background: var(--ds-bg-elevated); border: 1px solid var(--ds-border); border-radius: var(--ds-radius-md); padding: 12px; }
-    .swatch .chip { width: 100%; height: 56px; border-radius: var(--ds-radius-sm); border: 1px solid var(--ds-border-2); margin-bottom: 8px; }
-    .swatch .name { font-size: var(--ds-text-xs); font-weight: var(--ds-weight-semibold); color: var(--ds-txt); font-family: var(--ds-font-mono); }
-    .swatch .value { font-size: var(--ds-text-3xs); color: var(--ds-txt-3); font-family: var(--ds-font-mono); margin-top: 2px; }
+    /* Foundation page primitives — token reference, not a brand showcase.
+       Compact rows: small chip + token name + value, no per-swatch card. */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0 32px;
+      margin: 16px 0 32px;
+    }
+    .swatch {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      column-gap: 14px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--ds-border);
+    }
+    .swatch .chip {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--ds-radius-sm);
+      border: 1px solid var(--ds-border-2);
+      grid-row: 1 / span 2;
+    }
+    .swatch .name {
+      font-size: var(--ds-text-xs);
+      color: var(--ds-txt);
+      font-family: var(--ds-font-mono);
+      grid-column: 2;
+      align-self: end;
+      line-height: 1.2;
+    }
+    .swatch .value {
+      font-size: var(--ds-text-3xs);
+      color: var(--ds-txt-3);
+      font-family: var(--ds-font-mono);
+      grid-column: 2;
+      align-self: start;
+      line-height: 1.3;
+    }
 
     .scale { background: var(--ds-bg-elevated); border: 1px solid var(--ds-border); border-radius: var(--ds-radius-md); padding: 4px 0; margin: 16px 0; }
     .scale-row { display: grid; grid-template-columns: 100px 80px minmax(0, 1fr); align-items: baseline; gap: 16px; padding: 10px 18px; border-bottom: 1px solid var(--ds-border); }
@@ -300,7 +354,7 @@
       justify-content: center;
       border: 1px solid var(--ds-border);
       border-radius: var(--ds-radius-sm);
-      background: var(--ds-bg-elevated);
+      background: var(--portal-chrome-bg);
       color: var(--ds-txt);
       cursor: pointer;
       padding: 0;
@@ -443,6 +497,35 @@
       });
       demo.insertBefore(btn, pre);
     });
+  })();
+</script>
+<script>
+  // Active-link sync — Liquid handles page-level active classes, but
+  // component sub-links all point at /v2/components/#anchor, so we
+  // resolve the active sub-link here from location.hash and update on
+  // hashchange. Falls through to whatever Liquid set if no hash.
+  (function () {
+    var nav = document.getElementById('portalNav');
+    if (!nav) return;
+    function syncActive() {
+      var path = location.pathname.replace(/\/$/, '/') || '/';
+      var hash = location.hash;
+      var target = path + hash;
+      var linksOnPage = nav.querySelectorAll('a[href^="' + path + '#"]');
+      // Only override if the page is the components page (or any page
+      // with hash sub-links). Pages with a clean URL keep Liquid's class.
+      if (linksOnPage.length === 0) return;
+      nav.querySelectorAll('a').forEach(function (a) {
+        if (a.getAttribute('href').indexOf(path + '#') === 0) {
+          a.classList.remove('active');
+        }
+      });
+      var match = nav.querySelector('a[href="' + target + '"]')
+              || (hash ? null : linksOnPage[0]);
+      if (match) match.classList.add('active');
+    }
+    syncActive();
+    window.addEventListener('hashchange', syncActive);
   })();
 </script>
 <script>
