@@ -1,0 +1,52 @@
+// _table.scss
+// Standard Bootstrap .table — pin --bs-table-bg / --bs-pagination-bg to
+// --ds-bg-elevated at the element scope so cells and page links render
+// on the elevated surface (same as cards) rather than transparent
+// (which would show the page bg through and look "tinted").
+//
+// Mirrors the .card pattern: Bootstrap defines its component bg vars
+// at the .card / .table / .pagination level itself, which beats any
+// :root override.
+
+.table {
+  --bs-table-bg:           var(--ds-bg-elevated);
+  --bs-table-color:        var(--ds-txt-2);
+  --bs-table-border-color: var(--ds-border);
+  --bs-table-hover-bg:     var(--ds-bg-hover);
+  --bs-table-striped-bg:   var(--ds-bg-2);
+}
+
+// Bootstrap 5.3's .page-link in dark/light themes pulls --bs-tertiary-bg
+// for its background under [data-bs-theme]; the --bs-pagination-bg
+// override alone doesn't win. Set background-color directly so the
+// page-link sits on the elevated surface in both modes.
+.page-link {
+  --bs-pagination-bg:               var(--ds-bg-elevated);
+  --bs-pagination-color:            var(--ds-txt);
+  --bs-pagination-border-color:     var(--ds-border);
+  --bs-pagination-hover-bg:         var(--ds-bg-hover);
+  --bs-pagination-hover-color:      var(--ds-txt);
+  --bs-pagination-hover-border-color: var(--ds-border);
+  --bs-pagination-active-bg:        var(--ds-primary);
+  --bs-pagination-active-color:     #ffffff;
+  --bs-pagination-active-border-color: var(--ds-primary);
+  --bs-pagination-disabled-bg:      var(--ds-bg-2);
+  --bs-pagination-disabled-color:   var(--ds-txt-3);
+
+  background-color: var(--ds-bg-elevated);
+  color: var(--ds-txt);
+  border-color: var(--ds-border);
+}
+.page-link:hover {
+  background-color: var(--ds-bg-hover);
+  color: var(--ds-txt);
+}
+.page-item.active .page-link {
+  background-color: var(--ds-primary);
+  color: #ffffff;
+  border-color: var(--ds-primary);
+}
+.page-item.disabled .page-link {
+  background-color: var(--ds-bg-2);
+  color: var(--ds-txt-3);
+}
