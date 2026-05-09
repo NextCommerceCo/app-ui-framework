@@ -71,6 +71,13 @@ td.num, th.num {
   letter-spacing: var(--ds-num-spacing);
 }
 
+// Right-align numeric table cells + their headers so columns stack on
+// the decimal — not just visually for .amount, but anywhere a th uses
+// the .num cue.
+table th.num, table td.num {
+  text-align: right;
+}
+
 .mono {
   font-family: var(--ds-font-mono);
   font-variant-numeric: tabular-nums;

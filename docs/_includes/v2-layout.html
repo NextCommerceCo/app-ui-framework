@@ -159,12 +159,17 @@
     .demo .render { padding: 24px; background: var(--ds-bg-elevated); }
     .demo .render.bg { background: var(--ds-bg); }
     .demo .render.contained { padding: 0; background: var(--ds-bg); }
-    /* Code panel — dark in both modes for clear "this is code" delineation */
+    /* Code panel — dark in both modes for clear "this is code" delineation.
+       Collapsed by default; expanded via the .demo-code-toggle strip
+       inserted just above the pre by demo-code-toggle JS at the bottom. */
     .demo pre {
       margin: 0;
-      border-top: 1px solid var(--ds-border);
       background: #0d1117; /* matches github-dark */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.18s ease;
     }
+    .demo[data-code-open="true"] pre { max-height: 1200px; }
     .demo pre code {
       font-family: var(--ds-font-mono);
       font-size: var(--ds-text-2xs);
@@ -176,6 +181,31 @@
       border-radius: 0;
       color: #c9d1d9; /* matches github-dark default text */
     }
+    .demo-code-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 0;
+      border-top: 1px solid var(--ds-border);
+      background: var(--ds-bg-elevated);
+      color: var(--ds-txt-3);
+      font-family: var(--ds-font-mono);
+      font-size: var(--ds-text-3xs);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.12s ease, background 0.12s ease;
+    }
+    .demo-code-toggle:hover { color: var(--ds-txt); background: var(--ds-bg-hover); }
+    .demo-code-toggle .icon { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.18s ease; }
+    .demo-code-toggle .label-show { display: inline; }
+    .demo-code-toggle .label-hide { display: none; }
+    .demo[data-code-open="true"] .demo-code-toggle { color: var(--ds-txt); border-bottom: 1px solid var(--ds-border); }
+    .demo[data-code-open="true"] .demo-code-toggle .icon { transform: rotate(90deg); }
+    .demo[data-code-open="true"] .demo-code-toggle .label-show { display: none; }
+    .demo[data-code-open="true"] .demo-code-toggle .label-hide { display: inline; }
 
     /* Inline / standalone code blocks (outside .demo) */
     pre {
@@ -304,6 +334,28 @@
 </main>
 
 <script>hljs.highlightAll();</script>
+<script>
+  // Demo-code accordion: collapse the <pre> in each .demo by default,
+  // insert a "View code </>" toggle strip just above it. Click expands.
+  (function () {
+    var ICON = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>';
+    document.querySelectorAll('.demo').forEach(function (demo) {
+      var pre = demo.querySelector(':scope > pre');
+      if (!pre) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'demo-code-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = ICON + '<span class="label-show">View code</span><span class="label-hide">Hide code</span>';
+      btn.addEventListener('click', function () {
+        var open = demo.getAttribute('data-code-open') === 'true';
+        demo.setAttribute('data-code-open', open ? 'false' : 'true');
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+      demo.insertBefore(btn, pre);
+    });
+  })();
+</script>
 <script>
   // Theme toggle — flip both data-theme (our --ds-*) and data-bs-theme
   // (Bootstrap-layer dark mode) together. Persist to localStorage.

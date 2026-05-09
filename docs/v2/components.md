@@ -21,7 +21,7 @@ permalink: /v2/components/
 
 <div class="demo">
   <div class="render bg">
-    <div class="card" style="max-width: 480px;">
+    <div class="card">
       <div class="card-header">
         <h4 class="card-header-title">Card title</h4>
       </div>
@@ -46,7 +46,7 @@ permalink: /v2/components/
 
 <div class="demo">
   <div class="render bg">
-    <div class="card" style="max-width: 640px;">
+    <div class="card">
       <div class="card-header">
         <div>
           <h4 class="card-header-title">Recent activity</h4>
@@ -88,23 +88,19 @@ permalink: /v2/components/
           <h4 class="card-header-title">Active campaigns <span class="badge bg-success-light">8 live</span></h4>
           <div class="card-header-subtitle">Acme Co · last 30 days</div>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <select class="form-select form-select-sm" style="width: auto;">
-            <option>Last 30 days</option>
-            <option>Last 7 days</option>
-            <option>This quarter</option>
-          </select>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-white btn-sm"><i class="ti ti-filter"></i> Filter</button>
           <button class="btn btn-white btn-sm"><i class="ti ti-download"></i> Export</button>
         </div>
       </div>
       <div class="card-body" style="padding: 0;">
-        <table class="data" style="border-radius: 0; border-left: 0; border-right: 0; border-top: 0; border-bottom: 0; margin: 0;">
+        <table class="data" style="border: 0; border-radius: 0; margin: 0;">
           <thead>
             <tr>
               <th>Campaign</th>
               <th>Status</th>
-              <th>Sessions</th>
-              <th>Revenue</th>
+              <th class="num">Sessions</th>
+              <th class="num">Revenue</th>
               <th></th>
             </tr>
           </thead>
@@ -112,21 +108,21 @@ permalink: /v2/components/
             <tr>
               <td><div class="camp"><div class="thumb">A1</div><div><div class="name">Spring serum launch</div><div class="sub">item_7x4q</div></div></div></td>
               <td><span class="stat live">Live</span></td>
-              <td>48,412</td>
+              <td class="num">48,412</td>
               <td class="amount">$92,340.00</td>
               <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
             </tr>
             <tr>
               <td><div class="camp"><div class="thumb" style="background: linear-gradient(135deg, #22c55e, #16a34a);">A2</div><div><div class="name">Retargeting funnel</div><div class="sub">item_4j8p</div></div></div></td>
               <td><span class="stat paused">Paused</span></td>
-              <td>12,104</td>
+              <td class="num">12,104</td>
               <td class="amount">$14,812.00</td>
               <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
             </tr>
             <tr>
               <td><div class="camp"><div class="thumb" style="background: linear-gradient(135deg, #a78bfa, #8b5cf6);">A3</div><div><div class="name">TikTok video hero</div><div class="sub">item_2k8w</div></div></div></td>
               <td><span class="stat draft">Draft</span></td>
-              <td>—</td>
+              <td class="num" style="color: var(--ds-txt-3);">—</td>
               <td class="amount" style="color: var(--ds-txt-3);">—</td>
               <td><div class="rowactions"><button class="iconbtn"><i class="ti ti-external-link"></i></button></div></td>
             </tr>
@@ -154,12 +150,21 @@ permalink: /v2/components/
       &lt;div class="card-header-subtitle"&gt;Acme Co · last 30 days&lt;/div&gt;
     &lt;/div&gt;
     &lt;div&gt;
-      &lt;select class="form-select form-select-sm"&gt; … &lt;/select&gt;
+      &lt;button class="btn btn-white btn-sm"&gt;Filter&lt;/button&gt;
       &lt;button class="btn btn-white btn-sm"&gt;Export&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="card-body" style="padding: 0;"&gt;
-    &lt;table class="data"&gt; … &lt;/table&gt;
+    &lt;table class="data"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Campaign&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;
+          &lt;th class="num"&gt;Sessions&lt;/th&gt;&lt;th class="num"&gt;Revenue&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt; … &lt;/tbody&gt;
+    &lt;/table&gt;
   &lt;/div&gt;
   &lt;div class="card-footer"&gt;
     &lt;span&gt;Showing 3 of 8&lt;/span&gt;
@@ -201,41 +206,106 @@ permalink: /v2/components/
 <!-- ════════════════════════════════════════════════════════ -->
 
 <h2 id="buttons">Buttons</h2>
-<p>Bootstrap buttons themed via v2 tokens. <code>.btn-white</code> is the canonical secondary — neutral surface, line-strong border.</p>
+<p>Bootstrap buttons themed via v2 tokens. <code>.btn-white</code> is the canonical secondary — neutral surface, line-strong border. Full Bootstrap color palette + outline variants are available.</p>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Sizes</h3>
 
 <div class="demo">
   <div class="render">
-    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-      <button class="btn btn-primary">Primary</button>
-      <button class="btn btn-white">Secondary</button>
-      <button class="btn btn-outline-primary">Outline</button>
-      <button class="btn btn-danger">Destructive</button>
-      <button class="btn btn-link">Link</button>
-    </div>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; align-items: center;">
-      <button class="btn btn-primary btn-lg">Large</button>
-      <button class="btn btn-primary">Default</button>
-      <button class="btn btn-primary btn-sm">Small</button>
-    </div>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-      <button class="btn btn-primary"><i class="ti ti-plus"></i> With icon</button>
-      <button class="btn btn-white"><i class="ti ti-download"></i> Export</button>
-      <button class="btn btn-white" disabled>Disabled</button>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+      <button type="button" class="btn btn-primary">Standard button</button>
+      <button type="button" class="btn btn-primary btn-sm">Small button</button>
     </div>
   </div>
-  <pre><code class="language-html">&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
-&lt;button class="btn btn-white"&gt;Secondary&lt;/button&gt;
-&lt;button class="btn btn-outline-primary"&gt;Outline&lt;/button&gt;
-&lt;button class="btn btn-danger"&gt;Destructive&lt;/button&gt;
+  <pre><code class="language-html">&lt;button type="button" class="btn btn-primary btn-lg"&gt;Large button&lt;/button&gt;
+&lt;button type="button" class="btn btn-primary"&gt;Standard button&lt;/button&gt;
+&lt;button type="button" class="btn btn-primary btn-sm"&gt;Small button&lt;/button&gt;</code></pre>
+</div>
 
-&lt;!-- Sizes --&gt;
-&lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
-&lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Colors</h3>
 
-&lt;!-- With icon --&gt;
-&lt;button class="btn btn-primary"&gt;
-  &lt;i class="ti ti-plus"&gt;&lt;/i&gt; With icon
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-white">White</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;button type="button" class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-white"&gt;White&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-success"&gt;Success&lt;/button&gt;
+&lt;button type="button" class="btn btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button type="button" class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-light"&gt;Light&lt;/button&gt;
+&lt;button type="button" class="btn btn-dark"&gt;Dark&lt;/button&gt;
+&lt;button type="button" class="btn btn-link"&gt;Link&lt;/button&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Outline colors</h3>
+
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button type="button" class="btn btn-outline-primary">Primary</button>
+      <button type="button" class="btn btn-outline-secondary">Secondary</button>
+      <button type="button" class="btn btn-outline-success">Success</button>
+      <button type="button" class="btn btn-outline-danger">Danger</button>
+      <button type="button" class="btn btn-outline-warning">Warning</button>
+      <button type="button" class="btn btn-outline-info">Info</button>
+      <button type="button" class="btn btn-outline-light">Light</button>
+      <button type="button" class="btn btn-outline-dark">Dark</button>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;button type="button" class="btn btn-outline-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-success"&gt;Success&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-danger"&gt;Danger&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-light"&gt;Light&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-dark"&gt;Dark&lt;/button&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">With icon</h3>
+
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button class="btn btn-primary"><i class="ti ti-plus"></i> New</button>
+      <button class="btn btn-white"><i class="ti ti-download"></i> Export</button>
+      <button class="btn btn-white"><i class="ti ti-filter"></i> Filter</button>
+      <button class="btn btn-outline-danger"><i class="ti ti-trash"></i> Delete</button>
+      <button class="btn btn-primary btn-sm"><i class="ti ti-edit"></i> Edit</button>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;button class="btn btn-primary"&gt;
+  &lt;i class="ti ti-plus"&gt;&lt;/i&gt; New
 &lt;/button&gt;</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 24px;">Disabled</h3>
+
+<div class="demo">
+  <div class="render">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button class="btn btn-primary" disabled>Primary</button>
+      <button class="btn btn-white" disabled>Secondary</button>
+      <button class="btn btn-outline-primary" disabled>Outline</button>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;button class="btn btn-primary" disabled&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-white" disabled&gt;Secondary&lt;/button&gt;</code></pre>
 </div>
 
 <h2 id="forms">Forms</h2>
