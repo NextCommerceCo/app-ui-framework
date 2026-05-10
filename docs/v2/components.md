@@ -734,39 +734,100 @@ permalink: /v2/components/
 **Dot variants:** outline (default), `.filled` (solid). Color: `.green` · `.yellow` · `.red` · `.blue`. Combine, e.g. `<div class="timeline-dot filled green"></div>`.
 
 <h2 id="charts">Charts</h2>
-<p>Bring your own chart library. Recommended: <a href="https://www.chartjs.org/">Chart.js</a>. Use the <code>--ds-*</code> tokens for series colors so charts inherit brand + light-mode treatment.</p>
+<p>Bring your own chart library. Recommended: <a href="https://www.chartjs.org/">Chart.js</a>. Read <code>--ds-*</code> tokens for series colors so charts inherit brand + theme treatment.</p>
+
+<div class="demo">
+  <div class="render bg">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h4 class="card-header-title">Revenue · last 5 months</h4>
+          <p class="card-header-subtitle">Acme Co</p>
+        </div>
+      </div>
+      <div class="card-body" style="padding: 16px 20px 20px;">
+        <div style="position: relative; height: 220px;">
+          <canvas id="demo-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre><code class="language-html">&lt;div style="position: relative; height: 220px;"&gt;
+  &lt;canvas id="my-chart"&gt;&lt;/canvas&gt;
+&lt;/div&gt;</code></pre>
+</div>
 
 ```javascript
-new Chart(ctx, {
+const ds = (k) => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+
+new Chart(document.getElementById('my-chart'), {
   type: 'line',
   data: {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [{
-      label: 'Revenue',
       data: [12, 19, 14, 22, 28],
-      borderColor: getComputedStyle(document.documentElement).getPropertyValue('--ds-primary'),
-      backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--ds-primary-muted'),
+      borderColor: ds('--ds-primary'),
+      backgroundColor: ds('--ds-primary-muted'),
       fill: true,
       tension: 0.35,
+      borderWidth: 2,
+      pointRadius: 0,
     }],
   },
   options: {
     plugins: { legend: { display: false } },
     scales: {
-      x: { grid: { display: false } },
-      y: { beginAtZero: true, grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--ds-border') } },
+      x: { grid: { display: false }, border: { color: ds('--ds-border') } },
+      y: { beginAtZero: true, grid: { color: ds('--ds-border') } },
     },
   },
 });
 ```
 
-Wrap the canvas in a fixed-height container so it sizes correctly on resize:
-
-```html
-<div style="position: relative; height: 240px;">
-  <canvas id="my-chart"></canvas>
-</div>
-```
+<script>
+  // Render the live chart once Chart.js is ready, and re-render on theme
+  // toggle so the series + grid colors stay in sync with --ds-* tokens.
+  (function () {
+    function ds(k) { return getComputedStyle(document.documentElement).getPropertyValue(k).trim(); }
+    var chart;
+    function render() {
+      if (typeof Chart === 'undefined') return;
+      var canvas = document.getElementById('demo-chart');
+      if (!canvas) return;
+      if (chart) chart.destroy();
+      chart = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+          datasets: [{
+            data: [12, 19, 14, 22, 28],
+            borderColor: ds('--ds-primary'),
+            backgroundColor: ds('--ds-primary-muted'),
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2,
+            pointRadius: 0,
+          }],
+        },
+        options: {
+          plugins: { legend: { display: false }, tooltip: { enabled: true } },
+          scales: {
+            x: { grid: { display: false }, border: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
+            y: { beginAtZero: true, grid: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
+          },
+        },
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(render, 0); });
+    } else {
+      setTimeout(render, 0);
+    }
+    new MutationObserver(render).observe(document.documentElement, {
+      attributes: true, attributeFilter: ['data-bs-theme']
+    });
+  })();
+</script>
 
 <h2 id="icons">Icons</h2>
 <p><a href="https://tabler.io/icons">Tabler icons</a> ship with the bundle — 5,000+ outline icons. Use the <code>ti ti-*</code> class on an <code>&lt;i&gt;</code> tag.</p>

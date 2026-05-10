@@ -1,8 +1,8 @@
 // _card.scss
-// Card-header gets explicit min-height + flex centering so the title
-// has visible breathing room instead of feeling squished against the
-// top edge of the card. Mirrors v1's `.card-header { min-height: 60px }`
-// pattern.
+// Card-header is content-driven (no min-height): tight vertical rhythm
+// with subtitle support. Single-line headers feel compact; two-line
+// title+subtitle blocks get breathing room from the subtitle's own
+// margin-top, not from a fixed row height.
 //
 // Also pin --bs-card-bg to --ds-bg-elevated so the card surface flips
 // with theme mode (Bootstrap normally pins --bs-card-bg at the .card
@@ -23,8 +23,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 44px;
-  padding: 0.5rem 1.5rem; // 8px / 24px — tight, balanced cap-height-wise
+  padding: 0.625rem 1.25rem; // 10px / 20px — content-driven height
 
   // First child (typically the title block) takes remaining width so
   // any right-aligned actions sit at the right edge.

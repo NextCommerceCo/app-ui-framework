@@ -12838,8 +12838,7 @@ table th.num, table td.num {
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 44px;
-  padding: 0.5rem 1.5rem;
+  padding: 0.625rem 1.25rem;
 }
 .card-header > *:first-child {
   flex: 1;

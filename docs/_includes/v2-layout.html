@@ -22,6 +22,9 @@
   <!-- v2 stylesheet — same artifact consumers ship -->
   <link rel="stylesheet" href="/v2/assets/app-v2.min.css">
 
+  <!-- Chart.js (deferred) — used by the live Charts demo on /v2/components/ -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
   <!-- highlight.js — light + dark themes, gated by data-bs-theme.
        Code panels match page surface (calmer than github-dark always). -->
   <link rel="stylesheet" media="(prefers-color-scheme: no-preference), all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="hljs-light">
@@ -259,6 +262,11 @@
       transition: color 0.12s ease, background 0.12s ease;
     }
     .demo-code-toggle:hover { color: var(--ds-txt); background: var(--ds-bg-hover); }
+    /* When the render is on the page bg, the toggle strip below it follows
+       suit so the demo reads as one block instead of "card floating above
+       an unrelated white strip". */
+    .demo .render.bg + .demo-code-toggle { background: var(--ds-bg); }
+    .demo .render.bg + .demo-code-toggle:hover { background: var(--ds-bg-hover); }
     .demo-code-toggle .icon { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.18s ease; }
     .demo-code-toggle .label-show { display: inline; }
     .demo-code-toggle .label-hide { display: none; }
