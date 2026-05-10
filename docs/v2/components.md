@@ -734,96 +734,227 @@ permalink: /v2/components/
 **Dot variants:** outline (default), `.filled` (solid). Color: `.green` · `.yellow` · `.red` · `.blue`. Combine, e.g. `<div class="timeline-dot filled green"></div>`.
 
 <h2 id="charts">Charts</h2>
-<p>Bring your own chart library. Recommended: <a href="https://www.chartjs.org/">Chart.js</a>. Read <code>--ds-*</code> tokens for series colors so charts inherit brand + theme treatment.</p>
+<p><a href="https://www.chartjs.org/">Chart.js</a> is recommended — read <code>--ds-*</code> tokens for series colors so charts inherit brand + theme treatment. Three patterns from the campaigns app: line, stacked bar, and combo.</p>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Line chart</h3>
 
 <div class="demo">
-  <div class="render bg">
+  <div class="render">
     <div class="card">
       <div class="card-header">
-        <div>
-          <h4 class="card-header-title">Revenue · last 5 months</h4>
-          <p class="card-header-subtitle">Acme Co</p>
-        </div>
+        <h4 class="card-header-title">Revenue · last 25 days</h4>
       </div>
       <div class="card-body" style="padding: 16px 20px 20px;">
-        <div style="position: relative; height: 220px;">
-          <canvas id="demo-chart"></canvas>
+        <div style="position: relative; height: 240px;">
+          <canvas id="chart-line"></canvas>
         </div>
       </div>
     </div>
   </div>
-  <pre><code class="language-html">&lt;div style="position: relative; height: 220px;"&gt;
-  &lt;canvas id="my-chart"&gt;&lt;/canvas&gt;
-&lt;/div&gt;</code></pre>
-</div>
-
-```javascript
-const ds = (k) => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
-
-new Chart(document.getElementById('my-chart'), {
+  <pre><code class="language-javascript">new Chart(canvas, {
   type: 'line',
   data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-    datasets: [{
-      data: [12, 19, 14, 22, 28],
-      borderColor: ds('--ds-primary'),
-      backgroundColor: ds('--ds-primary-muted'),
-      fill: true,
-      tension: 0.35,
-      borderWidth: 2,
-      pointRadius: 0,
-    }],
+    labels: days,
+    datasets: [
+      { label: 'Current period', data: cur, borderColor: ds('--ds-primary'),       borderWidth: 2, tension: 0.3, pointRadius: 0 },
+      { label: 'Prior period',   data: prv, borderColor: ds('--ds-primary-light'), borderWidth: 2, tension: 0.3, pointRadius: 0, borderDash: [4, 4] },
+    ],
   },
   options: {
-    plugins: { legend: { display: false } },
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 8, boxHeight: 8 } } },
     scales: {
-      x: { grid: { display: false }, border: { color: ds('--ds-border') } },
-      y: { beginAtZero: true, grid: { color: ds('--ds-border') } },
+      x: { grid: { display: false }, ticks: { color: ds('--ds-txt-3') } },
+      y: { beginAtZero: true, grid: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
     },
   },
-});
-```
+});</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Stacked bar chart</h3>
+
+<div class="demo">
+  <div class="render">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-header-title">Recovered revenue by surface</h4>
+      </div>
+      <div class="card-body" style="padding: 16px 20px 20px;">
+        <div style="position: relative; height: 240px;">
+          <canvas id="chart-stacked"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre><code class="language-javascript">new Chart(canvas, {
+  type: 'bar',
+  data: {
+    labels: days,
+    datasets: [
+      { label: 'Account Updater', data: acu, backgroundColor: ds('--ds-green') },
+      { label: 'Retry',           data: rty, backgroundColor: 'rgba(34, 197, 94, 0.35)' },
+      { label: 'Email',           data: eml, backgroundColor: ds('--ds-primary') },
+      { label: 'Storefront',      data: sf,  backgroundColor: ds('--ds-primary-light') },
+      { label: 'Dashboard',       data: dsh, backgroundColor: ds('--ds-primary-muted') },
+    ],
+  },
+  options: {
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 8, boxHeight: 8 } } },
+    scales: {
+      x: { stacked: true, grid: { display: false }, ticks: { color: ds('--ds-txt-3') } },
+      y: { stacked: true, beginAtZero: true, grid: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
+    },
+  },
+});</code></pre>
+</div>
+
+<h3 style="font-size: var(--ds-text-base); margin-top: 20px;">Line + bar combo</h3>
+
+<div class="demo">
+  <div class="render">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-header-title">Sales, refunds, and net revenue</h4>
+      </div>
+      <div class="card-body" style="padding: 16px 20px 20px;">
+        <div style="position: relative; height: 240px;">
+          <canvas id="chart-combo"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre><code class="language-javascript">new Chart(canvas, {
+  data: {
+    labels: days,
+    datasets: [
+      { type: 'bar',  label: 'Sales',       data: sal,    backgroundColor: ds('--ds-green'),  stack: 'rev' },
+      { type: 'bar',  label: 'Refunds',     data: ref,    backgroundColor: ds('--ds-yellow'), stack: 'rev' },
+      { type: 'line', label: 'Net revenue', data: net,    borderColor: ds('--ds-primary'),    borderWidth: 2, tension: 0.3, pointRadius: 0 },
+    ],
+  },
+  options: {
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 8, boxHeight: 8 } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: ds('--ds-txt-3') } },
+      y: { grid: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
+    },
+  },
+});</code></pre>
+</div>
 
 <script>
-  // Render the live chart once Chart.js is ready, and re-render on theme
-  // toggle so the series + grid colors stay in sync with --ds-* tokens.
+  // Render the three live charts once Chart.js is ready, and re-render on
+  // theme toggle so the series + grid colors stay in sync with --ds-* tokens.
   (function () {
     function ds(k) { return getComputedStyle(document.documentElement).getPropertyValue(k).trim(); }
-    var chart;
-    function render() {
-      if (typeof Chart === 'undefined') return;
-      var canvas = document.getElementById('demo-chart');
+    var charts = {};
+
+    function commonOpts() {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 8, boxHeight: 8, color: ds('--ds-txt-2'), font: { size: 11, family: 'Inter' }, padding: 14, usePointStyle: true, pointStyle: 'rect' } },
+          tooltip: { enabled: true },
+        },
+        interaction: { mode: 'index', intersect: false },
+      };
+    }
+
+    function renderLine() {
+      var canvas = document.getElementById('chart-line');
       if (!canvas) return;
-      if (chart) chart.destroy();
-      chart = new Chart(canvas, {
+      if (charts.line) charts.line.destroy();
+      var labels = ['Jan 1','Jan 2','Jan 3','Jan 5','Jan 12','Jan 15','Jan 18','Jan 20','Jan 21','Jan 22','Jan 23','Jan 25'];
+      var cur = [42, 56, 61, 58, 72, 124, 102, 118, 110, 116, 114, 119];
+      var prv = [38, 41, 44, 49, 53, 56, 60, 63, 65, 67, 70, 72];
+      charts.line = new Chart(canvas, {
         type: 'line',
         data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-          datasets: [{
-            data: [12, 19, 14, 22, 28],
-            borderColor: ds('--ds-primary'),
-            backgroundColor: ds('--ds-primary-muted'),
-            fill: true,
-            tension: 0.35,
-            borderWidth: 2,
-            pointRadius: 0,
-          }],
+          labels: labels,
+          datasets: [
+            { label: 'Jan 1 — Jan 25, current', data: cur, borderColor: ds('--ds-primary'),       backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0 },
+            { label: 'Jan 1 — Jan 25, prior',   data: prv, borderColor: ds('--ds-primary-light'), backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0, borderDash: [4, 4] },
+          ],
         },
-        options: {
-          plugins: { legend: { display: false }, tooltip: { enabled: true } },
+        options: Object.assign(commonOpts(), {
           scales: {
-            x: { grid: { display: false }, border: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
-            y: { beginAtZero: true, grid: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3') } },
+            x: { grid: { display: false }, border: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
+            y: { beginAtZero: true, grid: { color: ds('--ds-border') }, border: { display: false }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
           },
-        },
+        }),
       });
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () { setTimeout(render, 0); });
-    } else {
-      setTimeout(render, 0);
+
+    function renderStacked() {
+      var canvas = document.getElementById('chart-stacked');
+      if (!canvas) return;
+      if (charts.stacked) charts.stacked.destroy();
+      var labels = ['Jan 1','Jan 2','Jan 3','Jan 5','Jan 12','Jan 15','Jan 18','Jan 20','Jan 21','Jan 22','Jan 23','Jan 25'];
+      var acu = [10, 8, 12, 11, 14, 18, 16, 20, 14, 12, 22, 13];
+      var rty = [4, 3, 4, 5, 5, 6, 5, 7, 4, 4, 6, 5];
+      var eml = [12, 10, 11, 13, 14, 18, 16, 24, 16, 14, 18, 14];
+      var sf  = [8, 6, 8, 9, 10, 13, 12, 18, 11, 11, 14, 11];
+      var dsh = [6, 5, 6, 7, 8, 11, 9, 15, 9, 9, 11, 9];
+      charts.stacked = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            { label: 'Account Updater', data: acu, backgroundColor: ds('--ds-green'),                borderRadius: 2, borderSkipped: false, barPercentage: 0.55 },
+            { label: 'Retry',           data: rty, backgroundColor: 'rgba(34, 197, 94, 0.35)',       borderRadius: 0, borderSkipped: false, barPercentage: 0.55 },
+            { label: 'Email',           data: eml, backgroundColor: ds('--ds-primary'),              borderRadius: 0, borderSkipped: false, barPercentage: 0.55 },
+            { label: 'Storefront',      data: sf,  backgroundColor: ds('--ds-primary-light'),        borderRadius: 0, borderSkipped: false, barPercentage: 0.55 },
+            { label: 'Dashboard',       data: dsh, backgroundColor: 'rgba(60, 125, 255, 0.18)',      borderRadius: 2, borderSkipped: false, barPercentage: 0.55 },
+          ],
+        },
+        options: Object.assign(commonOpts(), {
+          scales: {
+            x: { stacked: true, grid: { display: false }, border: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
+            y: { stacked: true, beginAtZero: true, grid: { color: ds('--ds-border') }, border: { display: false }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
+          },
+        }),
+      });
     }
-    new MutationObserver(render).observe(document.documentElement, {
+
+    function renderCombo() {
+      var canvas = document.getElementById('chart-combo');
+      if (!canvas) return;
+      if (charts.combo) charts.combo.destroy();
+      var labels = ['Jul 1','Jul 2','Jul 3','Jul 5','Jul 12','Jul 15','Jul 18','Jul 20','Jul 21','Jul 22','Jul 23','Jul 25','Jul 27','Jul 29','Jul 31'];
+      var sal = [42, 38, 44, 36, 78, 46, 42, 50, 48, 46, 50, 48, 56, 50, 52];
+      var ref = [-12, -8, -10, -9, -22, -8, -10, -11, -10, -9, -10, -10, -12, -10, -11];
+      var net = [30, 30, 34, 27, 56, 38, 32, 39, 38, 37, 40, 38, 44, 40, 41];
+      charts.combo = new Chart(canvas, {
+        data: {
+          labels: labels,
+          datasets: [
+            { type: 'bar',  label: 'Sales',       data: sal, backgroundColor: ds('--ds-green'),  stack: 'rev', borderRadius: 2, barPercentage: 0.6 },
+            { type: 'bar',  label: 'Refunds',     data: ref, backgroundColor: ds('--ds-yellow'), stack: 'rev', borderRadius: 2, barPercentage: 0.6 },
+            { type: 'line', label: 'Net revenue', data: net, borderColor: ds('--ds-primary'),    backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0 },
+          ],
+        },
+        options: Object.assign(commonOpts(), {
+          scales: {
+            x: { grid: { display: false }, border: { color: ds('--ds-border') }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
+            y: { grid: { color: ds('--ds-border') }, border: { display: false }, ticks: { color: ds('--ds-txt-3'), font: { size: 11 } } },
+          },
+        }),
+      });
+    }
+
+    function renderAll() {
+      if (typeof Chart === 'undefined') return;
+      renderLine();
+      renderStacked();
+      renderCombo();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(renderAll, 0); });
+    } else {
+      setTimeout(renderAll, 0);
+    }
+    new MutationObserver(renderAll).observe(document.documentElement, {
       attributes: true, attributeFilter: ['data-bs-theme']
     });
   })();

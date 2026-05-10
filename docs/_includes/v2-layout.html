@@ -198,40 +198,69 @@
     .portal-main ul, .portal-main ol { padding-left: 22px; }
     .portal-main ul li, .portal-main ol li { margin: 4px 0; color: var(--ds-txt-2); }
 
-    /* Live demo block — render the component above its markup. Light mode
-       relies on --ds-bg-elevated card on gray page bg + --ds-shadow-sm for
-       quiet material lift (no outer border, calmer than v1's framed demo).
-       Dark mode adds a hairline border because shadows don't read on dark. */
+    /* Live demo block — content sits directly on the page surface (no outer
+       frame). Each demo's inner element (card, button row, form, chart) brings
+       its own visual presence. Below the content, a small inset 'View code'
+       button — like v1's 'See Markup Example' — opens a code panel.
+    */
     .demo {
-      border-radius: var(--ds-radius-md);
-      margin: 12px 0 24px;
-      overflow: hidden;
-      box-shadow: var(--ds-shadow-sm);
-    }
-    [data-theme="dark"] .demo {
-      border: 1px solid var(--ds-border);
-      box-shadow: none;
+      margin: 16px 0 24px;
     }
     .demo .render {
-      padding: 24px;
-      background: var(--ds-bg-elevated);
       overflow-x: auto;
     }
-    .demo .render.bg { background: var(--ds-bg); }
-    .demo .render.contained { padding: 0; background: var(--ds-bg); }
+    /* `.bg` and `.contained` are kept as no-op aliases so existing markup
+       continues to work; the visual treatment is now uniform. */
+    .demo .render.bg,
+    .demo .render.contained { background: transparent; padding: 0; }
+
+    /* View-code toggle — small inset button below the demo render. Sized
+       like Bootstrap btn-sm with the v2 .btn-white treatment so it reads
+       as a quiet affordance attached to the demo above it. */
+    .demo-code-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 5px 11px;
+      border: 1px solid var(--ds-border);
+      border-radius: var(--ds-radius-sm);
+      background: var(--ds-bg-elevated);
+      color: var(--ds-txt-2);
+      font-family: inherit;
+      font-size: var(--ds-text-2xs);
+      cursor: pointer;
+      transition: color 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+    .demo-code-toggle:hover {
+      color: var(--ds-txt);
+      background: var(--ds-bg-hover);
+      border-color: var(--ds-border-2);
+    }
+    .demo-code-toggle .icon { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.18s ease; }
+    .demo-code-toggle .label-show { display: inline; }
+    .demo-code-toggle .label-hide { display: none; }
+    .demo[data-code-open="true"] .demo-code-toggle .icon { transform: rotate(90deg); }
+    .demo[data-code-open="true"] .demo-code-toggle .label-show { display: none; }
+    .demo[data-code-open="true"] .demo-code-toggle .label-hide { display: inline; }
+
     /* Code panel — surface bg matching the page (light by default, dark in
        data-bs-theme="dark"). Hljs theme is gated to match. Collapsed by
-       default; expanded via the .demo-code-toggle strip inserted just above
-       the pre by demo-code-toggle JS at the bottom. */
+       default; expanded via the .demo-code-toggle button. */
     .demo pre {
-      margin: 0;
+      margin: 8px 0 0;
       background: var(--ds-code-bg);
-      border-top: 1px solid var(--ds-border);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--ds-radius-md);
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.18s ease;
+      transition: max-height 0.18s ease, opacity 0.18s ease, margin-top 0.18s ease;
+      opacity: 0;
     }
-    .demo[data-code-open="true"] pre { max-height: 1200px; }
+    .demo[data-code-open="true"] pre {
+      max-height: 1200px;
+      opacity: 1;
+    }
     .demo pre code {
       font-family: var(--ds-font-mono);
       font-size: var(--ds-text-2xs);
@@ -246,34 +275,6 @@
       overflow-wrap: anywhere;
       word-break: break-word;
     }
-    .demo-code-toggle {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border: 0;
-      border-top: 1px solid var(--ds-border);
-      background: var(--ds-bg-elevated);
-      color: var(--ds-txt-3);
-      font-family: inherit;
-      font-size: var(--ds-text-2xs);
-      cursor: pointer;
-      transition: color 0.12s ease, background 0.12s ease;
-    }
-    .demo-code-toggle:hover { color: var(--ds-txt); background: var(--ds-bg-hover); }
-    /* When the render is on the page bg, the toggle strip below it follows
-       suit so the demo reads as one block instead of "card floating above
-       an unrelated white strip". */
-    .demo .render.bg + .demo-code-toggle { background: var(--ds-bg); }
-    .demo .render.bg + .demo-code-toggle:hover { background: var(--ds-bg-hover); }
-    .demo-code-toggle .icon { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.18s ease; }
-    .demo-code-toggle .label-show { display: inline; }
-    .demo-code-toggle .label-hide { display: none; }
-    .demo[data-code-open="true"] .demo-code-toggle { color: var(--ds-txt); border-bottom: 1px solid var(--ds-border); }
-    .demo[data-code-open="true"] .demo-code-toggle .icon { transform: rotate(90deg); }
-    .demo[data-code-open="true"] .demo-code-toggle .label-show { display: none; }
-    .demo[data-code-open="true"] .demo-code-toggle .label-hide { display: inline; }
 
     /* Inline / standalone code blocks (outside .demo) */
     pre {
