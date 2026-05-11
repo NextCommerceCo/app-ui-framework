@@ -1,6 +1,62 @@
 // v3 docs portal CSS — pulls the v3 framework SCSS + the same docs
-// chrome (layout, syntax highlight) used by v1's docs site. Diverge from
-// v1 by editing src/scss/app-v3.scss or by adding v3-specific overrides
-// below this import block.
+// chrome (layout, syntax highlight) used by v1. Diverge from v1 by
+// adding v3-specific overrides below the import block.
 @import "./../../../../src/scss/app-v3";
 @import "docs";
+
+// ───────────────────────────────────────────────────────────────────
+// v3 overrides
+// ───────────────────────────────────────────────────────────────────
+
+// Mobile slide-in nav: v3 swaps Bootstrap's collapse pattern for the
+// offcanvas-md pattern so the sidebar slides in over a scrim instead of
+// pushing page content down. Below md it's an offcanvas drawer; at md+
+// it must behave like the inline sidebar v1's CSS established for
+// .navbar-collapse. Bootstrap's responsive offcanvas-md does the
+// behavioral switch — we just replicate the v1 desktop sidebar rules
+// against the new selectors.
+.main-nav .offcanvas-md {
+    @include media-breakpoint-up(md) {
+        display: flex !important;
+        align-items: stretch;
+        flex: 1;
+        flex-direction: column;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        min-width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: auto;
+
+        > .offcanvas-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 0;
+            // Match the .navbar-collapse > * min-width rule from
+            // _layout.scss so the nav list spans the sidebar width.
+            > * {
+                min-width: 100%;
+            }
+        }
+    }
+}
+
+// On mobile, the offcanvas drawer has its own brand+close header (added
+// inline in v3-navigation.html via .d-md-none). Tighten body padding so
+// the nav list sits flush against the drawer edges.
+.main-nav .offcanvas {
+    @include media-breakpoint-down(md) {
+        max-width: 280px;
+        .offcanvas-body {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0;
+        }
+        .offcanvas-header {
+            border-bottom: 1px solid $border-color;
+            padding: 1rem 1.5rem;
+            .navbar-brand img { height: auto; width: 110px; }
+        }
+    }
+}

@@ -1,44 +1,53 @@
     <a href="#main-content" class="visually-hidden-focusable">Skip to content</a>
     <nav class="main-nav navbar navbar-expand-md navbar-light" id="sidebar" role="navigation" aria-label="Component navigation">
         <div class="main-nav__content">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/v3/" style="text-align: left;">
                 <img src="/assets/img/next-commerce-logo.svg" class="logo-light">
                 <img src="/assets/img/next-commerce-logo-white.svg" class="logo-dark">
             </a>
-            <div class="collapse navbar-collapse" id="sidebarCollapse">
-                <ul class="navbar-nav" id="sidebar-nav">
-                    {% for item in navigation %}
-                        {% if item.section %}
-                            <!-- Group heading -->
-                            <li class="nav-item nav-group-heading">
-                                <span class="nav-group-label">
-                                    <i class="ti {{ item.icon }}"></i>
-                                    {{ item.title }}
-                                </span>
-                            </li>
-                            <!-- Component links in this section -->
-                            {% assign section_comps = collections.components | where: "section", item.section %}
-                            {% for comp in section_comps %}
-                                <li class="nav-item nav-sub-item">
-                                    <a class="nav-link" href="#{{ comp.data.title | slug }}">{{ comp.data.title }}</a>
+            <div class="offcanvas offcanvas-start offcanvas-md" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+                <div class="offcanvas-header d-md-none">
+                    <a class="navbar-brand" href="/v3/" id="sidebarOffcanvasLabel" style="text-align: left;">
+                        <img src="/assets/img/next-commerce-logo.svg" class="logo-light">
+                        <img src="/assets/img/next-commerce-logo-white.svg" class="logo-dark">
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav" id="sidebar-nav">
+                        {% for item in navigation %}
+                            {% if item.section %}
+                                <!-- Group heading -->
+                                <li class="nav-item nav-group-heading">
+                                    <span class="nav-group-label">
+                                        <i class="ti {{ item.icon }}"></i>
+                                        {{ item.title }}
+                                    </span>
                                 </li>
-                            {% endfor %}
-                        {% else %}
-                            <!-- Direct link (Getting Started) -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ item.url }}">
-                                    <i class="ti {{ item.icon }}"></i>
-                                    {{ item.title }}
-                                </a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-                <div class="theme-toggle-wrapper">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+                                <!-- Component links in this section -->
+                                {% assign section_comps = collections.components | where: "section", item.section %}
+                                {% for comp in section_comps %}
+                                    <li class="nav-item nav-sub-item">
+                                        <a class="nav-link" href="#{{ comp.data.title | slug }}">{{ comp.data.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <!-- Direct link (Getting Started) -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ item.url }}">
+                                        <i class="ti {{ item.icon }}"></i>
+                                        {{ item.title }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <div class="theme-toggle-wrapper">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+                    </div>
                 </div>
             </div>
         </div>
