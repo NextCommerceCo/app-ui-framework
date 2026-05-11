@@ -1,0 +1,6 @@
+// v3 docs portal CSS — pulls the v3 framework SCSS + the same docs
+// chrome (layout, syntax highlight) used by v1's docs site. Diverge from
+// v1 by editing src/scss/app-v3.scss or by adding v3-specific overrides
+// below this import block.
+@import "./../../../../src/scss/app-v3";
+@import "docs";

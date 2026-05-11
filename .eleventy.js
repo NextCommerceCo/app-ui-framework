@@ -25,6 +25,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "dist/css/app-v2.css":     "v2/assets/app-v2.css" });
   eleventyConfig.addPassthroughCopy({ "dist/css/app-v2.min.css": "v2/assets/app-v2.min.css" });
 
+  // v3 portal: cloned from v1 as the baseline for the rebooted iteration.
+  // The portal CSS is built separately at docs/v3/assets/css/main.css; we
+  // also passthrough the framework dist artifacts so consumers can inspect
+  // the actual shipped bundle.
+  eleventyConfig.addPassthroughCopy({ "dist/css/app-v3.css":     "v3/assets/app-v3.css" });
+  eleventyConfig.addPassthroughCopy({ "dist/css/app-v3.min.css": "v3/assets/app-v3.min.css" });
+  eleventyConfig.addPassthroughCopy("docs/v3/assets/css");
+
   // --- Global data ---
   eleventyConfig.addGlobalData("site", {
     title: "Next Commerce Design System",

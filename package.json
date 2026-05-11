@@ -7,10 +7,13 @@
     "scss": "npx sass src/scss/main.scss dist/css/main.css --load-path=node_modules --load-path=src/scss",
     "scss:v2": "npx sass src/scss/app-v2.scss dist/css/app-v2.css --load-path=node_modules --load-path=src/scss",
     "scss:v2:min": "npx sass src/scss/app-v2.scss dist/css/app-v2.min.css --style=compressed --load-path=node_modules --load-path=src/scss",
+    "scss:v3": "npx sass src/scss/app-v3.scss dist/css/app-v3.css --load-path=node_modules --load-path=src/scss",
+    "scss:v3:min": "npx sass src/scss/app-v3.scss dist/css/app-v3.min.css --style=compressed --load-path=node_modules --load-path=src/scss",
     "scss:docs": "npx sass docs/assets/css/main.scss docs/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass --style=compressed",
-    "watch:scss": "npx sass --watch src/scss/main.scss:dist/css/main.css src/scss/app-v2.scss:dist/css/app-v2.css docs/assets/css/main.scss:docs/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass",
-    "dev": "npm run scss:docs && npx @11ty/eleventy --serve & npm run watch:scss",
-    "build": "npm run scss && npm run scss:v2 && npm run scss:v2:min && npm run scss:docs && npx @11ty/eleventy"
+    "scss:v3-docs": "npx sass docs/v3/assets/css/main.scss docs/v3/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass --style=compressed",
+    "watch:scss": "npx sass --watch src/scss/main.scss:dist/css/main.css src/scss/app-v2.scss:dist/css/app-v2.css src/scss/app-v3.scss:dist/css/app-v3.css docs/assets/css/main.scss:docs/assets/css/main.css docs/v3/assets/css/main.scss:docs/v3/assets/css/main.css --load-path=node_modules --load-path=src/scss --load-path=docs/_sass",
+    "dev": "npm run scss:docs && npm run scss:v3-docs && npx @11ty/eleventy --serve & npm run watch:scss",
+    "build": "npm run scss && npm run scss:v2 && npm run scss:v2:min && npm run scss:v3 && npm run scss:v3:min && npm run scss:docs && npm run scss:v3-docs && npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
