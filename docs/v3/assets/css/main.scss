@@ -60,3 +60,55 @@
         }
     }
 }
+
+// ───────────────────────────────────────────────────────────────────
+// Section rhythm — tighter, app-density spacing
+// ───────────────────────────────────────────────────────────────────
+//
+// v1's docs use a doc-marketing rhythm (3rem section gaps, display-5/6
+// headlines). v3's framing positions this as a reference for app surfaces,
+// so the portal should READ like an app: tighter section gaps, app-sized
+// headings (the framework already defines $h1 = 26px, $h2 = 20px), and a
+// single consistent card margin.
+
+.component-section {
+    padding-top: 2rem;
+    padding-bottom: 0;
+}
+
+.section-group-heading {
+    padding-top: 2.5rem;
+    padding-bottom: 0.25rem;
+}
+
+// Page-header block — restrained, not a marketing banner. h1 inherits
+// the framework's 26px size; we just need a tight vertical rhythm.
+.page-header {
+    h1 {
+        letter-spacing: -0.01em;
+        margin-bottom: 0.25rem;
+    }
+    .text-muted {
+        font-size: $font-size-base;
+    }
+}
+
+// Normalize card spacing in component sections — v1 component MDs use
+// .mb-5 on outer demo cards (3rem) which over-airs the rhythm. Pin to
+// 1.5rem (24px) for a consistent canvas. !important matches Bootstrap's
+// utility specificity.
+.component-section > .card,
+.component-section > div > .card {
+    margin-bottom: 1.5rem !important;
+}
+.component-section > .card:last-child,
+.component-section > div > .card:last-child {
+    margin-bottom: 0 !important;
+}
+
+// Description paragraph below each component-section h2 — keep
+// readability width capped so wide viewports don't stretch the lede
+// to 1100+ chars.
+.component-section > p.text-muted {
+    max-width: 880px;
+}

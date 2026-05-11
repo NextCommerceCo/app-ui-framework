@@ -7,7 +7,7 @@ permalink: /v3/
 
 <p class="text-muted mb-4">The Next Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.</p>
 
-<h2 class="display-6 mb-2">Quick start</h2>
+<h2 class="mb-2">Quick start</h2>
 <p class="text-muted mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
 
 ```html
@@ -20,10 +20,10 @@ permalink: /v3/
 <script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 ```
 
-<h2 class="display-6 mb-2">Versioning</h2>
+<h2 class="mb-2">Versioning</h2>
 <p class="text-muted mb-4">Pin your app to a <a href="https://github.com/NextCommerceCo/app-ui-framework/releases">release version</a> by specifying in the CDN url such as <code>@0.1.4</code>.</p>
 
-<h2 class="display-6 mb-2">CDN links</h2>
+<h2 class="mb-2">CDN links</h2>
 <p class="text-muted mb-4">As a reference, here are our primary CDN links.</p>
 
 <div class="card mb-4">
@@ -54,7 +54,7 @@ permalink: /v3/
 </div>
 </div>
 
-<h2 class="display-6 mb-2">Base Layout</h2>
+<h2 class="mb-2">Base Layout</h2>
 <p class="text-muted mb-4">Below is an example base layout to get started with the Next Commerce Design System.</p>
 <p class="text-muted mb-4">Copy the html below into a new <code>layout.html</code> in your project and you're well on your way.</p>
 
