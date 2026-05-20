@@ -1,0 +1,117 @@
+// Runtime bridge for v3. Bootstrap classes remain the public API; these vars
+// let the visual layer move without requiring app markup rewrites.
+:root,
+[data-bs-theme="light"] {
+  --nui-ink: #08083d;
+  --nui-graphite: #141621;
+  --nui-text: #506690;
+  --nui-muted: #7b86a0;
+  --nui-line: #dde4f2;
+  --nui-line-strong: #bdc8dc;
+  --nui-bg: #f7f8fc;
+  --nui-panel: #ffffff;
+  --nui-panel-soft: #fbfcff;
+  --nui-blue: #3366fc;
+  --nui-blue-soft: #eaf1ff;
+  --nui-blue-deep: #244fb2;
+  --nui-green: #168a5b;
+  --nui-green-bright: #1aa570;
+  --nui-green-soft: #dcede3;
+  --nui-amber: #a75a12;
+  --nui-amber-soft: #f8e3c6;
+  --nui-red: #c23b35;
+  --nui-red-soft: #f5d8d3;
+
+  --nui-radius-sm: 4px;
+  --nui-radius-md: 6px;
+  --nui-radius-lg: 8px;
+  --nui-radius-pill: 9999px;
+
+  --bs-body-bg: var(--nui-bg);
+  --bs-body-bg-rgb: 247, 248, 252;
+  --bs-body-color: var(--nui-ink);
+  --bs-body-color-rgb: 8, 8, 61;
+  --bs-secondary-color: var(--nui-text);
+  --bs-tertiary-color: var(--nui-muted);
+  --bs-tertiary-bg: var(--nui-panel-soft);
+  --bs-border-color: var(--nui-line);
+  --bs-border-color-translucent: rgba(8, 8, 61, 0.08);
+  --bs-emphasis-color: var(--nui-graphite);
+  --bs-heading-color: var(--nui-graphite);
+
+  --bs-primary: var(--nui-blue);
+  --bs-primary-rgb: 51, 102, 252;
+  --bs-primary-bg-subtle: var(--nui-blue-soft);
+  --bs-primary-text-emphasis: var(--nui-blue-deep);
+  --bs-primary-border-subtle: #c8d8ff;
+
+  --bs-secondary: var(--nui-text);
+  --bs-secondary-rgb: 80, 102, 144;
+  --bs-secondary-bg: var(--nui-panel-soft);
+  --bs-secondary-bg-subtle: #edf2f9;
+  --bs-secondary-text-emphasis: var(--nui-graphite);
+
+  --bs-success: var(--nui-green);
+  --bs-success-rgb: 22, 138, 91;
+  --bs-success-bg-subtle: var(--nui-green-soft);
+  --bs-success-text-emphasis: var(--nui-green);
+
+  --bs-warning: var(--nui-amber);
+  --bs-warning-rgb: 167, 90, 18;
+  --bs-warning-bg-subtle: var(--nui-amber-soft);
+  --bs-warning-text-emphasis: var(--nui-amber);
+
+  --bs-danger: var(--nui-red);
+  --bs-danger-rgb: 194, 59, 53;
+  --bs-danger-bg-subtle: var(--nui-red-soft);
+  --bs-danger-text-emphasis: var(--nui-red);
+
+  --bs-info: var(--nui-blue-deep);
+  --bs-info-rgb: 36, 79, 178;
+  --bs-info-bg-subtle: var(--nui-blue-soft);
+  --bs-info-text-emphasis: var(--nui-blue-deep);
+
+  --bs-link-color: var(--nui-blue);
+  --bs-link-color-rgb: 51, 102, 252;
+  --bs-link-hover-color: var(--nui-blue-deep);
+  --bs-link-hover-color-rgb: 36, 79, 178;
+
+  --bs-border-radius: var(--nui-radius-md);
+  --bs-border-radius-sm: var(--nui-radius-sm);
+  --bs-border-radius-lg: var(--nui-radius-lg);
+  --bs-border-radius-pill: var(--nui-radius-pill);
+
+  --bs-body-font-size: 14px;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.45;
+}
+
+[data-bs-theme="dark"] {
+  --nui-ink: #f7f8fc;
+  --nui-graphite: #ffffff;
+  --nui-text: #c5cee0;
+  --nui-muted: #96a3bc;
+  --nui-line: rgba(255, 255, 255, 0.11);
+  --nui-line-strong: rgba(255, 255, 255, 0.18);
+  --nui-bg: #090b14;
+  --nui-panel: #111624;
+  --nui-panel-soft: #171d2d;
+  --nui-blue: #5b85ff;
+  --nui-blue-deep: #a8c4ff;
+  --nui-blue-soft: rgba(51, 102, 252, 0.16);
+  --nui-green-soft: rgba(22, 138, 91, 0.18);
+  --nui-amber-soft: rgba(167, 90, 18, 0.20);
+  --nui-red-soft: rgba(194, 59, 53, 0.20);
+
+  --bs-body-bg: var(--nui-bg);
+  --bs-body-bg-rgb: 9, 11, 20;
+  --bs-body-color: var(--nui-ink);
+  --bs-body-color-rgb: 247, 248, 252;
+  --bs-secondary-color: var(--nui-text);
+  --bs-tertiary-color: var(--nui-muted);
+  --bs-tertiary-bg: var(--nui-panel-soft);
+  --bs-border-color: var(--nui-line);
+  --bs-border-color-translucent: rgba(255, 255, 255, 0.11);
+  --bs-emphasis-color: var(--nui-graphite);
+  --bs-heading-color: var(--nui-graphite);
+}
