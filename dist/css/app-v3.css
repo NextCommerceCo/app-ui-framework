@@ -13839,6 +13839,8 @@ h6.text-muted, .text-muted.h6 {
   --nui-bg: #090b14;
   --nui-panel: #111624;
   --nui-panel-soft: #171d2d;
+  --nui-blue: #5b85ff;
+  --nui-blue-deep: #a8c4ff;
   --nui-blue-soft: rgba(51, 102, 252, 0.16);
   --nui-green-soft: rgba(22, 138, 91, 0.18);
   --nui-amber-soft: rgba(167, 90, 18, 0.20);
@@ -13976,6 +13978,12 @@ h1.header-title {
   --bs-btn-active-bg: var(--nui-blue-deep);
   --bs-btn-active-border-color: var(--nui-blue-deep);
   box-shadow: 0 10px 22px rgba(51, 102, 252, 0.18);
+}
+
+[data-bs-theme=dark] .btn-primary {
+  --bs-btn-color: var(--nui-bg);
+  --bs-btn-hover-color: var(--nui-bg);
+  --bs-btn-active-color: var(--nui-bg);
 }
 
 .btn-white,
@@ -14295,6 +14303,10 @@ h1.header-title {
   background: var(--nui-blue);
   border-color: var(--nui-blue);
   color: #fff;
+}
+
+[data-bs-theme=dark] .pagination .page-item.active .page-link {
+  color: var(--nui-bg);
 }
 
 .progress {

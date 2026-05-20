@@ -120,6 +120,12 @@ h1.header-title {
   box-shadow: 0 10px 22px rgba(51, 102, 252, 0.18);
 }
 
+[data-bs-theme="dark"] .btn-primary {
+  --bs-btn-color: var(--nui-bg);
+  --bs-btn-hover-color: var(--nui-bg);
+  --bs-btn-active-color: var(--nui-bg);
+}
+
 .btn-white,
 .btn-secondary {
   --bs-btn-bg: var(--nui-panel);
@@ -435,6 +441,10 @@ h1.header-title {
   background: var(--nui-blue);
   border-color: var(--nui-blue);
   color: #fff;
+}
+
+[data-bs-theme="dark"] .pagination .page-item.active .page-link {
+  color: var(--nui-bg);
 }
 
 .progress {
