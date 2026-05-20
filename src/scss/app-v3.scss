@@ -5,8 +5,8 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 
-// 3. Include any overrides here
-@import "custom-variables";
+// 3. Include v1-compatible v3 overrides here
+@import "custom-variables-v3";
 
 // 4. Include remainder of required parts
 @import "bootstrap/scss/maps";
@@ -68,5 +68,7 @@
 @import "badge-custom";
 @import "form-custom";
 @import "timeline-custom";
+@import "v3-tokens";
+@import "v3-overrides";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.34.0/dist/tabler-icons.min.css');

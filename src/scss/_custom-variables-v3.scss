@@ -1,0 +1,157 @@
+// app-ui-framework v3 keeps the v1 Bootstrap/Dashkit contract, then tightens
+// the visual language through conservative token and component defaults.
+@import "custom-variables";
+
+// Color system
+$blue: #3366fc;
+$green: #168a5b;
+$yellow: #a75a12;
+$red: #c23b35;
+$cyan: #244fb2;
+$black: #08083d;
+
+$gray-100: #fbfcff;
+$gray-200: #edf2f9;
+$gray-300: #dde4f2;
+$gray-400: #bdc8dc;
+$gray-500: #a6b3ca;
+$gray-600: #7b86a0;
+$gray-700: #506690;
+$gray-800: #2f3b5d;
+$gray-900: #141621;
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
+$primary: $blue;
+$secondary: $gray-700;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-200;
+$dark: $black;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "white": $white
+);
+
+// Radius: preserve v1/Bootstrap shape, avoid visible novelty.
+$border-radius: 0.375rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-color: $gray-300;
+$border-color-translucent: rgba(8, 8, 61, 0.08);
+
+// Body and type density
+$body-bg: #f7f8fc;
+$body-color: $black;
+$text-muted: $gray-600;
+
+$font-weight-base: 400;
+$font-size-base: 0.875rem;
+$font-size-lg: 1rem;
+$font-size-sm: 0.8125rem;
+$font-size-xs: 0.75rem;
+
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1.0625rem;
+$h4-font-size: 0.875rem;
+$h5-font-size: 0.8125rem;
+$h6-font-size: 0.75rem;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size
+);
+
+$headings-font-weight: 700;
+$headings-line-height: 1.15;
+$headings-color: $gray-900;
+$display-font-weight: 800;
+
+// Tables
+$table-cell-padding-y: 0.75rem;
+$table-cell-padding-x: 0.875rem;
+$table-cell-padding-y-sm: 0.625rem;
+$table-cell-padding-x-sm: 0.75rem;
+$table-th-bg: $white;
+$table-th-color: $gray-600;
+$table-border-color: $gray-300;
+$table-hover-bg: $gray-100;
+
+// Buttons and forms
+$input-btn-padding-y: 0.4375rem;
+$input-btn-padding-x: 0.8125rem;
+$input-btn-font-size: $font-size-base;
+$input-btn-padding-y-sm: 0.3125rem;
+$input-btn-padding-x-sm: 0.625rem;
+$input-btn-font-size-sm: 0.75rem;
+$input-btn-padding-y-lg: 0.5625rem;
+$input-btn-padding-x-lg: 1rem;
+$input-btn-font-size-lg: 0.9375rem;
+
+$btn-padding-y: $input-btn-padding-y;
+$btn-padding-x: $input-btn-padding-x;
+$btn-font-size: $input-btn-font-size;
+$btn-font-size-sm: $input-btn-font-size-sm;
+$btn-font-size-lg: $input-btn-font-size-lg;
+$btn-padding-y-sm: $input-btn-padding-y-sm;
+$btn-padding-x-sm: $input-btn-padding-x-sm;
+$btn-padding-y-lg: $input-btn-padding-y-lg;
+$btn-padding-x-lg: $input-btn-padding-x-lg;
+$btn-font-weight: 600;
+$btn-active-box-shadow: none;
+
+$input-bg: $white;
+$input-border-color: $gray-400;
+$input-focus-bg: $white;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: 0 0 0 3px rgba(51, 102, 252, 0.15);
+$input-placeholder-color: $gray-500;
+$form-text-color: $gray-600;
+$form-select-border-color: $input-border-color;
+
+// Cards and chrome
+$card-bg: $white;
+$card-border-color: $gray-300;
+$card-box-shadow: 0 1px 0 rgba(8, 8, 61, 0.03), 0 16px 36px rgba(8, 8, 61, 0.06);
+$card-header-height: 60px;
+$card-cap-bg: $white;
+
+// Navigation
+$nav-link-color: $gray-700;
+$nav-link-hover-color: $gray-900;
+$navbar-light-color: $gray-700;
+$navbar-light-hover-color: $gray-900;
+$navbar-light-active-color: $gray-900;
+$nav-tabs-link-active-color: $primary;
+$nav-tabs-link-active-border-color: transparent transparent $primary;
+
+// Badges and pagination
+$badge-font-weight: 700;
+$pagination-color: $black;
+$pagination-bg: $white;
+$pagination-border-color: $gray-400;

@@ -7,6 +7,48 @@ permalink: /v3/
 
 <p class="text-muted mb-4">The Next Commerce Design System is the frontend framework for apps that integrate with the NEXT platform.</p>
 
+<h2 class="mb-2">Compatibility Contract</h2>
+<p class="text-muted mb-4">v3 keeps the v1 app contract: Bootstrap classes, existing helper classes, Inter, and Tabler icons. The refresh is carried by the CSS bundle, so existing pages should be able to swap from <code>next-app-ui.min.css</code> to <code>app-v3.min.css</code> before any markup migration is considered.</p>
+
+<div class="card mb-4">
+<div class="card-header">
+<div>
+<h4 class="card-header-title">Same Markup Fixture</h4>
+<p class="card-header-subtitle">A dense list/detail surface using the existing v1 vocabulary.</p>
+</div>
+<span class="badge bg-primary-light">v3 CSS only</span>
+</div>
+<div class="table-responsive">
+<table class="table table-sm table-hover mb-0">
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th class="text-end">Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#">#152624</a></td>
+            <td>Maya Chen<br><span class="text-muted">maya@example.com</span></td>
+            <td><span class="badge bg-success-light">Paid</span></td>
+            <td class="text-end">$184.00</td>
+            <td class="text-end"><a href="#" class="btn btn-white btn-sm">Detail</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">#152625</a></td>
+            <td>Jon Bell<br><span class="text-muted">jon@example.com</span></td>
+            <td><span class="badge bg-warning-light">Review</span></td>
+            <td class="text-end">$92.00</td>
+            <td class="text-end"><a href="#" class="btn btn-white btn-sm">Detail</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
 <h2 class="mb-2">Quick start</h2>
 <p class="text-muted mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
 
