@@ -27,6 +27,17 @@
   --nui-radius-lg: 8px;
   --nui-radius-pill: 9999px;
 
+  // Spacing rhythm — single 4px-based scale components share, so vertical and
+  // internal spacing stops drifting off-grid.
+  --nui-space-1: 4px;
+  --nui-space-2: 8px;
+  --nui-space-3: 12px;
+  --nui-space-4: 16px;
+  --nui-space-5: 24px;
+  --nui-space-6: 32px;
+  --nui-space-7: 48px;
+  --nui-space-8: 64px;
+
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 247, 248, 252;
   --bs-body-color: var(--nui-ink);

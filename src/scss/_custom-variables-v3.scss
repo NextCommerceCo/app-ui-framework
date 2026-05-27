@@ -71,12 +71,14 @@ $font-size-lg: 1rem;
 $font-size-sm: 0.8125rem;
 $font-size-xs: 0.75rem;
 
-$h1-font-size: 1.5rem;
-$h2-font-size: 1.25rem;
-$h3-font-size: 1.0625rem;
-$h4-font-size: 0.875rem;
-$h5-font-size: 0.8125rem;
-$h6-font-size: 0.75rem;
+// Type scale — wider steps so hierarchy reads at a glance. h4 lifts above the
+// 14px body so anything h4+ is unmistakably a heading, not a label.
+$h1-font-size: 1.75rem;    // 28
+$h2-font-size: 1.3125rem;  // 21
+$h3-font-size: 1.0625rem;  // 17
+$h4-font-size: 0.9375rem;  // 15
+$h5-font-size: 0.8125rem;  // 13
+$h6-font-size: 0.75rem;    // 12
 
 $font-sizes: (
   1: $h1-font-size,
@@ -88,15 +90,15 @@ $font-sizes: (
 );
 
 $headings-font-weight: 700;
-$headings-line-height: 1.15;
+$headings-line-height: 1.2;
 $headings-color: $gray-900;
 $display-font-weight: 800;
 
-// Tables
-$table-cell-padding-y: 0.75rem;
-$table-cell-padding-x: 0.875rem;
-$table-cell-padding-y-sm: 0.625rem;
-$table-cell-padding-x-sm: 0.75rem;
+// Tables — cell padding snapped to the 4px rhythm (was 14/10px off-grid)
+$table-cell-padding-y: 0.75rem;   // 12
+$table-cell-padding-x: 1rem;      // 16
+$table-cell-padding-y-sm: 0.5rem; // 8
+$table-cell-padding-x-sm: 0.75rem;// 12
 $table-th-bg: $white;
 $table-th-color: $gray-600;
 $table-border-color: $gray-300;
@@ -138,7 +140,7 @@ $form-select-border-color: $input-border-color;
 $card-bg: $white;
 $card-border-color: $gray-300;
 $card-box-shadow: 0 1px 0 rgba(8, 8, 61, 0.03), 0 16px 36px rgba(8, 8, 61, 0.06);
-$card-header-height: 60px;
+$card-header-height: 56px;
 $card-cap-bg: $white;
 
 // Navigation

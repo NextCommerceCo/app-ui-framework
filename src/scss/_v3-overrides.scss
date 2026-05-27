@@ -16,7 +16,12 @@ a:hover {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: var(--nui-graphite);
-  letter-spacing: 0;
+  letter-spacing: -0.006em;
+}
+
+// Large headings tighten slightly for polish; small/label sizes stay neutral.
+h1, .h1, h2, .h2 {
+  letter-spacing: -0.014em;
 }
 
 .header-title,
@@ -24,15 +29,15 @@ h1, h2, h3, h4, h5, h6,
 h1.header-title {
   font-size: 24px;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.012em;
   color: var(--nui-graphite);
 }
 
 .header-pretitle {
   color: var(--nui-muted);
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -63,7 +68,7 @@ h1.header-title {
 .card-header {
   background: var(--nui-panel);
   border-bottom-color: var(--nui-line);
-  min-height: 60px;
+  min-height: 56px;
 }
 
 .card-header:has(> .row) {
@@ -78,8 +83,8 @@ h1.header-title {
 .card-header .h4 {
   color: var(--nui-graphite);
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
