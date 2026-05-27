@@ -33,11 +33,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "dist/css/app-v3.min.css": "v3/assets/app-v3.min.css" });
   eleventyConfig.addPassthroughCopy("docs/v3/assets/css");
 
-  // v3.2 portal: v3 base + proposed-DESIGN command-center layer.
-  eleventyConfig.addPassthroughCopy({ "dist/css/app-v3-2.css":     "v3.2/assets/app-v3-2.css" });
-  eleventyConfig.addPassthroughCopy({ "dist/css/app-v3-2.min.css": "v3.2/assets/app-v3-2.min.css" });
-  eleventyConfig.addPassthroughCopy("docs/v3.2/assets/css");
-
   // --- Global data ---
   eleventyConfig.addGlobalData("site", {
     title: "Next Commerce Design System",
