@@ -1,0 +1,7 @@
+// app-ui-framework v3.2 — v3's Bootstrap-compatible base plus the proposed-DESIGN
+// "Performance Commerce Command Center" layer: brand-dark shell tokens, the
+// premium/gold accent, and the op-* operator primitives. Work-surface tokens are
+// inherited from v3 unchanged. Bootstrap + existing helper classes remain the API.
+@import "app-v3";
+@import "v3-2-tokens";
+@import "v3-2-overrides";

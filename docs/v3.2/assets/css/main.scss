@@ -1,0 +1,4 @@
+// v3.2 docs portal CSS — pulls the v3.2 framework bundle. The portal page is a
+// self-contained operator-surface demo (the op-shell IS the chrome), so it does
+// not import the v1 docs marketing chrome.
+@import "./../../../../src/scss/app-v3-2";
