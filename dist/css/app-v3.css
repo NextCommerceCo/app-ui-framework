@@ -14036,24 +14036,15 @@ label.form-label {
   letter-spacing: 0;
 }
 
-.badge.rounded-pill,
-.badge.badge-pill,
-.badge.filter-badge,
-.badge.bg-primary-light,
-.badge.bg-primary-soft,
-.badge.bg-success-light,
-.badge.bg-success-soft,
-.badge.bg-warning-light,
-.badge.bg-warning-soft,
-.badge.bg-danger-light,
-.badge.bg-danger-soft,
-.badge.bg-secondary-light,
-.badge.bg-secondary-soft,
-.badge.bg-info-light,
-.badge.bg-info-soft {
-  border-radius: var(--nui-radius-pill);
+.badge {
   min-height: 22px;
   padding: 4px 10px;
+}
+
+.badge.rounded-pill,
+.badge.badge-pill,
+.badge.filter-badge {
+  border-radius: var(--nui-radius-pill);
 }
 
 .bg-primary-light,
