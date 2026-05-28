@@ -68,7 +68,7 @@ h1.header-title {
 .card-header {
   background: var(--nui-panel);
   border-bottom-color: var(--nui-line);
-  min-height: 56px;
+  min-height: 60px;
 }
 
 .card-header:has(> .row) {
@@ -82,10 +82,20 @@ h1.header-title {
 .card-header h4,
 .card-header .h4 {
   color: var(--nui-graphite);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+// Sentence-case bold for form labels (v1-style polish). The header-pretitle
+// stays uppercase-tracked since that's a legitimate eyebrow case.
+.form-label,
+.form-label-sm,
+label.form-label {
+  color: var(--nui-graphite);
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .card-footer {
