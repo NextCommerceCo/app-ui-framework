@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ title }} - {{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="{{ '/v-dashboard/assets/css/main.css' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/img/favicon-32x32.png' | relative_url }}" type="image/x-icon"/>
+    <script>
+      (function() {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    {{ content }}
+    <script src="{{ '/assets/js/next-app-ui.min.js' | relative_url }}"></script>
+    <script>
+      (function() {
+        var btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        function icon(theme) {
+          return theme === 'dark' ? '<i class="ti ti-sun"></i>' : '<i class="ti ti-moon"></i>';
+        }
+        function applyTheme(theme) {
+          document.documentElement.setAttribute('data-bs-theme', theme);
+          btn.innerHTML = icon(theme);
+          btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+          localStorage.setItem('theme', theme);
+        }
+        applyTheme(document.documentElement.getAttribute('data-bs-theme') || 'light');
+        btn.addEventListener('click', function() {
+          applyTheme(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+        });
+      })();
+    </script>
+  </body>
+</html>

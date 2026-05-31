@@ -1,0 +1,348 @@
+---
+layout: v-dashboard-layout
+title: "v-dashboard Shipments Fixture"
+permalink: /v-dashboard/
+---
+
+<div class="nui-dashboard-shell">
+  <div class="nui-dashboard-frame">
+    <aside class="nui-dashboard-sidebar" aria-label="Dashboard navigation">
+      <a class="nui-dashboard-brand" href="/v-dashboard/">
+        <span class="nui-dashboard-brand-mark">N</span>
+        <span>Next Ops</span>
+      </a>
+
+      <div class="nui-sidebar-section">
+        <div class="nui-sidebar-label">Monitor</div>
+        <a class="nui-sidebar-link is-active" href="#"><i class="ti ti-truck-delivery"></i><span>Shipments</span></a>
+        <a class="nui-sidebar-link" href="#"><i class="ti ti-package"></i><span>Products</span></a>
+        <a class="nui-sidebar-link" href="#"><i class="ti ti-speakerphone"></i><span>Campaigns</span></a>
+        <a class="nui-sidebar-link" href="#"><i class="ti ti-users"></i><span>Customers</span></a>
+      </div>
+
+      <div class="nui-sidebar-section">
+        <div class="nui-sidebar-label">Admin</div>
+        <a class="nui-sidebar-link" href="#"><i class="ti ti-settings"></i><span>Settings</span></a>
+        <a class="nui-sidebar-link" href="#"><i class="ti ti-history"></i><span>Audit log</span></a>
+      </div>
+    </aside>
+
+    <main class="nui-dashboard-main">
+      <div class="nui-topbar">
+        <label class="nui-topbar-search">
+          <i class="ti ti-search"></i>
+          <input type="search" value="" placeholder="Search shipments, products, campaigns">
+        </label>
+        <div class="nui-topbar-spacer"></div>
+        <button class="nui-icon-btn" type="button" aria-label="Open notifications"><i class="ti ti-bell"></i></button>
+        <button class="nui-icon-btn" type="button" id="themeToggle" aria-label="Toggle color mode"></button>
+        <button class="nui-user-chip btn btn-white btn-sm" type="button">
+          <span class="nui-avatar">MC</span>
+          <span>Maya</span>
+        </button>
+      </div>
+
+      <div class="nui-dashboard-content">
+        <div class="nui-pagebar">
+          <div>
+            <h1 class="nui-pagebar-title">Shipments</h1>
+            <p class="nui-pagebar-subtitle">Track active shipments, carrier events, and delivery exceptions across storefronts.</p>
+          </div>
+          <div class="nui-pagebar-actions">
+            <button class="btn btn-white" type="button"><i class="ti ti-download"></i>Export</button>
+            <button class="btn btn-primary" type="button"><i class="ti ti-refresh"></i>Sync tracking</button>
+          </div>
+        </div>
+
+        <section class="nui-kpi-grid" aria-label="Shipment summary">
+          <article class="nui-kpi">
+            <div class="nui-kpi-label">Active shipments</div>
+            <div class="nui-kpi-value">733</div>
+            <div class="nui-kpi-detail"><i class="ti ti-clock"></i>28 pending carrier scan</div>
+          </article>
+          <article class="nui-kpi">
+            <div class="nui-kpi-label">Deliveries</div>
+            <div class="nui-kpi-value">2,733</div>
+            <div class="nui-kpi-detail is-positive"><i class="ti ti-arrow-up-right"></i>1,687 delivered</div>
+          </article>
+          <article class="nui-kpi">
+            <div class="nui-kpi-label">Avg transit time</div>
+            <div class="nui-kpi-value">3 days</div>
+            <div class="nui-kpi-detail is-positive"><i class="ti ti-arrow-down-right"></i>17.7% faster</div>
+          </article>
+          <article class="nui-kpi">
+            <div class="nui-kpi-label">Failed deliveries</div>
+            <div class="nui-kpi-value">27</div>
+            <div class="nui-kpi-detail is-negative"><i class="ti ti-arrow-up-right"></i>17.7% above target</div>
+          </article>
+        </section>
+
+        <section class="nui-resource-panel" aria-label="Shipment list">
+          <div class="nui-view-tabs" role="tablist" aria-label="Saved shipment views">
+            <button class="nui-view-tab is-active" type="button" role="tab" aria-selected="true">Last 90 days <span class="nui-view-count">2,733</span></button>
+            <button class="nui-view-tab" type="button" role="tab" aria-selected="false">Pending <span class="nui-view-count">28</span></button>
+            <button class="nui-view-tab" type="button" role="tab" aria-selected="false">Exception <span class="nui-view-count">8</span></button>
+            <button class="nui-view-tab" type="button" role="tab" aria-selected="false">Out for delivery <span class="nui-view-count">28</span></button>
+            <button class="nui-view-tab" type="button" role="tab" aria-selected="false">Delivered <span class="nui-view-count">1,687</span></button>
+          </div>
+
+          <div class="nui-toolbar">
+            <label class="nui-toolbar-search">
+              <i class="ti ti-search"></i>
+              <input type="search" placeholder="Search by order or tracking number">
+            </label>
+            <button class="nui-filter-chip is-active" type="button">Status: In Transit, Out For Delivery <i class="ti ti-x"></i></button>
+            <button class="nui-filter-chip is-active" type="button">Carrier: USPS <i class="ti ti-x"></i></button>
+            <button class="nui-filter-chip is-add" type="button"><i class="ti ti-plus"></i>Add filter</button>
+            <div class="nui-toolbar-spacer"></div>
+            <div class="nui-density-toggle" aria-label="Density">
+              <button type="button">S</button>
+              <button class="is-active" type="button">M</button>
+              <button type="button">L</button>
+            </div>
+            <button class="btn btn-white btn-sm" type="button"><i class="ti ti-adjustments-horizontal"></i>Columns</button>
+          </div>
+
+          <div class="nui-batch-bar">
+            <strong>2 selected</strong>
+            <button class="btn btn-primary btn-sm" type="button">Create exception</button>
+            <button class="btn btn-white btn-sm" type="button">Notify customer</button>
+            <button class="btn btn-white btn-sm" type="button">Export CSV</button>
+          </div>
+
+          <div class="nui-table-wrap">
+            <table class="table nui-resource-table">
+              <thead>
+                <tr>
+                  <th scope="col"><input class="form-check-input" type="checkbox" aria-label="Select all shipments"></th>
+                  <th scope="col">Order</th>
+                  <th scope="col">Tracking number</th>
+                  <th scope="col">Route</th>
+                  <th scope="col">Carrier</th>
+                  <th scope="col">Last event</th>
+                  <th scope="col">Transit</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col" class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" checked aria-label="Select shipment 152624 pending"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152624</div>
+                        <div class="nui-resource-title-sub">Warehouse queue</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939965</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td><span class="text-muted">Not assigned</span></td>
+                  <td><span class="text-muted">Awaiting carrier scan</span></td>
+                  <td><span class="nui-number">0 days</span></td>
+                  <td><span class="nui-status">Pending</span></td>
+                  <td><span class="nui-avatar">AL</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152624 pending"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152624 pending"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" checked aria-label="Select shipment 152624 label printed"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152624</div>
+                        <div class="nui-resource-title-sub">Label created</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939965</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Label printed at warehouse facility<br><span class="text-muted">Mar 13, 2024, 12:31 AM</span></td>
+                  <td><span class="nui-number">0 days</span></td>
+                  <td><span class="nui-status is-info">Label printed</span></td>
+                  <td><span class="nui-avatar">NP</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152624 label printed"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152624 label printed"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152625 confirmed"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152625</div>
+                        <div class="nui-resource-title-sub">Carrier accepted</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939918</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Picked up by carrier facility<br><span class="text-muted">Mar 13, 2024, 12:31 AM</span></td>
+                  <td><span class="nui-number">3 days</span></td>
+                  <td><span class="nui-status is-info">Confirmed</span></td>
+                  <td><span class="nui-avatar">MC</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152625"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152625"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152626 in transit"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152626</div>
+                        <div class="nui-resource-title-sub">Moving through network</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939926</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Departed regional distribution center<br><span class="text-muted">Mar 14, 2024, 3:18 PM</span></td>
+                  <td><span class="nui-number">3 days</span></td>
+                  <td><span class="nui-status is-info">In transit</span></td>
+                  <td><span class="nui-avatar">AL</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152626"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152626"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152627 out for delivery"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152627</div>
+                        <div class="nui-resource-title-sub">Final mile</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939934</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Out for delivery from local post office<br><span class="text-muted">Mar 15, 2024, 8:04 AM</span></td>
+                  <td><span class="nui-number">3 days</span></td>
+                  <td><span class="nui-status is-warning">Out for delivery</span></td>
+                  <td><span class="nui-avatar">NP</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152627"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152627"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152628 delivered"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152628</div>
+                        <div class="nui-resource-title-sub">Completed</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939942</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Delivered to mailbox<br><span class="text-muted">Mar 15, 2024, 3:42 PM</span></td>
+                  <td><span class="nui-number">3 days</span></td>
+                  <td><span class="nui-status is-success">Delivered</span></td>
+                  <td><span class="nui-avatar">MC</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152628"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152628"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152629 attempted delivery"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152629</div>
+                        <div class="nui-resource-title-sub">Needs follow-up</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939959</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Delivery attempted, notice left<br><span class="text-muted">Mar 16, 2024, 1:12 PM</span></td>
+                  <td><span class="nui-number">4 days</span></td>
+                  <td><span class="nui-status is-warning">Attempted delivery</span></td>
+                  <td><span class="nui-avatar">AL</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152629"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152629"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select shipment 152630 failure"></td>
+                  <td>
+                    <div class="nui-resource-title is-compact">
+                      <span class="nui-resource-icon"><i class="ti ti-package"></i></span>
+                      <div>
+                        <div class="nui-resource-title-main">#152630</div>
+                        <div class="nui-resource-title-sub">Exception</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="font-monospace text-muted">9434611206217689939975</span></td>
+                  <td>US <i class="ti ti-arrow-right"></i> US</td>
+                  <td>USPS<br><span class="text-muted">Priority Mail</span></td>
+                  <td>Address issue returned by carrier<br><span class="text-muted">Mar 16, 2024, 5:46 PM</span></td>
+                  <td><span class="nui-number">4 days</span></td>
+                  <td><span class="nui-status is-danger">Failure</span></td>
+                  <td><span class="nui-avatar">NP</span></td>
+                  <td>
+                    <div class="nui-row-actions">
+                      <button class="nui-icon-btn" type="button" aria-label="Open shipment 152630"><i class="ti ti-external-link"></i></button>
+                      <button class="nui-icon-btn" type="button" aria-label="More actions for shipment 152630"><i class="ti ti-dots"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="nui-table-footer">
+            <span>Results 175</span>
+            <nav class="nui-pagination" aria-label="Shipment pagination">
+              <button class="nui-icon-btn" type="button" aria-label="First page"><i class="ti ti-chevrons-left"></i></button>
+              <button class="nui-icon-btn" type="button" aria-label="Previous page"><i class="ti ti-chevron-left"></i></button>
+              <button class="btn btn-primary btn-sm" type="button">2</button>
+              <button class="nui-icon-btn" type="button" aria-label="Next page"><i class="ti ti-chevron-right"></i></button>
+              <button class="nui-icon-btn" type="button" aria-label="Last page"><i class="ti ti-chevrons-right"></i></button>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
