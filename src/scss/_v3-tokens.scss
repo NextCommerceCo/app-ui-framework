@@ -27,6 +27,35 @@
   --nui-radius-lg: 8px;
   --nui-radius-pill: 9999px;
 
+  --nui-space-1: 4px;
+  --nui-space-2: 8px;
+  --nui-space-3: 12px;
+  --nui-space-4: 16px;
+  --nui-space-5: 20px;
+  --nui-space-6: 24px;
+  --nui-space-8: 32px;
+
+  --nui-shadow-card: 0 1px 0 rgba(8, 8, 61, 0.03), 0 16px 36px rgba(8, 8, 61, 0.06);
+  --nui-shadow-popover: 0 1px 0 rgba(8, 8, 61, 0.03), 0 18px 40px rgba(8, 8, 61, 0.10);
+  --nui-shadow-modal: 0 1px 0 rgba(8, 8, 61, 0.03), 0 30px 80px rgba(8, 8, 61, 0.18);
+
+  --nui-status-success-bg: #dcede3;
+  --nui-status-success-text: #168a5b;
+  --nui-status-warning-bg: #f8e3c6;
+  --nui-status-warning-text: #a75a12;
+  --nui-status-danger-bg: #f5d8d3;
+  --nui-status-danger-text: #c23b35;
+  --nui-status-info-bg: #eaf1ff;
+  --nui-status-info-text: #244fb2;
+  --nui-status-paid-bg: var(--nui-status-success-bg);
+  --nui-status-paid-text: var(--nui-status-success-text);
+  --nui-status-review-bg: var(--nui-status-warning-bg);
+  --nui-status-review-text: var(--nui-status-warning-text);
+  --nui-status-risk-bg: var(--nui-status-danger-bg);
+  --nui-status-risk-text: var(--nui-status-danger-text);
+  --nui-status-muted-bg: #edf2f9;
+  --nui-status-muted-text: #506690;
+
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 247, 248, 252;
   --bs-body-color: var(--nui-ink);
@@ -102,6 +131,25 @@
   --nui-green-soft: rgba(22, 138, 91, 0.18);
   --nui-amber-soft: rgba(167, 90, 18, 0.20);
   --nui-red-soft: rgba(194, 59, 53, 0.20);
+  --nui-shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03), 0 18px 42px rgba(0, 0, 0, 0.28);
+  --nui-shadow-popover: 0 1px 0 rgba(255, 255, 255, 0.03), 0 20px 48px rgba(0, 0, 0, 0.38);
+  --nui-shadow-modal: 0 1px 0 rgba(255, 255, 255, 0.03), 0 32px 86px rgba(0, 0, 0, 0.5);
+  --nui-status-success-bg: rgba(22, 138, 91, 0.18);
+  --nui-status-success-text: #62d99d;
+  --nui-status-warning-bg: rgba(167, 90, 18, 0.20);
+  --nui-status-warning-text: #f4b86b;
+  --nui-status-danger-bg: rgba(194, 59, 53, 0.20);
+  --nui-status-danger-text: #ff9b92;
+  --nui-status-info-bg: rgba(51, 102, 252, 0.16);
+  --nui-status-info-text: #a8c4ff;
+  --nui-status-paid-bg: var(--nui-status-success-bg);
+  --nui-status-paid-text: var(--nui-status-success-text);
+  --nui-status-review-bg: var(--nui-status-warning-bg);
+  --nui-status-review-text: var(--nui-status-warning-text);
+  --nui-status-risk-bg: var(--nui-status-danger-bg);
+  --nui-status-risk-text: var(--nui-status-danger-text);
+  --nui-status-muted-bg: rgba(255, 255, 255, 0.08);
+  --nui-status-muted-text: #c5cee0;
 
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 9, 11, 20;

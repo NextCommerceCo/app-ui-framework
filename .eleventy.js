@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "dist/css/app-v3.css":     "v3/assets/app-v3.css" });
   eleventyConfig.addPassthroughCopy({ "dist/css/app-v3.min.css": "v3/assets/app-v3.min.css" });
   eleventyConfig.addPassthroughCopy("docs/v3/assets/css");
+  eleventyConfig.addPassthroughCopy("docs/v-dashboard/assets/css");
 
   // --- Global data ---
   eleventyConfig.addGlobalData("site", {

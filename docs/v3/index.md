@@ -10,6 +10,9 @@ permalink: /v3/
 <h2 class="mb-2">Compatibility Contract</h2>
 <p class="text-muted mb-4">v3 keeps the v1 app contract: Bootstrap classes, existing helper classes, Inter, and Tabler icons. The refresh is carried by the CSS bundle, so existing pages should be able to swap from <code>next-app-ui.min.css</code> to <code>app-v3.min.css</code> before any markup migration is considered.</p>
 
+<h2 class="mb-2">v3.1 Dashboard Primitives</h2>
+<p class="text-muted mb-4">v3.1 adds opt-in <code>nui-*</code> dashboard primitives for admin surfaces: saved views, filter chips, batch bars, density controls, KPI strips, resource tables, status tokens, and app-shell layouts. These classes are additive and intentionally separate from existing Bootstrap/Dashkit markup. The internal <a href="/v-dashboard/">v-dashboard fixture</a> dogfoods those primitives against realistic commerce operations screens.</p>
+
 <div class="card mb-4">
 <div class="card-header">
 <div>
