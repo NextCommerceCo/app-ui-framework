@@ -71,6 +71,14 @@ h1.header-title {
   min-height: 60px;
 }
 
+// When the card-header carries nav-tabs (idiomatic pattern: .card-header-tabs),
+// let the tabs' natural height drive the card-header instead of the 60px
+// min-height; otherwise the tabs sit top-heavy.
+.card-header:has(.card-header-tabs),
+.card-header:has(> .nav-tabs) {
+  min-height: 0;
+}
+
 .card-header:has(> .row) {
   padding-top: 8px;
   padding-bottom: 8px;
