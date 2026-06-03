@@ -171,14 +171,9 @@ label.form-label {
   letter-spacing: 0;
 }
 
-// Single badge shape standard (v1-style). Pill only when explicitly requested
-// via .rounded-pill / .badge-pill / .filter-badge. The bg-*-light/soft variants
-// inherit the default badge radius so all badges share one consistent shape.
-.badge {
-  min-height: 22px;
-  padding: 4px 10px;
-}
-
+// Single badge shape + size standard (v1). Bootstrap defaults handle padding +
+// size; pill only when explicitly requested via .rounded-pill / .badge-pill /
+// .filter-badge. The bg-*-light/soft variants inherit the default badge radius.
 .badge.rounded-pill,
 .badge.badge-pill,
 .badge.filter-badge {

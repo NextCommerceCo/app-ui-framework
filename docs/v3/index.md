@@ -45,23 +45,23 @@ permalink: /v3/
 </div>
 
 <h2 class="mt-5 mb-2">Quick start</h2>
-<p class="mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
+<p class="text-muted mb-4">Include CSS in your app html document <code>&lt;head&gt;</code>.</p>
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/app-v3.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
-<p class="mb-4">Include Javascript in your app html document just before the <code>&lt;/body&gt;</code>.</p>
+<p class="text-muted mb-4">Include Javascript in your app html document just before the <code>&lt;/body&gt;</code>.</p>
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 ```
 
 <h2 class="mt-5 mb-2">Versioning</h2>
-<p class="mb-4">Pin your app to a <a href="https://github.com/NextCommerceCo/app-ui-framework/releases">release version</a> by specifying in the CDN url such as <code>@0.1.4</code>.</p>
+<p class="text-muted mb-4">Pin your app to a <a href="https://github.com/NextCommerceCo/app-ui-framework/releases">release version</a> by specifying in the CDN url such as <code>@0.1.4</code>.</p>
 
 <h2 class="mt-5 mb-2">CDN links</h2>
-<p class="mb-4">As a reference, here are our primary CDN links.</p>
+<p class="text-muted mb-4">As a reference, here are our primary CDN links.</p>
 
 <div class="card mb-4">
 <div class="card-header">
@@ -92,8 +92,8 @@ permalink: /v3/
 </div>
 
 <h2 class="mt-5 mb-2">Base Layout</h2>
-<p class="mb-4">Below is an example base layout to get started with the Next Commerce Design System.</p>
-<p class="mb-4">Copy the html below into a new <code>layout.html</code> in your project and you're well on your way.</p>
+<p class="text-muted mb-4">Below is an example base layout to get started with the Next Commerce Design System.</p>
+<p class="text-muted mb-4">Copy the html below into a new <code>layout.html</code> in your project and you're well on your way.</p>
 
 ```html
 <!DOCTYPE html>

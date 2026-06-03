@@ -14036,11 +14036,6 @@ label.form-label {
   letter-spacing: 0;
 }
 
-.badge {
-  min-height: 22px;
-  padding: 4px 10px;
-}
-
 .badge.rounded-pill,
 .badge.badge-pill,
 .badge.filter-badge {
