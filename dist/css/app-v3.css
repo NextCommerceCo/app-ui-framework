@@ -13938,11 +13938,6 @@ h1.header-title {
   min-height: 60px;
 }
 
-.card-header:has(.card-header-tabs),
-.card-header:has(> .nav-tabs) {
-  min-height: 0;
-}
-
 .card-header:has(> .row) {
   padding-top: 8px;
   padding-bottom: 8px;
