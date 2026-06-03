@@ -9,8 +9,7 @@ description: Provide contextual feedback messages for typical user actions with 
 
 ---
 
-<div class=" mb-5">
-    <div class="card">
+<div class="card mb-5">
         <div class="card-header">
             <div>
             <h4 class="card-header-title">Alerts</h4>
@@ -91,5 +90,4 @@ description: Provide contextual feedback messages for typical user actions with 
 </div>
 ```
 
-</div>
 </div>

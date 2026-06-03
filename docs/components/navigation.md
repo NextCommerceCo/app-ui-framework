@@ -57,9 +57,7 @@ description: NEXT's in-app navigation follows the Bootstrap tabbed navigation. P
 </div>
 </div>
 </div>
-<h2>Example with Javascript Behaviour</h2>
-<div class="mb-5">
-  <div class="card">
+<div class="card mb-5">
     <div class="card-header">
         <div>
         <h4 class="card-header-title">Linked Tabs</h4>
@@ -125,6 +123,5 @@ description: NEXT's in-app navigation follows the Bootstrap tabbed navigation. P
 </div>
 ```
 
-</div>
 </div>
 </div>

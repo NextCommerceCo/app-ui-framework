@@ -90,6 +90,20 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
             </div>
         </div>
     </div>
+<div class="card-footer">
+    <a class="btn btn-white btn-sm" data-bs-toggle="collapse" href="#allIconsExample" role="button" aria-expanded="false" aria-controls="allIconsExample">
+    See Markup Example
+    </a>
+    <div id="allIconsExample" class="collapse" markdown="1">
+
+```html
+<!-- Use any icon by its name from the grid above -->
+<button class="btn btn-primary"><i class="ti ti-plus"></i> New Item</button>
+<a href="#" class="text-muted"><i class="ti ti-edit"></i> Edit</a>
+```
+
+</div>
+</div>
 </div>
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="iconModal" tabindex="-1" aria-labelledby="iconModalLabel" aria-hidden="true">

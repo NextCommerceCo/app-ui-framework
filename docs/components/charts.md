@@ -151,7 +151,7 @@ if (typeof Chart !== 'undefined' && stackedBar) {
 </div>
 </div>
 
-<div class="card">
+<div class="card mb-5">
 <div class="card-header">
   <div>
     <h4 class="card-header-title">

@@ -11,7 +11,9 @@ description: Available loaders to use while waiting for content to load.
 
 <div class="card mb-5">
   <div class="card-header">
+    <div>
     <h4 class="card-header-title">Spinner</h4>
+    </div>
   </div>
     <div class="card-body d-flex">
         <div class="m-3">

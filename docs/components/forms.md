@@ -8,8 +8,7 @@ title: "Forms"
 description: Next Commerce Design System supports all of Bootstrap's default form styling. Please read the <a href="https://getbootstrap.com/docs/5.2/forms/overview/" target="_blank">official documentation</a> for a full list of options from Bootstrap's core library.
 ---
 
-<div class=" mb-5">
-  <div class="card">
+<div class="card mb-5">
     <div class="card-header">
         <div>
         <h4 class="card-header-title">Standard Form Elements</h4>
@@ -151,13 +150,12 @@ description: Next Commerce Design System supports all of Bootstrap's default for
     </div>
 </div>
 ```
-  </div>
-  </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 
-
-<div class="card">
+<div class="card mb-5">
     <div class="card-header">
         <div>
             <h4 class="card-header-title">Javascript Form Elements</h4>
