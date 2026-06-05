@@ -13775,18 +13775,15 @@ h6.text-muted, .text-muted.h6 {
   --nui-amber-soft: #f8e3c6;
   --nui-red: #c23b35;
   --nui-red-soft: #f5d8d3;
+  --nui-blue-border: #c8d8ff;
+  --nui-green-border: #b6dcc7;
+  --nui-amber-border: #ecc890;
+  --nui-red-border: #ecbab4;
+  --nui-neutral-soft: #edf2f9;
   --nui-radius-sm: 4px;
   --nui-radius-md: 6px;
   --nui-radius-lg: 8px;
   --nui-radius-pill: 9999px;
-  --nui-space-1: 4px;
-  --nui-space-2: 8px;
-  --nui-space-3: 12px;
-  --nui-space-4: 16px;
-  --nui-space-5: 24px;
-  --nui-space-6: 32px;
-  --nui-space-7: 48px;
-  --nui-space-8: 64px;
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 247, 248, 252;
   --bs-body-color: var(--nui-ink);
@@ -13853,6 +13850,11 @@ h6.text-muted, .text-muted.h6 {
   --nui-green-soft: rgba(22, 138, 91, 0.18);
   --nui-amber-soft: rgba(167, 90, 18, 0.20);
   --nui-red-soft: rgba(194, 59, 53, 0.20);
+  --nui-blue-border: var(--nui-blue-deep);
+  --nui-green-border: var(--nui-green);
+  --nui-amber-border: var(--nui-amber);
+  --nui-red-border: var(--nui-red);
+  --nui-neutral-soft: rgba(255, 255, 255, 0.06);
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 9, 11, 20;
   --bs-body-color: var(--nui-ink);
@@ -14047,34 +14049,34 @@ label.form-label {
 .bg-primary-light,
 .bg-primary-soft {
   background-color: var(--nui-blue-soft) !important;
-  border-color: #c8d8ff !important;
+  border-color: var(--nui-blue-border) !important;
   color: var(--nui-blue-deep) !important;
 }
 
 .bg-success-light,
 .bg-success-soft {
   background-color: var(--nui-green-soft) !important;
-  border-color: #b6dcc7 !important;
+  border-color: var(--nui-green-border) !important;
   color: var(--nui-green) !important;
 }
 
 .bg-warning-light,
 .bg-warning-soft {
   background-color: var(--nui-amber-soft) !important;
-  border-color: #ecc890 !important;
+  border-color: var(--nui-amber-border) !important;
   color: var(--nui-amber) !important;
 }
 
 .bg-danger-light,
 .bg-danger-soft {
   background-color: var(--nui-red-soft) !important;
-  border-color: #ecbab4 !important;
+  border-color: var(--nui-red-border) !important;
   color: var(--nui-red) !important;
 }
 
 .bg-secondary-light,
 .bg-secondary-soft {
-  background-color: #edf2f9 !important;
+  background-color: var(--nui-neutral-soft) !important;
   border-color: var(--nui-line) !important;
   color: var(--nui-text) !important;
 }
@@ -14082,7 +14084,7 @@ label.form-label {
 .bg-info-light,
 .bg-info-soft {
   background-color: var(--nui-blue-soft) !important;
-  border-color: #c8d8ff !important;
+  border-color: var(--nui-blue-border) !important;
   color: var(--nui-blue-deep) !important;
 }
 
@@ -14243,25 +14245,25 @@ label.form-label {
 
 .alert-primary {
   background: var(--nui-blue-soft);
-  border-color: #c8d8ff;
+  border-color: var(--nui-blue-border);
   color: var(--nui-blue-deep);
 }
 
 .alert-success {
   background: var(--nui-green-soft);
-  border-color: #b6dcc7;
+  border-color: var(--nui-green-border);
   color: var(--nui-green);
 }
 
 .alert-warning {
   background: var(--nui-amber-soft);
-  border-color: #ecc890;
+  border-color: var(--nui-amber-border);
   color: var(--nui-amber);
 }
 
 .alert-danger {
   background: var(--nui-red-soft);
-  border-color: #ecbab4;
+  border-color: var(--nui-red-border);
   color: var(--nui-red);
 }
 
@@ -14318,7 +14320,7 @@ label.form-label {
 }
 
 .progress {
-  background: #f1f4fb;
+  background: var(--nui-neutral-soft);
   border-radius: var(--nui-radius-pill);
   height: 6px;
 }
@@ -14340,21 +14342,6 @@ label.form-label {
 .form-control-flush {
   background-color: transparent !important;
   border-color: transparent !important;
-}
-
-[data-bs-theme=dark] .badge.bg-primary-light,
-[data-bs-theme=dark] .badge.bg-primary-soft,
-[data-bs-theme=dark] .badge.bg-success-light,
-[data-bs-theme=dark] .badge.bg-success-soft,
-[data-bs-theme=dark] .badge.bg-warning-light,
-[data-bs-theme=dark] .badge.bg-warning-soft,
-[data-bs-theme=dark] .badge.bg-danger-light,
-[data-bs-theme=dark] .badge.bg-danger-soft,
-[data-bs-theme=dark] .badge.bg-secondary-light,
-[data-bs-theme=dark] .badge.bg-secondary-soft,
-[data-bs-theme=dark] .badge.bg-info-light,
-[data-bs-theme=dark] .badge.bg-info-soft {
-  border-color: currentColor !important;
 }
 
 /*# sourceMappingURL=app-v3.css.map */

@@ -22,21 +22,22 @@
   --nui-red: #c23b35;
   --nui-red-soft: #f5d8d3;
 
+  // Semantic soft-fill borders (badges, alerts). Single source of truth — light
+  // values are the subtle pastels; the dark block re-points these to the
+  // semantic text color so soft components read as outlines (button convention)
+  // rather than a too-bright pastel ring on the dark fill.
+  --nui-blue-border: #c8d8ff;
+  --nui-green-border: #b6dcc7;
+  --nui-amber-border: #ecc890;
+  --nui-red-border: #ecbab4;
+
+  // Neutral soft fill — chips, progress tracks, secondary surfaces.
+  --nui-neutral-soft: #edf2f9;
+
   --nui-radius-sm: 4px;
   --nui-radius-md: 6px;
   --nui-radius-lg: 8px;
   --nui-radius-pill: 9999px;
-
-  // Spacing rhythm — single 4px-based scale components share, so vertical and
-  // internal spacing stops drifting off-grid.
-  --nui-space-1: 4px;
-  --nui-space-2: 8px;
-  --nui-space-3: 12px;
-  --nui-space-4: 16px;
-  --nui-space-5: 24px;
-  --nui-space-6: 32px;
-  --nui-space-7: 48px;
-  --nui-space-8: 64px;
 
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 247, 248, 252;
@@ -113,6 +114,15 @@
   --nui-green-soft: rgba(22, 138, 91, 0.18);
   --nui-amber-soft: rgba(167, 90, 18, 0.20);
   --nui-red-soft: rgba(194, 59, 53, 0.20);
+
+  // Soft-fill borders re-point to the semantic text color in dark mode, so
+  // badges/alerts read as outlines (border matches text = button convention)
+  // instead of the light pastel ring.
+  --nui-blue-border: var(--nui-blue-deep);
+  --nui-green-border: var(--nui-green);
+  --nui-amber-border: var(--nui-amber);
+  --nui-red-border: var(--nui-red);
+  --nui-neutral-soft: rgba(255, 255, 255, 0.06);
 
   --bs-body-bg: var(--nui-bg);
   --bs-body-bg-rgb: 9, 11, 20;

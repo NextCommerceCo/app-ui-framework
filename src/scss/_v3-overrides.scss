@@ -185,34 +185,34 @@ label.form-label {
 .bg-primary-light,
 .bg-primary-soft {
   background-color: var(--nui-blue-soft) !important;
-  border-color: #c8d8ff !important;
+  border-color: var(--nui-blue-border) !important;
   color: var(--nui-blue-deep) !important;
 }
 
 .bg-success-light,
 .bg-success-soft {
   background-color: var(--nui-green-soft) !important;
-  border-color: #b6dcc7 !important;
+  border-color: var(--nui-green-border) !important;
   color: var(--nui-green) !important;
 }
 
 .bg-warning-light,
 .bg-warning-soft {
   background-color: var(--nui-amber-soft) !important;
-  border-color: #ecc890 !important;
+  border-color: var(--nui-amber-border) !important;
   color: var(--nui-amber) !important;
 }
 
 .bg-danger-light,
 .bg-danger-soft {
   background-color: var(--nui-red-soft) !important;
-  border-color: #ecbab4 !important;
+  border-color: var(--nui-red-border) !important;
   color: var(--nui-red) !important;
 }
 
 .bg-secondary-light,
 .bg-secondary-soft {
-  background-color: #edf2f9 !important;
+  background-color: var(--nui-neutral-soft) !important;
   border-color: var(--nui-line) !important;
   color: var(--nui-text) !important;
 }
@@ -220,7 +220,7 @@ label.form-label {
 .bg-info-light,
 .bg-info-soft {
   background-color: var(--nui-blue-soft) !important;
-  border-color: #c8d8ff !important;
+  border-color: var(--nui-blue-border) !important;
   color: var(--nui-blue-deep) !important;
 }
 
@@ -379,25 +379,25 @@ label.form-label {
 
 .alert-primary {
   background: var(--nui-blue-soft);
-  border-color: #c8d8ff;
+  border-color: var(--nui-blue-border);
   color: var(--nui-blue-deep);
 }
 
 .alert-success {
   background: var(--nui-green-soft);
-  border-color: #b6dcc7;
+  border-color: var(--nui-green-border);
   color: var(--nui-green);
 }
 
 .alert-warning {
   background: var(--nui-amber-soft);
-  border-color: #ecc890;
+  border-color: var(--nui-amber-border);
   color: var(--nui-amber);
 }
 
 .alert-danger {
   background: var(--nui-red-soft);
-  border-color: #ecbab4;
+  border-color: var(--nui-red-border);
   color: var(--nui-red);
 }
 
@@ -454,7 +454,7 @@ label.form-label {
 }
 
 .progress {
-  background: #f1f4fb;
+  background: var(--nui-neutral-soft);
   border-radius: var(--nui-radius-pill);
   height: 6px;
 }
@@ -478,22 +478,6 @@ label.form-label {
   border-color: transparent !important;
 }
 
-// Dark-mode badge outlines: follow the outline-button convention (border matches
-// the text color) instead of the light pastel borders tuned for light mode, which
-// read as a too-bright ring against the dark soft fill.
-[data-bs-theme="dark"] {
-  .badge.bg-primary-light,
-  .badge.bg-primary-soft,
-  .badge.bg-success-light,
-  .badge.bg-success-soft,
-  .badge.bg-warning-light,
-  .badge.bg-warning-soft,
-  .badge.bg-danger-light,
-  .badge.bg-danger-soft,
-  .badge.bg-secondary-light,
-  .badge.bg-secondary-soft,
-  .badge.bg-info-light,
-  .badge.bg-info-soft {
-    border-color: currentColor !important;
-  }
-}
+// Dark-mode soft-fill borders (badges + alerts) are handled canonically by the
+// --nui-*-border tokens, which re-point to the semantic text color in the dark
+// block. No per-component dark override needed.
