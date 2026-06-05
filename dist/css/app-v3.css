@@ -13841,7 +13841,7 @@ h6.text-muted, .text-muted.h6 {
   --nui-ink: #f7f8fc;
   --nui-graphite: #ffffff;
   --nui-text: #c5cee0;
-  --nui-muted: #96a3bc;
+  --nui-muted: #aab4ca;
   --nui-line: rgba(255, 255, 255, 0.11);
   --nui-line-strong: rgba(255, 255, 255, 0.18);
   --nui-bg: #090b14;
@@ -14340,6 +14340,21 @@ label.form-label {
 .form-control-flush {
   background-color: transparent !important;
   border-color: transparent !important;
+}
+
+[data-bs-theme=dark] .badge.bg-primary-light,
+[data-bs-theme=dark] .badge.bg-primary-soft,
+[data-bs-theme=dark] .badge.bg-success-light,
+[data-bs-theme=dark] .badge.bg-success-soft,
+[data-bs-theme=dark] .badge.bg-warning-light,
+[data-bs-theme=dark] .badge.bg-warning-soft,
+[data-bs-theme=dark] .badge.bg-danger-light,
+[data-bs-theme=dark] .badge.bg-danger-soft,
+[data-bs-theme=dark] .badge.bg-secondary-light,
+[data-bs-theme=dark] .badge.bg-secondary-soft,
+[data-bs-theme=dark] .badge.bg-info-light,
+[data-bs-theme=dark] .badge.bg-info-soft {
+  border-color: currentColor !important;
 }
 
 /*# sourceMappingURL=app-v3.css.map */

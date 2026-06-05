@@ -112,3 +112,17 @@
 .component-section > p.text-muted {
     max-width: 880px;
 }
+
+// The shared docs chrome (_sass/_layout.scss) hard-codes `[data-bs-theme=dark]
+// .text-muted` to #6e7a91, which shadows the framework's --nui-muted token and
+// makes the portal MISREPRESENT what consuming apps actually render. Re-assert
+// the framework value so the v3 portal is a faithful preview of app-v3.min.css
+// in both themes. The dark-scoped selectors match the chrome's (0,2,0)
+// specificity and win on source order; the more-specific sidebar-label rule
+// (h6.text-uppercase.text-muted) stays intact.
+.text-muted,
+.text-body-secondary,
+[data-bs-theme="dark"] .text-muted,
+[data-bs-theme="dark"] .text-body-secondary {
+    color: var(--nui-muted) !important;
+}
