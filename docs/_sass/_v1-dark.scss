@@ -1,0 +1,396 @@
+// v1 docs-portal dark theme (relocated from _layout.scss 2026-05-28).
+// This is the v1 portal's COMPLETE dark mode — v1's framework (src/scss/main.scss)
+// has no token-driven dark mode, so these hand-rolled overrides are load-bearing
+// for the v1 portal ONLY. The v3 portal does NOT import this: app-v3 owns all
+// component dark theming via --nui tokens, and the v3 portal supplies its own
+// token-based portal-layout dark. Keeping this v1-only stops it shadowing v3.
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #13151a;
+    --bs-body-color: #e8eaf0;
+    --bs-border-color: #333a47;
+    --bs-secondary-bg: #1e2128;
+    --bs-tertiary-bg: #282d38;
+    --bs-emphasis-color: #e8eaf0;
+    --bs-link-color: #6699ff;
+    --bs-link-hover-color: #88b3ff;
+    --bs-code-color: #fb923c;
+
+    background-color: #13151a;
+    color: #e8eaf0;
+
+    .main-nav {
+        background-color: #1e2128;
+        border-color: #333a47;
+    }
+
+    .main-nav .navbar-brand .logo-light {
+        display: none;
+    }
+    .main-nav .navbar-brand .logo-dark {
+        display: inline-block;
+    }
+
+    .main-nav .nav-link {
+        color: #a8b0c0;
+        &:hover {
+            color: #e8eaf0;
+        }
+        &.active {
+            color: #6699ff;
+            border-left-color: #6699ff;
+        }
+    }
+
+    .main-nav .nav-group-label {
+        color: #6e7a91;
+    }
+
+    .section-group-heading .ti,
+    .section-group-heading h6 {
+        color: #6e7a91;
+    }
+
+    .main-content {
+        background-color: #13151a;
+    }
+
+    .card {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #e8eaf0;
+    }
+
+    .card-header {
+        border-color: #333a47;
+    }
+
+    .table {
+        --bs-table-bg: #1e2128;
+        --bs-table-border-color: #333a47;
+        --bs-table-color: #e8eaf0;
+        --bs-table-hover-bg: #2e3340;
+        --bs-table-striped-bg: #282d38;
+    }
+
+    thead th {
+        background-color: #282d38 !important;
+        color: #a8b0c0 !important;
+    }
+
+    // Don't highlight row-header th cells in tbody
+    tbody th {
+        background-color: inherit !important;
+        color: inherit !important;
+    }
+
+    .form-control, .form-select {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+        &:focus {
+            background-color: #282d38;
+            border-color: #3c7dff;
+            color: #e8eaf0;
+        }
+    }
+
+    .form-control::placeholder {
+        color: #6e7a91;
+    }
+
+    // Choices.js dark mode
+    .choices__inner {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .choices__list--dropdown,
+    .choices [aria-expanded] {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .choices__input {
+        background-color: #282d38;
+        color: #e8eaf0;
+    }
+
+    .choices__list--multiple .choices__item {
+        background-color: #333a47;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    pre, code {
+        background-color: #282d38;
+        color: #e8eaf0;
+    }
+
+    pre code {
+        background-color: transparent;
+    }
+
+    .border-bottom {
+        border-color: #333a47 !important;
+    }
+
+    .btn-white {
+        --bs-btn-bg: #282d38;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-hover-bg: #333a47;
+        --bs-btn-hover-border-color: #434c5e;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-active-bg: #434c5e;
+        --bs-btn-active-border-color: #434c5e;
+        --bs-btn-active-color: #e8eaf0;
+    }
+
+    .btn-light {
+        --bs-btn-bg: #282d38;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-hover-bg: #333a47;
+        --bs-btn-hover-border-color: #434c5e;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-active-bg: #434c5e;
+        --bs-btn-active-border-color: #434c5e;
+        --bs-btn-active-color: #e8eaf0;
+    }
+
+    .btn-dark {
+        --bs-btn-bg: #e8eaf0;
+        --bs-btn-border-color: #e8eaf0;
+        --bs-btn-color: #13151a;
+        --bs-btn-hover-bg: #d0d3db;
+        --bs-btn-hover-border-color: #d0d3db;
+        --bs-btn-hover-color: #13151a;
+    }
+
+    .btn-outline-light {
+        --bs-btn-color: #a8b0c0;
+        --bs-btn-border-color: #434c5e;
+        --bs-btn-hover-bg: #282d38;
+        --bs-btn-hover-color: #e8eaf0;
+        --bs-btn-hover-border-color: #434c5e;
+    }
+
+    .btn-outline-dark {
+        --bs-btn-color: #e8eaf0;
+        --bs-btn-border-color: #e8eaf0;
+        --bs-btn-hover-bg: #e8eaf0;
+        --bs-btn-hover-color: #13151a;
+    }
+
+    .alert-light {
+        background-color: #282d38;
+        border-color: #434c5e;
+        color: #a8b0c0;
+    }
+
+    .alert-dark {
+        background-color: #333a47;
+        border-color: #434c5e;
+        color: #e8eaf0;
+    }
+
+    .text-muted {
+        color: #6e7a91 !important;
+    }
+
+    // Dashboard stat labels — white on dark cards, these are metrics that must pop
+    h6.text-uppercase.text-muted {
+        color: #e8eaf0 !important;
+    }
+
+    .text-dark {
+        color: #e8eaf0 !important;
+    }
+
+    .bg-white {
+        background-color: #1e2128 !important;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23a8b0c0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .hljs {
+        background: #282d38;
+        color: #e8eaf0;
+    }
+
+    // ── Badge light variants → dark-aware backgrounds ──
+    // Pastel light badges are unreadable on dark backgrounds.
+    // Swap to dark-friendly muted tones that preserve the color intent.
+    .bg-primary-light {
+        --bs-badge-color: #88b3ff;
+        background-color: #1a2d5a !important;
+        border-color: #2b57da;
+    }
+
+    .bg-secondary-light {
+        --bs-badge-color: #a8b0c0;
+        background-color: #333a47 !important;
+        border-color: #434c5e;
+    }
+
+    .bg-success-light {
+        --bs-badge-color: #4ade80;
+        background-color: #0a3a1e !important;
+        border-color: #22c55e;
+    }
+
+    .bg-info-light {
+        --bs-badge-color: #67d4e8;
+        background-color: #0c2a3a !important;
+        border-color: #39afd1;
+    }
+
+    .bg-warning-light {
+        --bs-badge-color: #fbbf24;
+        background-color: #3a2a0a !important;
+        border-color: #f5a623;
+    }
+
+    .bg-danger-light {
+        --bs-badge-color: #fca5a5;
+        background-color: #3a1520 !important;
+        border-color: #f87171;
+    }
+
+    .badge.text-bg-light {
+        background-color: #333a47 !important;
+        color: #a8b0c0 !important;
+    }
+
+    .badge.text-bg-dark {
+        background-color: #e8eaf0 !important;
+        color: #13151a !important;
+    }
+
+    // ── Timeline note card ──
+    // The .is-note card uses --bs-gray-100 which is near-white
+    .card-timeline--item.is-note .card {
+        background-color: #282d38 !important;
+        border-color: #434c5e;
+    }
+
+    // ── Pagination ──
+    .page-link {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #a8b0c0;
+
+        &:hover {
+            background-color: #282d38;
+            border-color: #434c5e;
+            color: #e8eaf0;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: #3266ff;
+        border-color: #3266ff;
+        color: #fff;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: #1e2128;
+        border-color: #333a47;
+        color: #434c5e;
+    }
+
+    // ── Nav tabs (component demos, not sidebar) ──
+    .nav-tabs {
+        border-color: #333a47;
+    }
+
+    .nav-tabs .nav-link {
+        color: #a8b0c0;
+
+        &:hover {
+            color: #e8eaf0;
+            border-color: transparent transparent #434c5e;
+        }
+
+        &.active {
+            color: #e8eaf0;
+            border-color: transparent transparent #3266ff;
+            background-color: transparent;
+        }
+    }
+
+    // ── Card footer border ──
+    .card-footer {
+        border-color: #333a47;
+    }
+
+    // ── Flatpickr date picker ──
+    .flatpickr-calendar {
+        background: #1e2128;
+        border-color: #333a47;
+        box-shadow: 0 3px 13px rgba(0,0,0,0.3);
+    }
+
+    .flatpickr-months, .flatpickr-month {
+        background: #1e2128;
+        color: #e8eaf0;
+    }
+
+    .flatpickr-weekdays, span.flatpickr-weekday {
+        background: #1e2128;
+        color: #6e7a91;
+    }
+
+    .flatpickr-day {
+        color: #a8b0c0;
+
+        &:hover {
+            background: #282d38;
+            border-color: #434c5e;
+        }
+
+        &.selected {
+            background: #3266ff;
+            border-color: #3266ff;
+            color: #fff;
+        }
+    }
+
+    // ── Breadcrumb ──
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: #6e7a91;
+    }
+
+    // ── Dropdown menus ──
+    .dropdown-menu {
+        background-color: #1e2128;
+        border-color: #333a47;
+    }
+
+    .dropdown-item {
+        color: #a8b0c0;
+
+        &:hover, &:focus {
+            color: #e8eaf0;
+            background-color: #282d38;
+        }
+    }
+}
+
+// Theme-toggle dark styling (relocated from _layout.scss with the rest of the
+// v1 portal dark theme).
+[data-bs-theme="dark"] .theme-toggle {
+    color: #6e7a91;
+    &:hover {
+        color: #e8eaf0;
+    }
+}
+
+[data-bs-theme="dark"] .theme-toggle-wrapper {
+    border-color: #333a47;
+}

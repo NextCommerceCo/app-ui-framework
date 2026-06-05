@@ -14015,7 +14015,8 @@ label.form-label {
 }
 
 .btn-white,
-.btn-secondary {
+.btn-secondary,
+.btn-light {
   --bs-btn-bg: var(--nui-panel);
   --bs-btn-border-color: var(--nui-line-strong);
   --bs-btn-color: var(--nui-ink);
@@ -14025,6 +14026,31 @@ label.form-label {
   --bs-btn-active-bg: var(--nui-panel-soft);
   --bs-btn-active-border-color: var(--nui-line-strong);
   --bs-btn-active-color: var(--nui-ink);
+}
+
+.btn-dark {
+  --bs-btn-bg: var(--nui-ink);
+  --bs-btn-border-color: var(--nui-ink);
+  --bs-btn-color: var(--nui-panel);
+  --bs-btn-hover-bg: var(--nui-graphite);
+  --bs-btn-hover-border-color: var(--nui-graphite);
+  --bs-btn-hover-color: var(--nui-panel);
+}
+
+.btn-outline-light {
+  --bs-btn-color: var(--nui-text);
+  --bs-btn-border-color: var(--nui-line-strong);
+  --bs-btn-hover-bg: var(--nui-panel-soft);
+  --bs-btn-hover-color: var(--nui-ink);
+  --bs-btn-hover-border-color: var(--nui-line-strong);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--nui-ink);
+  --bs-btn-border-color: var(--nui-ink);
+  --bs-btn-hover-bg: var(--nui-ink);
+  --bs-btn-hover-color: var(--nui-panel);
+  --bs-btn-hover-border-color: var(--nui-ink);
 }
 
 .btn-link {
@@ -14370,6 +14396,68 @@ label.form-label {
 .form-control-flush {
   background-color: transparent !important;
   border-color: transparent !important;
+}
+
+[data-bs-theme=dark] .bg-white {
+  background-color: var(--nui-panel) !important;
+}
+[data-bs-theme=dark] .text-dark {
+  color: var(--nui-ink) !important;
+}
+[data-bs-theme=dark] .badge.text-bg-light {
+  background-color: var(--nui-line) !important;
+  color: var(--nui-graphite) !important;
+}
+[data-bs-theme=dark] .badge.text-bg-dark {
+  background-color: var(--nui-ink) !important;
+  color: var(--nui-bg) !important;
+}
+[data-bs-theme=dark] .card-timeline--item.is-note .card {
+  background-color: var(--nui-panel-soft) !important;
+  border-color: var(--nui-line);
+}
+[data-bs-theme=dark] .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--nui-muted);
+}
+[data-bs-theme=dark] .choices__inner,
+[data-bs-theme=dark] .choices__list--dropdown,
+[data-bs-theme=dark] .choices [aria-expanded],
+[data-bs-theme=dark] .choices__input {
+  background-color: var(--nui-panel);
+  border-color: var(--nui-line-strong);
+  color: var(--nui-ink);
+}
+[data-bs-theme=dark] .choices__list--multiple .choices__item {
+  background-color: var(--nui-neutral-soft);
+  border-color: var(--nui-line);
+  color: var(--nui-text);
+}
+[data-bs-theme=dark] .flatpickr-calendar {
+  background: var(--nui-panel);
+  border-color: var(--nui-line);
+  box-shadow: 0 3px 13px rgba(0, 0, 0, 0.3);
+}
+[data-bs-theme=dark] .flatpickr-months,
+[data-bs-theme=dark] .flatpickr-month {
+  background: var(--nui-panel);
+  color: var(--nui-ink);
+}
+[data-bs-theme=dark] .flatpickr-weekdays,
+[data-bs-theme=dark] span.flatpickr-weekday {
+  background: var(--nui-panel);
+  color: var(--nui-muted);
+}
+[data-bs-theme=dark] .flatpickr-day {
+  color: var(--nui-text);
+}
+[data-bs-theme=dark] .flatpickr-day:hover {
+  background: var(--nui-panel-soft);
+  border-color: var(--nui-line);
+}
+[data-bs-theme=dark] .flatpickr-day.selected {
+  background: var(--nui-blue);
+  border-color: var(--nui-blue);
+  color: #fff;
 }
 
 /*# sourceMappingURL=app-v3.css.map */

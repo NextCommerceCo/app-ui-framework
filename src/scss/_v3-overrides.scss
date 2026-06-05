@@ -144,7 +144,8 @@ label.form-label {
 }
 
 .btn-white,
-.btn-secondary {
+.btn-secondary,
+.btn-light {
   --bs-btn-bg: var(--nui-panel);
   --bs-btn-border-color: var(--nui-line-strong);
   --bs-btn-color: var(--nui-ink);
@@ -154,6 +155,34 @@ label.form-label {
   --bs-btn-active-bg: var(--nui-panel-soft);
   --bs-btn-active-border-color: var(--nui-line-strong);
   --bs-btn-active-color: var(--nui-ink);
+}
+
+// Emphasis / inverted button — ink fill, surface-colored text. Inverts per
+// theme via tokens (dark block flips --nui-ink to near-white), so it stays a
+// high-contrast block in both modes.
+.btn-dark {
+  --bs-btn-bg: var(--nui-ink);
+  --bs-btn-border-color: var(--nui-ink);
+  --bs-btn-color: var(--nui-panel);
+  --bs-btn-hover-bg: var(--nui-graphite);
+  --bs-btn-hover-border-color: var(--nui-graphite);
+  --bs-btn-hover-color: var(--nui-panel);
+}
+
+.btn-outline-light {
+  --bs-btn-color: var(--nui-text);
+  --bs-btn-border-color: var(--nui-line-strong);
+  --bs-btn-hover-bg: var(--nui-panel-soft);
+  --bs-btn-hover-color: var(--nui-ink);
+  --bs-btn-hover-border-color: var(--nui-line-strong);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--nui-ink);
+  --bs-btn-border-color: var(--nui-ink);
+  --bs-btn-hover-bg: var(--nui-ink);
+  --bs-btn-hover-color: var(--nui-panel);
+  --bs-btn-hover-border-color: var(--nui-ink);
 }
 
 .btn-link {
@@ -510,3 +539,59 @@ label.form-label {
 // Dark-mode soft-fill borders (badges + alerts) are handled canonically by the
 // --nui-*-border tokens, which re-point to the semantic text color in the dark
 // block. No per-component dark override needed.
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Dark-mode theming for surfaces the framework SHIPS but that can't theme purely
+// through token re-pointing: third-party widget skins (flatpickr, choices.js)
+// whose light styling lives in vendor/custom partials, and fixed-name utilities
+// that must invert (.bg-white, .text-dark, solid .text-bg-* badges). Keeping
+// these IN the framework (not the docs chrome) is what lets any consuming app
+// get a complete dark mode for free. All values reference --nui tokens.
+// ─────────────────────────────────────────────────────────────────────────────
+[data-bs-theme="dark"] {
+  // Fixed-name utilities that must invert
+  .bg-white { background-color: var(--nui-panel) !important; }
+  .text-dark { color: var(--nui-ink) !important; }
+  .badge.text-bg-light { background-color: var(--nui-line) !important; color: var(--nui-graphite) !important; }
+  .badge.text-bg-dark { background-color: var(--nui-ink) !important; color: var(--nui-bg) !important; }
+
+  // Timeline note card (its light style uses a near-white gray)
+  .card-timeline--item.is-note .card {
+    background-color: var(--nui-panel-soft) !important;
+    border-color: var(--nui-line);
+  }
+
+  // Breadcrumb separator
+  .breadcrumb-item + .breadcrumb-item::before { color: var(--nui-muted); }
+
+  // Choices.js — match the framework's form-control surface
+  .choices__inner,
+  .choices__list--dropdown,
+  .choices [aria-expanded],
+  .choices__input {
+    background-color: var(--nui-panel);
+    border-color: var(--nui-line-strong);
+    color: var(--nui-ink);
+  }
+  .choices__list--multiple .choices__item {
+    background-color: var(--nui-neutral-soft);
+    border-color: var(--nui-line);
+    color: var(--nui-text);
+  }
+
+  // Flatpickr date picker
+  .flatpickr-calendar {
+    background: var(--nui-panel);
+    border-color: var(--nui-line);
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.3);
+  }
+  .flatpickr-months,
+  .flatpickr-month { background: var(--nui-panel); color: var(--nui-ink); }
+  .flatpickr-weekdays,
+  span.flatpickr-weekday { background: var(--nui-panel); color: var(--nui-muted); }
+  .flatpickr-day {
+    color: var(--nui-text);
+    &:hover { background: var(--nui-panel-soft); border-color: var(--nui-line); }
+    &.selected { background: var(--nui-blue); border-color: var(--nui-blue); color: #fff; }
+  }
+}

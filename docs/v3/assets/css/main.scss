@@ -113,32 +113,48 @@
     max-width: 880px;
 }
 
-// The shared docs chrome (_sass/_layout.scss) hard-codes `[data-bs-theme=dark]
-// .text-muted` to #6e7a91, which shadows the framework's --nui-muted token and
-// makes the portal MISREPRESENT what consuming apps actually render. Re-assert
-// the framework value so the v3 portal is a faithful preview of app-v3.min.css
-// in both themes. The dark-scoped selectors match the chrome's (0,2,0)
-// specificity and win on source order; the more-specific sidebar-label rule
-// (h6.text-uppercase.text-muted) stays intact.
-.text-muted,
-.text-body-secondary,
-[data-bs-theme="dark"] .text-muted,
-[data-bs-theme="dark"] .text-body-secondary {
-    color: var(--nui-muted) !important;
-}
+// ───────────────────────────────────────────────────────────────────
+// v3 portal-layout dark theme (tokens)
+// ───────────────────────────────────────────────────────────────────
+//
+// The shared chrome (_layout.scss) is now light/layout-only — its dark theme
+// was relocated to _v1-dark.scss (v1-only). app-v3 owns all COMPONENT dark
+// theming via --nui tokens; this block supplies dark styling only for the
+// docs-portal CHROME that app-v3 doesn't know about (sidebar nav, section
+// headings, theme toggle, logo swap, code container). All token-based, so the
+// portal stays in lockstep with the framework and can't drift.
+[data-bs-theme="dark"] {
+    .main-nav {
+        background-color: var(--nui-panel);
+        border-color: var(--nui-line);
+    }
+    .main-nav .navbar-brand .logo-light { display: none; }
+    .main-nav .navbar-brand .logo-dark { display: inline-block; }
 
-// Same chrome-shadowing issue for the neutral alerts: the chrome's
-// `[data-bs-theme=dark] .alert-light/.alert-dark` (0,2,0) override the
-// framework's token-driven rules on the portal. Re-assert the framework values
-// (source of truth: src/scss/_v3-overrides.scss alert block) so the portal
-// faithfully previews app-v3 in dark mode.
-[data-bs-theme="dark"] .alert-light {
-    background: var(--nui-panel-soft);
-    border-color: var(--nui-line);
-    color: var(--nui-text);
-}
-[data-bs-theme="dark"] .alert-dark {
-    background: var(--nui-line);
-    border-color: var(--nui-line-strong);
-    color: var(--nui-graphite);
+    .main-nav .nav-link {
+        color: var(--nui-text);
+        &:hover { color: var(--nui-graphite); }
+        &.active { color: var(--nui-blue); border-left-color: var(--nui-blue); }
+    }
+    .main-nav .nav-group-label { color: var(--nui-muted); }
+
+    .section-group-heading .ti,
+    .section-group-heading h6 { color: var(--nui-muted); }
+
+    .main-content { background-color: var(--nui-bg); }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23aab4ca' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    pre, code { background-color: var(--nui-panel-soft); color: var(--nui-ink); }
+    pre code { background-color: transparent; }
+
+    .border-bottom { border-color: var(--nui-line) !important; }
+
+    .theme-toggle {
+        color: var(--nui-muted);
+        &:hover { color: var(--nui-graphite); }
+    }
+    .theme-toggle-wrapper { border-color: var(--nui-line); }
 }

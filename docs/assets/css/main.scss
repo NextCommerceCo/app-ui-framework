@@ -1,2 +1,6 @@
 @import "./../../src/scss/main";
 @import "docs";
+// v1 portal's dark theme — relocated out of the shared chrome (_layout.scss) so
+// it no longer shadows the v3 portal. v1-only because v1's framework has no
+// token-driven dark mode.
+@import "v1-dark";
