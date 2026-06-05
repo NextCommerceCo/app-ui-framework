@@ -14271,6 +14271,18 @@ label.form-label {
   color: var(--nui-red);
 }
 
+.alert-info {
+  background: var(--nui-blue-soft);
+  border-color: var(--nui-blue-border);
+  color: var(--nui-blue-deep);
+}
+
+.alert-secondary {
+  background: var(--nui-neutral-soft);
+  border-color: var(--nui-line);
+  color: var(--nui-text);
+}
+
 .modal-content {
   border-color: var(--nui-line);
   border-radius: var(--nui-radius-lg);
