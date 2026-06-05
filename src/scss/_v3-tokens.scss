@@ -5,7 +5,7 @@
   --nui-ink: #08083d;
   --nui-graphite: #141621;
   --nui-text: #506690;
-  --nui-muted: #7b86a0;
+  --nui-muted: #646f8a;
   --nui-line: #dde4f2;
   --nui-line-strong: #bdc8dc;
   --nui-bg: #f7f8fc;
@@ -111,6 +111,13 @@
   --nui-blue: #5b85ff;
   --nui-blue-deep: #a8c4ff;
   --nui-blue-soft: rgba(51, 102, 252, 0.16);
+  // Semantic hues are brightened for dark mode (mirroring blue) so status text,
+  // soft-fill borders, and .text-* utilities clear WCAG AA on the dark fills.
+  // The light base greens/ambers/reds are too dark to read on near-black.
+  --nui-green: #2fbd7e;
+  --nui-green-bright: #3cce8d;
+  --nui-amber: #e3a24a;
+  --nui-red: #f06f68;
   --nui-green-soft: rgba(22, 138, 91, 0.18);
   --nui-amber-soft: rgba(167, 90, 18, 0.20);
   --nui-red-soft: rgba(194, 59, 53, 0.20);
