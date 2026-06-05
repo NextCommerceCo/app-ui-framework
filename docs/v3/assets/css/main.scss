@@ -126,3 +126,19 @@
 [data-bs-theme="dark"] .text-body-secondary {
     color: var(--nui-muted) !important;
 }
+
+// Same chrome-shadowing issue for the neutral alerts: the chrome's
+// `[data-bs-theme=dark] .alert-light/.alert-dark` (0,2,0) override the
+// framework's token-driven rules on the portal. Re-assert the framework values
+// (source of truth: src/scss/_v3-overrides.scss alert block) so the portal
+// faithfully previews app-v3 in dark mode.
+[data-bs-theme="dark"] .alert-light {
+    background: var(--nui-panel-soft);
+    border-color: var(--nui-line);
+    color: var(--nui-text);
+}
+[data-bs-theme="dark"] .alert-dark {
+    background: var(--nui-line);
+    border-color: var(--nui-line-strong);
+    color: var(--nui-graphite);
+}

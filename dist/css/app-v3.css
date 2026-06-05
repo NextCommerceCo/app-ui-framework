@@ -14277,10 +14277,22 @@ label.form-label {
   color: var(--nui-blue-deep);
 }
 
+.alert-light {
+  background: var(--nui-panel-soft);
+  border-color: var(--nui-line);
+  color: var(--nui-text);
+}
+
 .alert-secondary {
   background: var(--nui-neutral-soft);
   border-color: var(--nui-line);
   color: var(--nui-text);
+}
+
+.alert-dark {
+  background: var(--nui-line);
+  border-color: var(--nui-line-strong);
+  color: var(--nui-graphite);
 }
 
 .modal-content {

@@ -407,12 +407,27 @@ label.form-label {
   color: var(--nui-blue-deep);
 }
 
-// Secondary/neutral alert — token-driven so it doesn't fall through to
-// Bootstrap's dark defaults (which rendered as low-contrast light-on-light).
+// Neutral alert ladder (quietest → strongest), all token-driven so they adapt
+// per theme instead of falling through to Bootstrap defaults:
+//   light  → panel-soft fill, the quietest notice
+//   secondary → neutral-soft fill, the default neutral
+//   dark   → line fill + graphite text, the most present neutral
+.alert-light {
+  background: var(--nui-panel-soft);
+  border-color: var(--nui-line);
+  color: var(--nui-text);
+}
+
 .alert-secondary {
   background: var(--nui-neutral-soft);
   border-color: var(--nui-line);
   color: var(--nui-text);
+}
+
+.alert-dark {
+  background: var(--nui-line);
+  border-color: var(--nui-line-strong);
+  color: var(--nui-graphite);
 }
 
 .modal-content {
