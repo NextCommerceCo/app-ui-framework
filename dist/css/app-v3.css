@@ -13868,6 +13868,8 @@ h6.text-muted, .text-muted.h6 {
 
 body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
   color: var(--nui-ink);
   background: var(--nui-bg);
