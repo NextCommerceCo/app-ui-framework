@@ -1,19 +1,5 @@
-- title: Getting Started
-  url: "#top"
-  icon: ti-rocket
+- title: Overview
+  url: /
 
-- title: Layout
-  section: layout
-  icon: ti-layout
-
-- title: Actions
-  section: actions
-  icon: ti-click
-
-- title: Feedback
-  section: feedback
-  icon: ti-bell
-
-- title: Data
-  section: data
-  icon: ti-chart-bar
+- title: Components
+  group: components

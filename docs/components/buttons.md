@@ -1,9 +1,7 @@
 ---
 layout: page-content
 group: components
-section: actions
-order: 3
-permalink: false
+order: 2
 title: "Buttons"
 description: Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more. Please read the  <a href="https://getbootstrap.com/docs/5.2/components/buttons/" target="_blank">Bootstrap documentation</a> for a full list of options.
 

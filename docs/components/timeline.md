@@ -1,13 +1,11 @@
 ---
 layout: page-content
 group: components
-section: data
-order: 14
-permalink: false
+order: 7
 title: "Timeline"
 description: Timelines are a great way to show historical events to and provide context to for how things have changed over time.
 ---
-<div class="card mb-5">
+<div class="card">
     <div class="card-header">
         <div>
             <h4 class="card-header-title">

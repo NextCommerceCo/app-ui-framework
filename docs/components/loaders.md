@@ -1,9 +1,7 @@
 ---
 layout: page-content
 group: components
-section: feedback
-order: 10
-permalink: false
+order: 7
 title: "Loaders"
 description: Available loaders to use while waiting for content to load.
 
@@ -11,9 +9,7 @@ description: Available loaders to use while waiting for content to load.
 
 <div class="card mb-5">
   <div class="card-header">
-    <div>
     <h4 class="card-header-title">Spinner</h4>
-    </div>
   </div>
     <div class="card-body d-flex">
         <div class="m-3">

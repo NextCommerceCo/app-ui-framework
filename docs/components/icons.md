@@ -1,9 +1,7 @@
 ---
 layout: page-content
 group: components
-section: data
-order: 13
-permalink: false
+order: 5
 title: "Icons"
 description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a> comes fully bundled for a large selection of over 5,900 icons for UI elements that need a little extra spark."
 ---
@@ -43,20 +41,20 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
 <style>
 #iconsCard .icons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 64px);
+    grid-template-columns: repeat(12, 1fr);
     gap: 0.5rem;
-    justify-content: center;
 }
 #iconsCard .ti {
-    font-size: 1.5rem;
-    color: var(--bs-body-color);
+    font-size: 2rem;
+    color: var(--bs-gray-dark)
 }
 #iconsCard .item .name {
     font-size: 10px;
 }
 #iconsCard .icon-square {
-  width: 64px;
-  height: 64px;
+aspect-ratio: 1 / 1;
+  width: 100%;
+  min-width: 0;
   background: transparent;
   padding: 0;
   display: flex;
@@ -72,6 +70,24 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
   box-shadow: 0 0 0 2px var(--bs-blue);
   background: rgba(13,110,253,0.05);
 }
+@media (max-width: 960px) {
+  #iconsCard .icons-grid,
+  .icons-grid {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+@media (max-width: 750px) {
+  #iconsCard .icons-grid,
+  .icons-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  #iconsCard .icons-grid,
+  .icons-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 <div class="card mb-5">
     <div class="card-header">
@@ -82,7 +98,16 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
     <div class="card-body" id="iconsCard">
         <input class="search form-control mb-3" placeholder="Search icons by name or tag..." />
         <div class="icons-grid list">
-{%- for icon in icons -%}{%- assign icon_name = icon[0] -%}{%- assign icon_obj = icon[1] -%}<div class="item icon-click" data-icon="{{ icon_name }}" data-tags="{{ icon_obj.tags | default: '' | join: ' ' }}"><div class="icon-square border rounded d-flex flex-column align-items-center justify-content-center"><span class="ti ti-{{ icon_name }}"></span><span class="d-none name">{{ icon_name }}</span></div></div>{%- endfor -%}
+            {% for icon in site.data.icons %}
+                {% assign icon_name = icon[0] %}
+                {% assign icon_obj = icon[1] %}
+                <div class="item icon-click" data-icon="{{ icon_name }}" data-tags="{{ icon_obj.tags | default: '' | join: ' ' }}">
+                    <div class="icon-square border rounded d-flex flex-column align-items-center justify-content-center">
+                        <span class="ti ti-{{ icon_name }}"></span>
+                        <span class="d-none name">{{ icon_name }}</span>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
         <div class="row align-items-center mt-5">
             <div class="col">
@@ -90,20 +115,6 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
             </div>
         </div>
     </div>
-<div class="card-footer">
-    <a class="btn btn-white btn-sm" data-bs-toggle="collapse" href="#allIconsExample" role="button" aria-expanded="false" aria-controls="allIconsExample">
-    See Markup Example
-    </a>
-    <div id="allIconsExample" class="collapse" markdown="1">
-
-```html
-<!-- Use any icon by its name from the grid above -->
-<button class="btn btn-primary"><i class="ti ti-plus"></i> New Item</button>
-<a href="#" class="text-muted"><i class="ti ti-edit"></i> Edit</a>
-```
-
-</div>
-</div>
 </div>
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="iconModal" tabindex="-1" aria-labelledby="iconModalLabel" aria-hidden="true">
@@ -134,7 +145,7 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
         'name',
         { name: 'tags', attr: 'data-tags' }
     ],
-    page: 48,
+    page: 144,
     pagination: true
   };
   const iconList = new List(cardContainer, options);
@@ -142,16 +153,12 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
     const paginationContainer = cardContainer.querySelector('.pagination');
     if (!paginationContainer) return;
     const paginationItems = paginationContainer.querySelectorAll('li');
-    paginationItems.forEach(function(li) {
+    paginationItems.forEach((li) => {
       li.classList.add('page-item');
       const a = li.querySelector('a');
       if (a) {
         a.classList.add('page-link');
         a.style.cursor = 'pointer';
-        a.addEventListener('click', function(e) {
-          e.preventDefault();
-          setTimeout(function() { cardContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
-        });
       }
       if (li.classList.contains('active')) {
         li.classList.add('active');
@@ -195,10 +202,12 @@ description: "<a href='https://tabler.io/icons' target='_blank'>Tabler icons</a>
   document.addEventListener('DOMContentLoaded', function () {
     bindIconClicks();
   });
+
   // Always remove modal-backdrop on modal close
   document.getElementById('iconModal').addEventListener('hidden.bs.modal', function () {
-    document.querySelectorAll('.modal-backdrop').forEach(function(el) { el.remove(); });
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
   });
+
   // Re-bind after every List.js update (pagination, search, etc)
   iconList.on('updated', bindIconClicks);
 </script>

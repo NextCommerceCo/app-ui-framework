@@ -1,12 +1,7 @@
-_site/
+_site
+.sass-cache
+.jekyll-metadata
+.jekyll-cache/
 node_modules/
-# dist/css/: track CDN-shipped artifacts (next-app-ui.css, app-v2.css,
-# app-v2.min.css), ignore intermediate dev builds + source maps.
-dist/css/main.css
-dist/css/*.map
-docs/assets/css/main.css
-docs/assets/css/main.css.map
-docs/v3/assets/css/main.css
-docs/v3/assets/css/main.css.map
+package-lock.json
 .DS_Store
-.gstack/

@@ -1,53 +1,14 @@
 // JS file for docs features and ui demos
 
-// ═══════════════════════════════════════════
-// SCROLL-SPY: highlight active sidebar link
-// ═══════════════════════════════════════════
+// main nav
 (function () {
-    var sidebarNav = document.getElementById('sidebar-nav');
-    if (!sidebarNav) return;
+    const myCollapsible = document.getElementById('components')
+    myCollapsible.addEventListener('shown.bs.collapse', event => {
+        location.href = '/components/alerts/';
+    })
+});
 
-    // Initialize Bootstrap ScrollSpy on the body, targeting sidebar nav
-    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-        target: '#sidebar-nav',
-        offset: 100,
-        smoothScroll: true
-    });
-
-    // Update URL hash on scroll-spy activation
-    document.addEventListener('activate.bs.scrollspy', function (e) {
-        var id = e.relatedTarget;
-        if (id && id !== '#top') {
-            history.replaceState(null, '', id);
-        }
-    });
-
-    // Mobile: close hamburger menu after clicking a nav link
-    var navCollapse = document.getElementById('sidebarCollapse');
-    if (navCollapse) {
-        sidebarNav.addEventListener('click', function (e) {
-            var link = e.target.closest('a.nav-link');
-            if (link && window.innerWidth < 768) {
-                var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-                if (bsCollapse) bsCollapse.hide();
-            }
-        });
-    }
-
-    // On page load with hash, scroll to that section
-    if (window.location.hash) {
-        var target = document.querySelector(window.location.hash);
-        if (target) {
-            setTimeout(function () {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-    }
-})();
-
-// ═══════════════════════════════════════════
-// CHARTS
-// ═══════════════════════════════════════════
+// charts
 var lineComparison = document.getElementById('lineComparison');
 
 if (typeof Chart !== 'undefined' && lineComparison) {
@@ -124,14 +85,6 @@ if (typeof Chart !== 'undefined' && stackedBar) {
     });
 }
 
-
-// Prevent demo pagination links from scrolling to top
-document.addEventListener('click', function(e) {
-    var link = e.target.closest('.page-link[href="#"]');
-    if (link) {
-        e.preventDefault();
-    }
-});
 
 var barLineChart = document.getElementById('barLineCombo');
 

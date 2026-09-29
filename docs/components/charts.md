@@ -1,9 +1,7 @@
 ---
 layout: page-content
 group: components
-section: data
-order: 12
-permalink: false
+order: 3
 title: "Charts"
 description: Chart.js is an excellent, fully customizable charting library bundled with a custom theme and styling. See examples below and <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> documenation for deep reference on chart integration.
 
@@ -151,7 +149,7 @@ if (typeof Chart !== 'undefined' && stackedBar) {
 </div>
 </div>
 
-<div class="card mb-5">
+<div class="card">
 <div class="card-header">
   <div>
     <h4 class="card-header-title">
