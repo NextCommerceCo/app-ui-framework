@@ -50,6 +50,7 @@ description: 29 Next's in app navigation follows the boostrap tabbed navigation.
 </div>
 </div>
 </div>
+
 ## Example with Javascript Behaviour
 <div class=" mb-5">
   <div class="card">
@@ -113,6 +114,7 @@ description: 29 Next's in app navigation follows the boostrap tabbed navigation.
 </div>
 ```
 
+</div>
 </div>
 </div>
 </div>

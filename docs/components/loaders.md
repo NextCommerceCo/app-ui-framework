@@ -30,6 +30,7 @@ description: Available loaders to use while waiting for content to load.
     See Markup Example
     </a>
     <div id="loaderExample" class="collapse" markdown="1">
+
 ```html
 <div class="m-3">
     <div class="spinner spinner-lg"></div>
@@ -45,4 +46,7 @@ description: Available loaders to use while waiting for content to load.
 </div>
 ```
 <div>
+</div>
+</div>
+</div>
 </div>
