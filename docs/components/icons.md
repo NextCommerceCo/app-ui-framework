@@ -98,16 +98,16 @@ aspect-ratio: 1 / 1;
     <div class="card-body" id="iconsCard">
         <input class="search form-control mb-3" placeholder="Search icons by name or tag..." />
         <div class="icons-grid list">
-            {% for icon in site.data.icons %}
-                {% assign icon_name = icon[0] %}
-                {% assign icon_obj = icon[1] %}
+            {%- for icon in icons %}
+                {%- assign icon_name = icon[0] -%}
+                {%- assign icon_obj = icon[1] -%}
                 <div class="item icon-click" data-icon="{{ icon_name }}" data-tags="{{ icon_obj.tags | default: '' | join: ' ' }}">
                     <div class="icon-square border rounded d-flex flex-column align-items-center justify-content-center">
                         <span class="ti ti-{{ icon_name }}"></span>
                         <span class="d-none name">{{ icon_name }}</span>
                     </div>
                 </div>
-            {% endfor %}
+            {%- endfor %}
         </div>
         <div class="row align-items-center mt-5">
             <div class="col">
@@ -135,6 +135,7 @@ aspect-ratio: 1 / 1;
     </div>
   </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 <script>
 //custom JS for icon docs search    

@@ -8,7 +8,7 @@
             </a>
             <div class="collapse navbar-collapse show" id="sidebarCollapse">
                 <ul class="navbar-nav">
-                    {% for item in site.data.navigation %}
+                    {% for item in navigation %}
                         {% if item.group %}
                             {% include navigation-item.html group=item.group title=item.title %}
                         {% else %}

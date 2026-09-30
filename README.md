@@ -37,17 +37,15 @@ Source files for the UI are written in [Sass](https://sass-lang.com/) and can be
 
 #### Run on Local
 
-The docs site uses Jekyll for the static site generator with a built in docker image to make installing dependencies easier. Make sure you have Jekyll installed on your local machine before running the command below [jekyll](https://jekyllrb.com/docs/).
-
-In a terminal, navigate to the directory with these files and run the following command.
+The docs site is built with [Eleventy](https://www.11ty.dev/) and needs Node.js 20 or newer. In a terminal, navigate to the directory with these files and run:
 
 ```
-bundle install
-
-bundle exec jekyll serve --livereload
+make start
 ```
 
-Your should now have the full docs site up and running on your local.
+This installs dependencies and serves the docs site at http://localhost:4000 with live reload. Pages live in `docs/`, and the site's CSS compiles from `src/scss` via `docs/assets/css/main.scss`.
+
+To build the framework's `dist/` files, run `npx gulp` (or `npx gulp watch` to rebuild on change).
 
 #### Create a Pull Request
 

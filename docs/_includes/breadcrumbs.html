@@ -1,8 +1,8 @@
-{% if page.group %}
+{% if group %}
 <nav aria-label="breadcrumb">
 	<ol class="breadcrumb">
-		{% for item in site.data.navigation %}
-			{% if item.group == page.group %}
+		{% for item in navigation %}
+			{% if item.group == group %}
 				<li class="breadcrumb-item">
 					{{ item.title }}
 				</li><!-- end c-breadcrumbs__item -->
