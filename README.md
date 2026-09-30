@@ -1,8 +1,8 @@
-# 29 Next App UI Framework
+# Next Commerce App UI Framework
 
 A UI Framework for creating apps with a seemless UX in the dashboard.
 
-[See documentation](https://app-ui-components.29next.com/)
+[See documentation](https://app-ui.nextcommerce.com/)
 
 ### How to Use
 
@@ -11,11 +11,11 @@ A UI Framework for creating apps with a seemless UX in the dashboard.
 The easiest way to use the files is via CDN, just copy from below and include in the head of your html file.
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/css/next-app-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/css/next-app-ui.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/29next/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/NextCommerceCo/app-ui-framework@latest/dist/js/next-app-ui.min.js"></script>
 ```
 
 ### Compile from Source
@@ -52,3 +52,4 @@ Your should now have the full docs site up and running on your local.
 #### Create a Pull Request
 
 Create a new branch with your changes and create a pull request to be reviewed before merging into the main branch.
+
