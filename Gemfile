@@ -32,3 +32,9 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 
 gem "webrick", "~> 1.7"
+
+# Ruby 3.4+/4.0 no longer ship these as default gems, but Jekyll 4.3 requires them
+gem "logger"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
